@@ -15,11 +15,11 @@ interface NestedLoop_03 {
     }*/
 
     static void correctedComboLengthByDrozdek(int[] a) {
-        int i = 0, i1, i2, k, length = 1, n = a.length - 1;
+        int i = 0, j, k, length = 1, n = a.length - 1;
         for (; i < n; i++) {
-            for (i1 = i2 = k = i; k < n && a[k] < a[k + 1]; k++, i2++)
-                if (length < i2 - i1 + 2)
-                    length = i2 - i1 + 2;
+            for (j = k = i; j < n && a[j] < a[j + 1]; j++)
+                if (length < j - k + 2)
+                    length = j - k + 2;
         }
         System.out.println("the length of the longest ordered subarray is " + length);
     }
