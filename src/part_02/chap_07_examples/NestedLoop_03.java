@@ -18,8 +18,8 @@ interface NestedLoop_03 {
         int i = 0, i1, i2, k, length = 1, n = a.length - 1;
         for (; i < n; i++) {
             for (i1 = i2 = k = i; k < n && a[k] < a[k + 1]; k++, i2++)
-                if (length < i2 - i1 + 1)
-                    length = i2 - i1 + 1;
+                if (length < i2 - i1 + 2)
+                    length = i2 - i1 + 2;
         }
         System.out.println("the length of the longest ordered subarray is " + length);
     }
@@ -44,6 +44,7 @@ interface NestedLoop_03 {
 
     static void main(String[] args) {
         correctedComboLengthByDrozdek(a);
-        comboLength(a);
+        correctedComboLengthByDrozdek(b);
+//        comboLength(a);
     }
 }
