@@ -5,6 +5,8 @@ import static java.lang.Float.*;
 
 public class _04_FloatTests {
 
+    static float a;
+
     public static void properties() {
         String primitiveType = TYPE.getCanonicalName();
         System.out.println(
@@ -26,9 +28,7 @@ public class _04_FloatTests {
         );
     }
 
-    public static void main(String[] args) {
-
-//        properties();
+    static void declarationAndInitialization() {
 
         float a, b, c, d, e, f, g;
 
@@ -40,9 +40,21 @@ public class _04_FloatTests {
 
 
         System.out.println(a + b + c + d + e);
-
-
         System.out.println((MAX_VALUE + a == MIN_VALUE)); // false
+    }
+
+    static void zeroes(){
+
+        System.out.print(0.f);
+        System.out.print(.0f);
+//        System.out.print(.f);   // Error: java: illegal start of expression
+    }
+
+    public static void main(String[] args) {
+
+//        properties();
+//        declarationAndInitialization();
+//        zeroes();
 
     }
 }
