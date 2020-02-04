@@ -1,10 +1,10 @@
 package part_03.chap_01_singleLinkedList;
 
-public class SingleLinkList {
+public class SingleLinkList_01 {
 
     protected SingleLinkNode_01 head, tail;
 
-    public SingleLinkList() {
+    public SingleLinkList_01() {
         head = tail = null;
     }
 
@@ -56,4 +56,38 @@ public class SingleLinkList {
         return temporal != null;
     }
 
+    public void delete(int element){
+        if(!isEmpty())
+            if(head==tail && element==head.info)    //one-element list, the element is the one
+                head=tail=null;
+            else if(element==head.info)             // multi-element list, the head is the one
+                head=head.next;
+            else{                                   // multi-element list, the head ain't the one
+                SingleLinkNode_01 pred, temp;
+
+                for(pred = head, temp = head.next;
+                    temp !=null && temp.info!=element;
+                    pred = pred.next, temp = temp.next);
+
+                if(temp !=null){
+                    pred.next = temp.next;
+                    if (temp == tail)
+                        tail = pred;
+                }
+            }
+    }
+
+    public static void main(String[] args) {
+
+        SingleLinkList_01 list = new SingleLinkList_01();
+
+        for (int i = 0; i < 4; i++) {
+            list.addToHead(i);
+        }
+
+        list.printAll();
+        System.out.println("\n*deletes");
+        list.delete(0);
+        list.printAll();
+    }
 }
