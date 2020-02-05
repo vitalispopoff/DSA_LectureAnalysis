@@ -30,21 +30,47 @@ public class CircularList {
         tail = cache;
     }
 
+    public int removeFromHead() {
+        if (isEmpty()) return (int) Float.NEGATIVE_INFINITY;
+        else {
+            int element = tail.next.info;
 
-    public int removeFromHead() /*throws NullPointerException*/{
-//        if(isEmpty()) throw new NullPointerException();
-//            if(isEmpty()) return Integer.MIN_VALUE; // returns the least expected values
-        if(isEmpty()) return (int) Float.NEGATIVE_INFINITY;
-        int element = tail.next.info;
+            if (tail.next == tail) tail = null;
+            else {
+                tail.next = tail.next.next;
+            }
+            return element;
+        }
+    }
 
-//        tail.next
+    public int removeFromTail() {
+        if (isEmpty()) return (int) Float.NEGATIVE_INFINITY;
+        else {
+            int element = tail.info;
 
-        return element;
+            if (tail.next == tail) tail = null;
+            else {
+                CircularNode counter = tail.next;
+
+                for (; counter.next != tail; counter = counter.next) ;
+                counter.next = tail.next;
+                tail = counter;
+            }
+            return element;
+        }
+    }
+
+    public void printAll() throws NullPointerException{
+        for(CircularNode counter = tail.next; counter.next != tail; counter = counter.next)
+            System.out.println(counter.info+" ");
     }
 
 
     public static void main(String[] args) {
 
-        System.out.println((int) Float.NaN);
+//        System.out.println((int) Float.NaN);
+
+        new CircularList().printAll();
+
     }
 }
