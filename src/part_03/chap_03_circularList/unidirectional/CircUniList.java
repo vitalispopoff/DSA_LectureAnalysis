@@ -90,29 +90,37 @@ public class CircUniList implements Circumlistable {
             do {
                 System.out.println(counter.info + " ");
                 counter = counter.next;
-            } while(counter != tail.next);
+            } while (counter != tail.next);
         }
     }
 
     @Override
     public boolean isInList(int element) {
-        CircUniNode temporal = tail;
-        for (; temporal.next != tail; temporal = temporal.next) ;
-        return temporal != null;
+        if (isEmpty()) return false;
+        else {
+            CircUniNode temporal = tail;
+            do {
+                temporal = temporal.next;
+            }
+            while(temporal.info!=element && temporal!=tail);
+            return temporal.info == element;
     }
+
+}
 
     public static void main(String[] args) {
 //        System.out.println((int) Float.NaN);
 
         CircUniList list = new CircUniList();
 
-//                list.printAll();
+//        list.printAll();
 
-        list.addToHead(0);
-        list.addToTail(1);
-        list.addToTail(2);
+//        list.addToHead(0);
+//        list.addToTail(1);
+//        list.addToTail(2);
 
-        list.printAll();
+//        System.out.println(list.isInList(0));
+//        list.printAll();
         /*{
             int element = 0;
             CircularNode temporal = list.tail.next;
