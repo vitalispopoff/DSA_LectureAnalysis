@@ -4,8 +4,6 @@ public class SingleLinkList_04 {
 
     protected SingleLinkNode_04 head = null;
 
-//    public SingleLinkList_04() {}
-
     public boolean isEmpty() {
         return head == null;
     }
