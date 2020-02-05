@@ -1,15 +1,22 @@
-package part_03.chap_03_circularList;
+package part_03.chap_03_circularList.unidirectional;
 
-public class CircularList {
+import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
+import part_03.chap_03_circularList.Circumlistable;
 
-    private CircularNode tail = null;
+import java.sql.SQLOutput;
 
+public class CircUniList implements Circumlistable {
+
+    private CircUniNode tail = null;
+
+    @Override
     public boolean isEmpty() {
         return tail == null;
     }
 
+    @Override
     public void addToHead(int element) {
-        CircularNode cache = new CircularNode(element);
+        CircUniNode cache = new CircUniNode(element);
 
         if (isEmpty()) cache.next = cache;
         else {
@@ -19,8 +26,9 @@ public class CircularList {
         tail = cache;
     }
 
+    @Override
     public void addToTail(int element) {
-        CircularNode cache = new CircularNode(element);
+        CircUniNode cache = new CircUniNode(element);
         if (isEmpty()) {
             cache.next = cache;
         } else {
@@ -30,6 +38,7 @@ public class CircularList {
         tail = cache;
     }
 
+    @Override
     public int removeFromHead() {
         if (isEmpty()) return (int) Float.NEGATIVE_INFINITY;
         else {
@@ -43,6 +52,7 @@ public class CircularList {
         }
     }
 
+    @Override
     public int removeFromTail() {
         if (isEmpty()) return (int) Float.NEGATIVE_INFINITY;
         else {
@@ -50,7 +60,7 @@ public class CircularList {
 
             if (tail.next == tail) tail = null;
             else {
-                CircularNode counter = tail.next;
+                CircUniNode counter = tail.next;
 
                 for (; counter.next != tail; counter = counter.next) ;
                 counter.next = tail.next;
@@ -60,26 +70,33 @@ public class CircularList {
         }
     }
 
+    @Override
     public void remove(int element) {
         if (!isEmpty())
             if (tail == tail.next && tail.info == element) tail = null;
             else {
-                CircularNode temporal = tail;
+                CircUniNode temporal = tail;
                 for (; temporal.next.info != element && temporal.next != tail; temporal = temporal.next) ;
-                if(temporal.next == tail)tail=temporal;
+                if (temporal.next == tail) tail = temporal;
                 temporal.next = temporal.next.next;
             }
 
     }
 
+    @Override
     public void printAll() {
-        if (!isEmpty())
-            for (CircularNode counter = tail.next; counter.next != tail; counter = counter.next)
+        if (!isEmpty()) {
+            CircUniNode counter = tail.next;
+            do {
                 System.out.println(counter.info + " ");
+                counter = counter.next;
+            } while(counter != tail.next);
+        }
     }
 
+    @Override
     public boolean isInList(int element) {
-        CircularNode temporal = tail;
+        CircUniNode temporal = tail;
         for (; temporal.next != tail; temporal = temporal.next) ;
         return temporal != null;
     }
@@ -87,14 +104,15 @@ public class CircularList {
     public static void main(String[] args) {
 //        System.out.println((int) Float.NaN);
 
-        CircularList list = new CircularList();
+        CircUniList list = new CircUniList();
 
-        //        list.printAll();
+//                list.printAll();
 
         list.addToHead(0);
         list.addToTail(1);
         list.addToTail(2);
 
+        list.printAll();
         /*{
             int element = 0;
             CircularNode temporal = list.tail.next;
