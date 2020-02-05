@@ -60,7 +60,8 @@ public class CircularList {
         }
     }
 
-    public void printAll() throws NullPointerException{
+    public void printAll() {
+        if(!isEmpty())
         for(CircularNode counter = tail.next; counter.next != tail; counter = counter.next)
             System.out.println(counter.info+" ");
     }
