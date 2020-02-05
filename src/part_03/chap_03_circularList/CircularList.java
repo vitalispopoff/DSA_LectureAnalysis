@@ -60,18 +60,47 @@ public class CircularList {
         }
     }
 
-    public void printAll() {
-        if(!isEmpty())
-        for(CircularNode counter = tail.next; counter.next != tail; counter = counter.next)
-            System.out.println(counter.info+" ");
+    public void remove(int element) {
+        if (!isEmpty())
+            if (tail == tail.next && tail.info == element) tail = null;
+            else {
+                CircularNode temporal = tail;
+                for (; temporal.next.info != element && temporal.next != tail; temporal = temporal.next) ;
+                if(temporal.next == tail)tail=temporal;
+                temporal.next = temporal.next.next;
+            }
+
     }
 
+    public void printAll() {
+        if (!isEmpty())
+            for (CircularNode counter = tail.next; counter.next != tail; counter = counter.next)
+                System.out.println(counter.info + " ");
+    }
+
+    public boolean isInList(int element) {
+        CircularNode temporal = tail;
+        for (; temporal.next != tail; temporal = temporal.next) ;
+        return temporal != null;
+    }
 
     public static void main(String[] args) {
-
 //        System.out.println((int) Float.NaN);
 
-        new CircularList().printAll();
+        CircularList list = new CircularList();
+
+        //        list.printAll();
+
+        list.addToHead(0);
+        list.addToTail(1);
+        list.addToTail(2);
+
+        /*{
+            int element = 0;
+            CircularNode temporal = list.tail.next;
+            for (; temporal.info != element && temporal != list.tail; temporal = temporal.next) ;
+            System.out.println(temporal.info);
+        }*/     // remove() else>iteration test
 
     }
 }
