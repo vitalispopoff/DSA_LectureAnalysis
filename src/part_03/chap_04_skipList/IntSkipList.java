@@ -82,36 +82,53 @@ public class IntSkipList {
     }
 
     public void skipListInsert(int key) {
-        IntSkipListNode[] curr = new IntSkipListNode[maxLevel];
-        IntSkipListNode[] prev = new IntSkipListNode[maxLevel];
-        IntSkipListNode newNode;
-        int level, i;
-        curr[maxLevel] = root[maxLevel];
-        prev[maxLevel] = null;
 
-        for (level = maxLevel; level >= 0; level--) {
-            while (curr[level] != null && curr[level].key < key) {
-                prev[level] = curr[level];
-                curr[level] = curr[level].next[level];
+        IntSkipListNode[] current = new IntSkipListNode[maxLevel];      //array filled to the brim with nulls
+        current[maxLevel] = root[maxLevel];     // root by default is full of nulls
+
+        IntSkipListNode[] previous = new IntSkipListNode[maxLevel];
+        previous[maxLevel] = null;
+
+        IntSkipListNode newNode;    // node to be inserted
+        int level, i;
+
+        for (level = maxLevel; level >= 0; level--) {   // as levels fail we go deeper
+
+            while (current[level] != null && current[level].key < key) {    // the actual searching: the node ain't last and it's key is before our key; we keep the level
+                previous[level] = current[level];       // jump : this node is now previous
+                current[level] = current[level].next[level];    // jump to the next node
             }
-            if (curr[level] != null && curr[level].key == key)
+
+            if (current[level] != null && current[level].key == key)    // finding the node
                 return;
-            if (level > 0)
-                if (prev[level] == null) {
-                    curr[level - 1] = root[level - 1];
-                    prev[level - 1] = null;
-                } else {
-                    curr[level - 1] = prev[level].next[level - 1];
-                    prev[level - 1] = prev[level];
+
+            if (level > 0)  // passing the node or hitting the end while being above the lowest level
+
+                if (previous[level] == null) {      // hitting the end : go down (and start all over?)
+
+                    current[level - 1] = root[level - 1];   // reset current for lower level (set as root)
+                    previous[level - 1] = null;     // clear previous for lower level
+
+                } else { // passing the node : get back to the last node and go down
+
+                    // set back current to the previous node, and go down + forward ;
+                    // do we leave the current[level] intact ?
+                    current[level - 1] = previous[level].next[level - 1];
+
+                    // and what is this? an undo?
+                    previous[level - 1] = previous[level];
                 }
         }
-        level = chooseLevel();
-        newNode = new IntSkipListNode(key, level + 1);
+
+        level = chooseLevel();  //  randomization
+
+        //inserting the node
+        newNode = new IntSkipListNode(key, level + 1);  // node has one more level than one at which the search ended
         for (i = 0; i <= level; i++) {
-            newNode.next[i] = curr[i];
-            if (prev[i] == null)
-                root[i] = newNode;
-            else prev[i].next[i] = newNode;
+            newNode.next[i] = current[i];   // fill the node links
+            if (previous[i] == null)    //  whether newNode is first on the list
+                root[i] = newNode;      // make it root
+            else previous[i].next[i] = newNode; // if not redirect the previous node to the newNode
         }
     }
 
