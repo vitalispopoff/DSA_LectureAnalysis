@@ -87,14 +87,25 @@ public class IntSkipList {
         return i - 1;
 
         /*  maxLev = 0 v 1 , random = 1;
-        *
-        * * * *
-        *   maxLev = 2, powers[1] = 1, r = random % (2<<1) + 1 = random from <1,3>
-        *       r = 1 returns 0;
-        *       r = 2 returns 1;
-        *       r = 3 returns 2;
-        */
+         *
+         * * * *
+         *   maxLev = 2, powers[1] = 1, r = random % ((2<<2-1)) + 1 = random from <1,4)
+         *       r = 1 returns 0;
+         *       r = 2 returns 1;
+         *       r = 3 returns 2;
+         *
+         * * * *
+         *  maxLev = 3,
+         *      powers[2] = 3, r = random %powers[2] + 1 = random % ((2<<3)-1) + 1 = random from <1,8)
+         *
+         */
+    }
 
+    // simplified version of chooseLevel ?
+    int chooseLevel_01() {
+        int i = 1, random = Math.abs(rd.nextInt()) % powers[maxLevel - 1] + 1;
+        for (; i < maxLevel && random < powers[i]; i++) ;
+        return i - 1;
     }
 
     public int skipListSearch(int key) {
@@ -135,6 +146,40 @@ public class IntSkipList {
         return root[0] == null;
     }
 
+    public void skipListInsert(int key) {
+        IntSkipListNode[] curr = new IntSkipListNode[maxLevel];
+        IntSkipListNode[] prev = new IntSkipListNode[maxLevel];
+        IntSkipListNode newNode;
+        int level, i;
+        curr[maxLevel - 1] = root[maxLevel - 1];
+        prev[maxLevel - 1] = null;
+
+        for (level = maxLevel - 1; level >= -0; level--) {
+            while (curr[level] != null && curr[level].key < key) {
+                prev[level] = curr[level];
+                curr[level] = curr[level].next[level];
+            }
+            if (curr[level] != null && curr[level].key == key)
+                return;
+            if (level > 0)
+                if (prev[level] == null) {
+                    curr[level - 1] = root[level - 1];
+                    prev[level - 1] = null;
+                } else {
+                    curr[level - 1] = prev[level].next[level - 1];
+                    prev[level - 1] = prev[level];
+                }
+        }
+        level = chooseLevel();
+        newNode = new IntSkipListNode(key, level + 1);
+        for(i=0; i<=level; i++){
+            newNode.next[i]=curr[i];
+            if(prev[i]==null)
+                root[i]=newNode;
+            else prev[i].next[i]=newNode;
+        }
+    }
+
     public static void main(String[] args) {
 
 //        IntSkipList list = new IntSkipList(1);
@@ -146,14 +191,14 @@ public class IntSkipList {
             if (i % 10 == 0) System.out.println();
         }}*/        // 100 random numbers grouped in lines of 10s
 
-        int maxLevel = 2, power = (2 << (maxLevel - 1)) - 1; //power is to be powers[maxLevel-1]
+        int maxLevel = 3, power = (2 << (maxLevel - 1)) - 1; //power is to be powers[maxLevel-1]
 
-        /*{
-            for (int i = 0; i < 100; i++) {
+        {
+            for (int i = 1; i <= 100; i++) {
                 System.out.print(Math.abs(random.nextInt()) % power + 1 + " ");
                 if (i % 10 == 0) System.out.println();
             }
-        }*/
+        }
 
 //        int i = 0;
 //        System.out.println(i < ++i);
