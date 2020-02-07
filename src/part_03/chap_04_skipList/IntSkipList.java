@@ -162,29 +162,36 @@ public class IntSkipList {
     }
 
     public int skipListSearch(int key) {
+
         int level;
         IntSkipListNode previous, current;
 
-        for (level = maxLevel; level >= 0 && root[level] == null; level--) ;
-        previous = current = root[level];
+        for (level = maxLevel; level >= 0 && root[level] == null; level--) ; // establish the working top level
 
-        while (true)    // why while?
+        previous = current = root[level];   //  establish the starting point of the search
+
+        while (true)    // why while(true) ? to make sure it stops on one of the returns or what?
         {
-            if (key == current.key) return current.key;
+            if (key == current.key) return current.key;     // root is the key
 
-            else if (key < current.key) {
+            else if (key < current.key) {       // key is ahead
 
-                if (level == 0) return 0;
-                else if (current == root[level])
-                    current = root[--level];
-                else current = previous.next[--level];
+                if (level == 0) return 0;   // it's a single-element list and the key ain't there (?)
 
-            } else {
-                previous = current;
+                else if (current == root[level]) // current is root[level] already - what does this condition secure?
+                    current = root[--level];    // go down
 
-                if (current.next[level] != null)
-                    current = current.next[level];
+                else current = previous.next[--level];  // how on earth current != root[level] ?
+
+            } else {    // for current.key > key : we go deeper
+
+                previous = current; // we deeper already and step back
+
+                if (current.next[level] != null)    // ?
+                    current = current.next[level];  // one step forward
                 else {
+
+                    // ???
 
                     for (level--; level >= 0 && current.next[level] == null; level--) ;
 
