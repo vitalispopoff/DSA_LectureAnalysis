@@ -1,6 +1,6 @@
 package part_01.chap_01.par_02_Operators;
 
-import static part_01.Temporal.*;
+import static part_0.Temporal.*;
 
 public class _13_BitLeftShift {
 

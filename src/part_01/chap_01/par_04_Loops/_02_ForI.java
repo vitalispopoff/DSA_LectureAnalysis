@@ -1,6 +1,6 @@
 package part_01.chap_01.par_04_Loops;
 
-import static part_01.Temporal.bln;
+import static part_0.Temporal.bln;
 
 
 //  * Oracle tutorial: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html

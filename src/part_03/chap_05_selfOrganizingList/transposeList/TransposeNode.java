@@ -3,7 +3,8 @@ package part_03.chap_05_selfOrganizingList.transposeList;
 public class TransposeNode {
 
     public int info;
-    public TransposeNode next;
+    protected TransposeNode next;
+    protected TransposeNode prev = null;
 
     public TransposeNode(int i){this(i, null);}
 

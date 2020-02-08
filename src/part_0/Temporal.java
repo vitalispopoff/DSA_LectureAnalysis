@@ -1,4 +1,4 @@
-package part_01;
+package part_0;
 
 public interface Temporal {
 
