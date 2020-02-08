@@ -1,8 +1,5 @@
 package part_03.chap_05_selfOrganizingList.moveToFront;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import org.w3c.dom.ls.LSOutput;
-
 public class MoveToFrontList {
 
     protected MoveToFrontNode head, tail;
@@ -52,12 +49,29 @@ public class MoveToFrontList {
         return result;
     }
 
+    public void remove(int element) {
+        if (!isEmpty()) {
+            MoveToFrontNode cacheCurr = head, cachePrev = head;
+
+            for (; cacheCurr != tail & cacheCurr.info != element; cachePrev = cacheCurr, cacheCurr = cacheCurr.next) ;
+
+            if (cacheCurr.info == element) {
+                if (cacheCurr == head) head = head.next;
+                else if (cacheCurr == tail) {
+                    tail = cachePrev;
+                    tail.next = null;
+                } else cachePrev.next = cacheCurr.next;
+            }
+        }
+    }
+
     public void printAll() {
         if (isEmpty()) System.out.println("empty");
         else {
-            MoveToFrontNode counter = head, cache = head;
-            for (; cache != tail; cache = counter, counter = counter.next)
+            MoveToFrontNode counter = head;
+            for (; counter != tail; counter = counter.next)
                 System.out.print(counter.info + " ");
+            System.out.println(counter.info);
         }
     }
 
@@ -71,8 +85,6 @@ public class MoveToFrontList {
 
 //        System.out.println(list.tail.info);
 
-
-
         /*
         int i = 3;
         MoveToFrontNode cache = list.head;
@@ -81,6 +93,10 @@ public class MoveToFrontList {
 
 //        boolean search = list.search(0);
 //        System.out.println(search);
+//        list.printAll();
+//        System.out.println();
+
+//        list.remove(2);
 //        list.printAll();
 
 
