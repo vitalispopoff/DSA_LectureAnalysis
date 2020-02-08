@@ -1,9 +1,6 @@
 package main.java.part_03.chap_03_circularList.unidirectional;
 
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
-import part_03.chap_03_circularList.Circumlistable;
-
-import java.sql.SQLOutput;
+import main.java.part_03.chap_03_circularList.Circumlistable;
 
 public class CircUniList implements Circumlistable {
 

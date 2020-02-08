@@ -1,4 +1,4 @@
-package main.java.part_03.chap_01_singleLinkedList;
+package part_03.chap_01_singleLinkedList;
 
 public class SingleLinkNode_01 {
 

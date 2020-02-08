@@ -1,4 +1,4 @@
-import part_01.chap_08_exercises.C;
+import main.java.part_01.chap_08_exercises.C;
 
 public class Main {
 

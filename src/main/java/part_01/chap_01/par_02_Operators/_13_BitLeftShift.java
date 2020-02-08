@@ -1,6 +1,6 @@
 package main.java.part_01.chap_01.par_02_Operators;
 
-import static part_0.Temporal.*;
+import static main.java.part_0.Temporal.*;
 
 public class _13_BitLeftShift {
 

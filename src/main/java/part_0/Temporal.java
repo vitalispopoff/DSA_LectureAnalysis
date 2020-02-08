@@ -1,4 +1,4 @@
-package part_0;
+package main.java.part_0;
 
 public interface Temporal {
 

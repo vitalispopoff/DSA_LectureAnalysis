@@ -1,6 +1,6 @@
 package main.java.part_03.chap_03_circularList.bidirectional;
 
-import part_03.chap_03_circularList.Circumlistable;
+import main.java.part_03.chap_03_circularList.Circumlistable;
 
 public class CircBiList implements Circumlistable {
 

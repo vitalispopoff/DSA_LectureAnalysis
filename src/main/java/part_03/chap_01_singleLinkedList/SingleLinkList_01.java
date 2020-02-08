@@ -1,8 +1,8 @@
-package main.java.part_03.chap_01_singleLinkedList;
+package part_03.chap_01_singleLinkedList;
 
 public class SingleLinkList_01 {
 
-    protected SingleLinkNode_01 head, tail;
+     protected SingleLinkNode_01 head, tail;
 
     public SingleLinkList_01() {
         head = tail = null;

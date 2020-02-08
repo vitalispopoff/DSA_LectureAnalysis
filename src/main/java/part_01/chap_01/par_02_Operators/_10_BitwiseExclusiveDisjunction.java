@@ -1,7 +1,7 @@
 package main.java.part_01.chap_01.par_02_Operators;
 
 import static java.lang.Boolean.*;
-import static part_0.Temporal.bln;
+import static main.java.part_0.Temporal.bln;
 
 public class _10_BitwiseExclusiveDisjunction {
 

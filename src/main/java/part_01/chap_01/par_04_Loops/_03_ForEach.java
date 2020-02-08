@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static part_0.Temporal.bln;
+import static main.java.part_0.Temporal.bln;
 
 public class _03_ForEach {
 
