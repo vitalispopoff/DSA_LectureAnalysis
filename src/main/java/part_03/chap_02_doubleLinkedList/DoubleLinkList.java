@@ -1,4 +1,4 @@
-package main.java.part_03.chap_02_doubleLinkedList;
+package part_03.chap_02_doubleLinkedList;
 
 public class DoubleLinkList {
 
