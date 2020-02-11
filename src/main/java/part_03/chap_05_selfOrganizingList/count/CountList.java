@@ -31,7 +31,38 @@ public class CountList {
             if (i == null) return false;
             else {
                 ++i.counter;
+//                while(isPrevCounterMinor(i))swap(i);  TODO
                 return true;
+            }
+        }
+    }
+
+    boolean isPrevCounterMinor(CountNode node){
+        if(head == node)return false;
+        else return node.counter > node.prev.counter;
+    }
+
+    private void swap(CountNode node){
+        if(head != tail) {
+            if(head.next==node){
+                head.next = node.next;
+                node.next.prev = head;
+                node.next = head;
+                node.prev = null;
+                node = head;
+            }
+            else if(tail==node){
+                tail=node.prev;
+                node.prev = tail.prev;
+                tail.prev.next=node;
+                node.next = tail;
+                tail.next = null;
+            }
+            else {
+                node.prev.prev.next = node;
+                node.prev.next = node.next;
+                node.next.prev = node.prev;
+                node.next = node.prev;
             }
         }
     }
@@ -59,5 +90,7 @@ public class CountList {
 
     public static void main(String[] args) {
         CountList list = new CountList();
+
+
     }
 }

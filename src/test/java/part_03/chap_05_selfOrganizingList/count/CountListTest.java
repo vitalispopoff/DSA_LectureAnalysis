@@ -2,73 +2,140 @@ package part_03.chap_05_selfOrganizingList.count;
 
 import org.junit.*;
 
-public class CountListTest {
+public class CountListTest implements TestingCountList{
 
-    static CountList list_00 = new CountList();
-
-    @Test
-    public void isEmptyTest_01() {Assert.assertTrue(list_00.isEmpty());}
-
-    static CountList list_01 = new CountList();
-    static {list_01.add(0);}
 
     @Test
-    public void addTest_01() {Assert.assertEquals(0, list_01.head.info);}
+    public void isEmptyTest_01() {
+        CountList list = new CountList();
+
+        Assert.assertTrue(list.isEmpty());
+    }
 
     @Test
-    public void addTest_02() {Assert.assertTrue(list_01.head == list_01.tail);}
+    public void addTest_01() {
+        CountList list = new CountList();
+        list.add(0);
 
-    static CountList list_02 = new CountList();
-    static {
-        for (int i = 0; i < 2; i++) list_02.add(i*2);
+        Assert.assertEquals(0, list.head.info);
+    }
+
+    @Test
+    public void addTest_02() {
+        CountList list = new CountList();
+        list.add(0);
+
+        Assert.assertTrue(list.head == list.tail);
+        Assert.assertFalse(list.head==null);
+    }
+
+    @Test
+    public void addTest_03() {
+        CountList list = new CountList();
+        for (int i = 0; i <= 2; list.add(i++)) ;
+
+        Assert.assertEquals(0, list.head.info);
+        Assert.assertEquals(1, list.head.next.info);
+        Assert.assertTrue(list.tail.next==null);
+    }
+
+    @Test
+    public void isInListTest_01() {
+        CountList list = new CountList();
+        for (int i = 0; i <= 2; list.add(i++)) ;
+
+        Assert.assertTrue(list.isInList(0));
+    }
+
+    @Test
+    public void isInListTest_02() {
+        CountList list = new CountList();
+        for (int i = 0; i <= 2; list.add(i++)) ;
+
+        Assert.assertFalse(list.isInList(3));
+    }
+
+    @Test
+    public void isInListTest_03() {
+        CountList list = new CountList();
+        for (int i = 0; i <= 2; list.add(i++)) ;
+        CountNode node = list.head.next;
+
+        Assert.assertEquals(0, node.counter);
+        Assert.assertTrue(list.isInList(node.info));
+        Assert.assertEquals(1, node.counter);
+    }
+
+    @Test
+    public void isPrevCounterMinorTest_01() {
+        CountList list = new CountList();
+
+        Assert.assertFalse(list.isPrevCounterMinor(list.head));
+    }
+
+    @Test
+    public void isPrevCounterMinorTest_02(){
+        CountList list = new CountList();
+        list.add(0);
+        CountNode node = list.head;
+
+        Assert.assertFalse(list.isPrevCounterMinor(node));
+        list.isInList(0);
+        Assert.assertFalse(list.isPrevCounterMinor(node));
+    }
+
+    @Test
+    public void isPrevCounterMinorTest_03() {
+        CountList list = new CountList();
+        for (int i = 0; i <= 2; list.add(i++)) ;
         CountNode node = new CountNode(1);
-        node.prev = list_02.head;
-        node.next = list_02.head.next;
-        list_02.head.next = list_02.tail.prev = node;
+        node.next = list.head.next.next;
+        node.prev = list.head.next.prev;
+        list.head.next= node;
+
+        Assert.assertFalse(list.isPrevCounterMinor(node));
+        list.isInList(node.info);
+        Assert.assertTrue(list.isPrevCounterMinor(node));
     }
 
+    @Ignore
     @Test
-    public void addTest_03(){Assert.assertEquals(0, list_02.head.info);}
+    public void isPrevCounterMinorTest_04() {
+        CountList list = new CountList();
+        CountNode node_1 = new CountNode(0);
+        CountNode node_2 = new CountNode(1);
+        CountNode node_3 = new CountNode(2);
+        node_2.prev= list.head = node_1;
+        node_2.next= list.tail = node_3;
+        list.head.next = list.tail.prev = node_2;
 
-    @Test
-    public void addTest_04(){Assert.assertEquals(2, list_02.tail.info);}
+        Assert.assertFalse(list.isPrevCounterMinor(node_1));
+        Assert.assertFalse(list.isPrevCounterMinor(node_2));
+        Assert.assertFalse(list.isPrevCounterMinor(node_3));
 
-    @Test
-    public void addTest_05(){Assert.assertEquals(1, list_02.tail.prev.info);}
+        list.isInList(2);
+        Assert.assertTrue(list.head == node_3);
 
-    @Test
-    public void isInListTest_01(){
-        Assert.assertFalse(list_02.isInList(3));
-    }
-
-    @Test
-    public void isInListTest_02(){
-
-    }
-
-
-    @Test
-    public void isInList_02(){
-        Assert.assertEquals(0, list_02.head.next.counter);
-        Assert.assertTrue(list_02.isInList(1));
-        Assert.assertEquals(1, list_02.head.next.counter);
     }
 
     static CountList list_03 = new CountList();
 
+    @Ignore
     @Test
-    public void toStringTest_01(){
+    public void toStringTest_01() {
         Assert.assertEquals("[]", list_03.toString());
     }
 
+    @Ignore
     @Test
-    public void toStringTest_02(){
+    public void toStringTest_02() {
         list_03.add(0);
         Assert.assertEquals("[0]", list_03.toString());
     }
 
+    @Ignore
     @Test
-    public void toStringTest_03(){
+    public void toStringTest_03() {
         list_03.add(1);
         Assert.assertEquals("[0, 1]", list_03.toString());
     }
