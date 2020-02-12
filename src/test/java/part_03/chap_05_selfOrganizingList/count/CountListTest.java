@@ -2,9 +2,9 @@ package part_03.chap_05_selfOrganizingList.count;
 
 import org.junit.*;
 
-public class CountListTest implements TestingCountList {
+public class CountListTest /*implements TestingCountList*/ {
 
-
+//    @Ignore
     @Test
     public void isEmptyTest_01() {
         CountList list = new CountList();
@@ -12,6 +12,7 @@ public class CountListTest implements TestingCountList {
         Assert.assertTrue(list.isEmpty());
     }
 
+//    @Ignore
     @Test
     public void addTest_01() {
         CountList list = new CountList();
@@ -20,6 +21,7 @@ public class CountListTest implements TestingCountList {
         Assert.assertEquals(0, list.head.info);
     }
 
+//    @Ignore
     @Test
     public void addTest_02() {
         CountList list = new CountList();
@@ -29,6 +31,7 @@ public class CountListTest implements TestingCountList {
         Assert.assertFalse(list.head == null);
     }
 
+//    @Ignore
     @Test
     public void addTest_03() {
         CountList list = new CountList();
@@ -39,67 +42,7 @@ public class CountListTest implements TestingCountList {
         Assert.assertTrue(list.tail.next == null);
     }
 
-    @Test
-    public void isInListTest_01() {
-        CountList list = new CountList();
-        for (int i = 0; i <= 2; list.add(i++)) ;
-
-        Assert.assertTrue(list.isInList(0));
-    }
-
-    @Test
-    public void isInListTest_02() {
-        CountList list = new CountList();
-        for (int i = 0; i <= 2; list.add(i++)) ;
-
-        Assert.assertFalse(list.isInList(3));
-    }
-
-    @Test
-    public void isInListTest_03() {
-        CountList list = new CountList();
-        for (int i = 0; i <= 2; list.add(i++)) ;
-        CountNode node = list.head.next;
-
-        Assert.assertEquals(0, node.counter);
-        Assert.assertTrue(list.isInList(node.info));
-        Assert.assertEquals(1, node.counter);
-    }
-
-    @Test
-    public void isPrevCounterMinorTest_01() {
-        CountList list = new CountList();
-
-        Assert.assertFalse(list.isPrevCounterMinor(list.head));
-    }
-
-    @Test
-    public void isPrevCounterMinorTest_02() {
-        CountList list = new CountList();
-        list.add(0);
-        CountNode node = list.head;
-
-        Assert.assertFalse(list.isPrevCounterMinor(node));
-        list.isInList(0);
-        Assert.assertFalse(list.isPrevCounterMinor(node));
-    }
-
-    @Ignore
-    @Test
-    public void isPrevCounterMinorTest_03() {
-        CountList list = new CountList();
-        for (int i = 0; i <= 2; list.add(i++)) ;
-        CountNode node = new CountNode(1);
-        node.next = list.head.next.next;
-        node.prev = list.head.next.prev;
-        list.head.next = node;
-
-        Assert.assertFalse(list.isPrevCounterMinor(node));
-        list.isInList(node.info);
-        Assert.assertTrue(list.isPrevCounterMinor(node));
-    }
-
-
+//    @Ignore
     @Test
     public void swapTest_01() {
         CountList list = new CountList();
@@ -117,6 +60,7 @@ public class CountListTest implements TestingCountList {
         Assert.assertEquals("[0, 1, 2]", list.toString());
     }
 
+//    @Ignore
     @Test
     public void swapTest_02() {
         CountList list = new CountList();
