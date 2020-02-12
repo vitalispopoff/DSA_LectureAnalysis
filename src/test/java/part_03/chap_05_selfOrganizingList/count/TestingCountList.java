@@ -3,12 +3,6 @@ package part_03.chap_05_selfOrganizingList.count;
 public interface TestingCountList {
 
     /**
-     * Checks whether list is empty:
-     * answers for empty
-     */
-    public void isEmptyTest_01();
-
-    /**
      * checks adding to an empty list
      */
     public void addTest_01();
@@ -25,6 +19,12 @@ public interface TestingCountList {
      * head, linked-to-head, linked-to-tail
      */
     public void addTest_03();
+
+    /**
+     * Checks whether list is empty:
+     * answers for empty
+     */
+    public void isEmptyTest_01();
 
     /**
      *  checks searching the list:
@@ -65,6 +65,7 @@ public interface TestingCountList {
      *  counter property and swapping items while searching the list
      *  three element list
      */
+//    public void isInList_04();
 
     public void toStringTest_01();
 

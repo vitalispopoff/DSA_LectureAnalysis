@@ -5,19 +5,20 @@ public class CountNode {
     public int info;
     protected CountNode next;
     protected CountNode prev;
-    protected int counter = 0;
+    protected int counter;
 
     public CountNode(int info) {
-        this(info, null, null);
+        this(info, null, null, 0);
     }
 
     public CountNode(int info, CountNode next) {
-        this(info, null, null);
+        this(info, null, null, 0 );
     }
 
-    public CountNode(int info, CountNode next, CountNode prev) {
+    public CountNode(int info, CountNode next, CountNode prev, int counter) {
         this.info = info;
         this.prev = next;
         this.next = prev;
+        this.counter = counter;
     }
 }
