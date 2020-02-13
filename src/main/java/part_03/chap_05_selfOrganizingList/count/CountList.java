@@ -8,39 +8,45 @@ public class CountList {
 
     CountNode head = null, tail = null;
 
-    public void add(int element) {
-        CountNode temporal = new CountNode(element);
+    public CountNode add(int element) {
+        CountNode node = new CountNode(element);
 
-        if (isEmpty()) head = tail = temporal;
+        if (isEmpty()) head = tail = node;
         else {
-            temporal.prev = tail;
-            tail = tail.next = temporal;
+            node.prev = tail;
+            tail = tail.next = node;
         }
+        return node;
     }
 
     public boolean isEmpty() {
         return head == null;
     }
 
-    CountNode swap(CountNode node) {
-        if (node == head.next) {
-            node.prev.next = node.next;
-            node.next.prev = node.prev;
-            head = node;
-            node.next = node.prev;
-            node.prev = null;
-
-        } else if (node == tail) {
-            node.prev.next = null;
-            tail = node.prev;
-            node.next = tail;
-            node.prev = tail.prev;
-            tail.prev = node.prev.next = node;
-
-
-        } else ;
-        return node;
+    boolean isPrevCounterMinor(CountNode node) {
+        if (head == tail || node == head) return false;
+        else return node.counter > node.prev.counter;
     }
+
+    public CountNode swap(CountNode node) {
+        try {
+            if (head != tail) {
+                node.prev.next = node == tail ? null : node.next;           //  1
+                if (node != tail) node.next.prev = node.prev;               //  2
+                node.next = node.prev;                                      //  3
+                if (node.prev != head) node.prev.prev.next = node;          //  4
+                node.prev = node.next == head ? null : node.prev.prev;      //  5
+                node.next.prev = node;                                      //  6
+                if (node.next == head) head = node;                         //  head
+                if (node == tail) tail = node.next;                         //  tail
+            }
+        } catch (NullPointerException e) {
+            System.out.println("list is empty");
+        } finally {
+            return node;
+        }
+    }
+
 
     @Override
     public String toString() {
@@ -64,5 +70,16 @@ public class CountList {
     }
 
     public static void main(String[] args) {
+
+        CountList list = new CountList();
+        for (int i = 0; i < 2; list.add(i++)) ;
+
+        System.out.println(list.toString());
+        list.swap(list.tail.prev);
+        System.out.println(list.toString());
+
+
+
+
     }
 }
