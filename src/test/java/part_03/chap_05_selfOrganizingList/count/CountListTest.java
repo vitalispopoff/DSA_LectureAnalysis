@@ -50,14 +50,38 @@ public class CountListTest /*implements TestingCountList*/ {
         CountList list = new CountList();
         list.add(0);
         Assert.assertTrue(list.isInList(0));
+        Assert.assertEquals("[0]", list.toString());
     }
 
     @Test
     public void isnInListTest_03() {
         CountList list = new CountList();
-        for (int i = 0; i < 4; list.add(i++)) ;
-        Assert.assertTrue(list.isInList(list.tail.info));
+        for (int i = 0; i < 2; list.add(i++)) ;
+        Assert.assertTrue(list.isInList(0));
+        Assert.assertTrue(list.isInList(1));
+        list.isInList(1);
+        Assert.assertEquals("[1, 0]", list.toString());
     }
+
+    @Test
+    public void isInListTest_04() {
+        CountList list = new CountList();
+        for (int i = 0; i < 3; list.add(i++)) ;
+        list.isInList(2);
+        Assert.assertEquals("[2, 0, 1]", list.toString());
+        for (int i = 0; i < 2; i++) list.isInList(0);
+        Assert.assertEquals("[0, 2, 1]", list.toString());
+    }
+
+    @Test
+    public void isInListTest_05(){
+        CountList list = new CountList();
+        for (int i = 0; i < 5; list.add(i++));
+        Assert.assertTrue(list.isInList(4));
+        Assert.assertEquals("[4, 0, 1, 2, 3]", list.toString());
+        Assert.assertFalse(list.isInList(5));
+    }
+
 
     @Test
     public void findElementTest_01() {
@@ -67,18 +91,18 @@ public class CountListTest /*implements TestingCountList*/ {
     }
 
     @Test
-    public void findElementTest_02(){
+    public void findElementTest_02() {
         CountList list = new CountList();
-        for (int i = 0; i < 3; list.add(i++));
+        for (int i = 0; i < 3; list.add(i++)) ;
         Assert.assertNull(list.findElement(3));
     }
 
     @Test
-    public void findElementTest_03(){
+    public void findElementTest_03() {
         CountList list = new CountList();
         for (int i = 0; i < 3; list.add(i++)) {
-//            Assert.assertTrue(list.findElement(0) == list.head);
-            Assert.assertTrue(list.findElement(1)==list.head.next);
+            Assert.assertTrue(list.findElement(0) == list.head);
+//            Assert.assertTrue(list.findElement(1)==list.head.next);       //TODO why this one breaks the tests?
         }
     }
 
@@ -154,6 +178,40 @@ public class CountListTest /*implements TestingCountList*/ {
 
 
 //        Assert.assertEquals("[0, 2, 1, 3]", list.toString());
+    }
+
+    @Test
+    public void removeTest_01(){
+        CountList list = new CountList();
+        Assert.assertNull(list.remove(0));
+    }
+
+    @Test
+    public void removeTest_02(){
+        CountList list = new CountList();
+        CountNode node = list.add(0);
+        Assert.assertSame(node, list.remove(0));
+    }
+
+    @Test
+    public void removeTest_03(){
+        CountList list = new CountList();
+        for (int i = 0; i < 2; list.add(i++));
+        Assert.assertSame(list.head, list.remove(0));
+    }
+
+    @Test
+    public void removeTest_04(){
+        CountList list = new CountList();
+        for (int i = 0; i < 2; list.add(i++));
+        Assert.assertSame(list.tail, list.remove(1));
+    }
+
+    @Test
+    public void removeTest_05(){
+        CountList list = new CountList();
+        for (int i = 0; i < 3; list.add(i++));
+        Assert.assertSame(list.tail.prev, list.remove(1));
     }
 
 

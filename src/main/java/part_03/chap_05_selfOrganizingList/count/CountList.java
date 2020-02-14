@@ -25,23 +25,26 @@ public class CountList {
 
     public boolean isInList(int element) {
         boolean result = false;
-        if (!isEmpty()){
-         if (head == tail && head.info == element) return true;
-        else {
-             CountNode i = head;
-             for (; i != null && i.info != element; i = i.next) ;
-             if (i.info == element) result = true;
-         }
+        if (!isEmpty()) {
+            if (head == tail && head.info == element) return true;
+            else {
+                CountNode i = findElement(element);
+                if (i != null)
+                    if (i.info == element) {                  // second if not needed, but wanna be sure - just in case.
+                        i.counter++;
+                        result = true;
+                        while (isPrevCounterMinor(i)) swap(i);
+                    }
+            }
         }
         return result;
     }
 
-    public CountNode findElement(int element){
+    public CountNode findElement(int element) {
         CountNode result = null;
-        for (result = head; result != null && result.info != element; result = result.next);
+        for (result = head; result != null && result.info != element; result = result.next) ;
         return result;
     }
-
 
     boolean isPrevCounterMinor(CountNode node) {
         if (head == tail || node == head) return false;
@@ -62,6 +65,25 @@ public class CountList {
             }
         } catch (NullPointerException e) {
             System.out.println("list is empty");
+        } finally {
+            return node;
+        }
+    }
+
+    public CountNode remove(int element) {
+        CountNode node = null;
+        try {
+            node = findElement(element);
+            if (head == tail && node == head) head = tail = null;
+            else {
+                if (node != head) node.prev.next = node.next;
+                if (node != tail) node.next.prev = node.prev;
+                if (node == head) head = node.next;
+                if (node == tail) tail = node.prev;
+            }
+
+        } catch (NullPointerException e) {
+            System.out.println("element was not in the list");
         } finally {
             return node;
         }
@@ -90,12 +112,5 @@ public class CountList {
     }
 
     public static void main(String[] args) {
-
-        CountList list = new CountList();
-        for (int i = 0; i < 3; list.add(i++));
-
-        System.out.println(list.toString());
-        System.out.println(list.findElement(2).info);
-
     }
 }
