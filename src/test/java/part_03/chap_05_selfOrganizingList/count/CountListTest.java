@@ -39,6 +39,50 @@ public class CountListTest /*implements TestingCountList*/ {
     }
 
     @Test
+    public void isInListTest_01() {
+        CountList list = new CountList();
+
+        Assert.assertFalse(list.isInList(0));
+    }
+
+    @Test
+    public void isInListTest_02() {
+        CountList list = new CountList();
+        list.add(0);
+        Assert.assertTrue(list.isInList(0));
+    }
+
+    @Test
+    public void isnInListTest_03() {
+        CountList list = new CountList();
+        for (int i = 0; i < 4; list.add(i++)) ;
+        Assert.assertTrue(list.isInList(list.tail.info));
+    }
+
+    @Test
+    public void findElementTest_01() {
+        CountList list = new CountList();
+
+        Assert.assertNull(list.findElement(0));
+    }
+
+    @Test
+    public void findElementTest_02(){
+        CountList list = new CountList();
+        for (int i = 0; i < 3; list.add(i++));
+        Assert.assertNull(list.findElement(3));
+    }
+
+    @Test
+    public void findElementTest_03(){
+        CountList list = new CountList();
+        for (int i = 0; i < 3; list.add(i++)) {
+//            Assert.assertTrue(list.findElement(0) == list.head);
+            Assert.assertTrue(list.findElement(1)==list.head.next);
+        }
+    }
+
+    @Test
     public void isPrevCounterMinorTest_01() {
         CountList list = new CountList();
         CountNode node = list.add(0);
@@ -75,7 +119,7 @@ public class CountListTest /*implements TestingCountList*/ {
     }
 
     @Test
-    public void swapTest_03(){
+    public void swapTest_03() {
         CountList list = new CountList();
         for (int i = 0; i < 3; list.add(i++)) ;
         Assert.assertEquals("[0, 1, 2]", list.toString());
@@ -85,7 +129,7 @@ public class CountListTest /*implements TestingCountList*/ {
     }
 
     @Test
-    public void swapTest_04(){
+    public void swapTest_04() {
         CountList list = new CountList();
         for (int i = 0; i < 3; list.add(i++)) ;
         Assert.assertEquals("[0, 1, 2]", list.toString());

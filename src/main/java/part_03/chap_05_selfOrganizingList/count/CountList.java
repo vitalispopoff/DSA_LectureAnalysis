@@ -23,6 +23,26 @@ public class CountList {
         return head == null;
     }
 
+    public boolean isInList(int element) {
+        boolean result = false;
+        if (!isEmpty()){
+         if (head == tail && head.info == element) return true;
+        else {
+             CountNode i = head;
+             for (; i != null && i.info != element; i = i.next) ;
+             if (i.info == element) result = true;
+         }
+        }
+        return result;
+    }
+
+    public CountNode findElement(int element){
+        CountNode result = null;
+        for (result = head; result != null && result.info != element; result = result.next);
+        return result;
+    }
+
+
     boolean isPrevCounterMinor(CountNode node) {
         if (head == tail || node == head) return false;
         else return node.counter > node.prev.counter;
@@ -72,14 +92,10 @@ public class CountList {
     public static void main(String[] args) {
 
         CountList list = new CountList();
-        for (int i = 0; i < 2; list.add(i++)) ;
+        for (int i = 0; i < 3; list.add(i++));
 
         System.out.println(list.toString());
-        list.swap(list.tail.prev);
-        System.out.println(list.toString());
-
-
-
+        System.out.println(list.findElement(2).info);
 
     }
 }
