@@ -2,7 +2,7 @@ package part_03.chap_05_selfOrganizingList.count;
 
 import org.junit.*;
 
-@Ignore
+//@Ignore
 public class CountListTest /*implements TestingCountList*/ {
 
     //    @Ignore
