@@ -1,4 +1,4 @@
-package main.java.part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes;
 
 import static java.lang.Boolean.*;
 
@@ -23,6 +23,8 @@ public class _01_BooleanTests {
 
         System.out.println(b & c);
         System.out.println(b | c);
+
+
 
     }
 }

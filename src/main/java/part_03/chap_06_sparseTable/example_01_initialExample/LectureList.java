@@ -10,32 +10,38 @@ public class LectureList {
 
     public Lecture addToTail(String name, String shortCut) {
         tail = new Lecture(name, shortCut);
-        if(isEmpty()) head = tail;
+        if (isEmpty()) head = tail;
         else tail.prev.next = tail;
         return tail;
     }
 
-    public boolean isEmpty(){
+    public Lecture addBehind(String name, String shortCut, Lecture lecture) {
+        Lecture result = new Lecture(name, shortCut, lecture, lecture.next);
+        if (result.prev == tail) tail = result;
+        else result.next.prev = result;
+        result.prev.next = result;
+        return result;
+    }
+
+    public boolean isEmpty() {
         return head == null;
     }
 
-    public Lecture findLecture(String name, String shortCut){
+    public Lecture findLecture(String name, String shortCut) {
         Lecture result = head;
         boolean flag = true;
 
-        while (flag){
-            if(result.matchLecture(name, shortCut) || result == null)
-                flag=false;
+        while (flag) {
+            if (result.matchLecture(name, shortCut) || result == null)
+                flag = false;
             else result = result.next;
         }
         return result;
     }
 
-    public Lecture findLecture(String name){
+    public Lecture findLecture(String name) {
         return findLecture(name, null);
     }
-
-
 
 
 }

@@ -16,23 +16,25 @@ public class StudentList {
         return result;
     }
 
-    public Student addBehind(String lastName, String firstName, Student student){
+    public Student addBehind(String lastName, String firstName, Student student) {
         Student result = new Student(lastName, firstName, student, student.next);
-        if(result.prev == tail) tail =result; else result.next.prev = result;
-        result.prev.next =  result;
+        if (result.prev == tail) tail = result;
+        else result.next.prev = result;
+        result.prev.next = result;
         return result;
     }
 
     public Student addToList(String lastName, String firstName) {
-
         Student result = null;
 
         if (isEmpty()) head = tail = result = new Student(lastName, firstName, null, null);
-        else {Student counter = head;
-            for(;
-                counter!=null && counter.personalDetails.compareToIgnoreCase(result.personalDetails)<0; counter=counter.next);
-            if(counter==null) result = addToTail(lastName, firstName);
-            else result = addBehind(lastName, firstName,counter);
+        else {
+            Student counter = head;
+            for (;
+                 counter != null && counter.personalDetails.compareToIgnoreCase(result.personalDetails) < 0;
+                 counter = counter.next);
+            if (counter == null) result = addToTail(lastName, firstName);
+            else result = addBehind(lastName, firstName, counter);
         }
 
         return result;

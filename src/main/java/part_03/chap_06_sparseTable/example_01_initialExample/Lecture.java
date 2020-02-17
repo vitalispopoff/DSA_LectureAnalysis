@@ -28,4 +28,17 @@ public class Lecture {
     public boolean matchLecture(String name) {
         return matchLecture(name, null);
     }
+
+    int compareTo(Lecture lecture) {
+        if (shortCut == null || lecture.shortCut == null) return name.compareToIgnoreCase(lecture.name);
+        else return shortCut.compareToIgnoreCase(lecture.shortCut);
+    }
+
+    public static void main(String[] args) {
+        Lecture L1 = new Lecture("dupa", "d1"),
+                L2 = new Lecture("dupc", "d3"),
+        L3 = new Lecture("dup", null);
+        System.out.println(L1.compareTo(L3));
+    }
+
 }

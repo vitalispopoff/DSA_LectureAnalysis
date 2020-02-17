@@ -1,4 +1,4 @@
-package main.java.part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes._04_IntegerType;
 
 
 import static java.lang.Integer.*;

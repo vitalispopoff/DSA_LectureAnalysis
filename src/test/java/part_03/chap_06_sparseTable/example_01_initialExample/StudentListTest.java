@@ -36,13 +36,21 @@ public class StudentListTest {
     }
 
     @Test
-    public void addBehind(){
+    public void addBehindTest_01(){
+        StudentList list = new StudentList();
+        Student s1 = list.addToTail("a","a");
+        Student s3 = list.addBehind("a", "b", s1);
+        Assert.assertSame(list.tail, s3);
+        Assert.assertSame(list.head.next, s3);
+    }
+
+    @Test
+    public void addBehindTest_02(){
         StudentList list = new StudentList();
         Student s1 = list.addToTail("a","a");
         Student s2 = list.addToTail("a", "c");
         Student s3 = list.addBehind("a", "b", s1);
         Assert.assertSame(s1.next, s3);
-
     }
 
     @Test

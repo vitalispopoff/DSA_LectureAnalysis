@@ -1,10 +1,10 @@
-package main.java.part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes;
 
-import part_01.chap_01.par_01_PrimitiveTypes._02_ByteTests;
+
 
 public class PrimitiveTypeProperties {
 
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
 
         {
             System.out.println("Character: ");
@@ -25,5 +25,5 @@ public class PrimitiveTypeProperties {
             System.out.println("Long: ");
             _05_LongTests.properties();
         }     // properties of the primitive types (exc. String)
-    }
+    }*/ // TODO needs rewriting.
 }
