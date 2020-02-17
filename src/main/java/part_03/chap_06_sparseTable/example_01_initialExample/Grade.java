@@ -15,6 +15,8 @@ public class Grade {
         this(value, null, null);
     }
 
+    /*public Grade(int value, Lecture lecture, Student student){this(value, student, lecture);}*/   // although this on is ok with main constructor, it breaks the shorties: grade(), grade(int).
+
     public Grade(int value, Student student, Lecture lecture) {
         this.value = value;
         this.student = student;
