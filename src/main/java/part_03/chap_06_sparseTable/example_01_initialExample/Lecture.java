@@ -2,40 +2,28 @@ package part_03.chap_06_sparseTable.example_01_initialExample;
 
 public class Lecture {
 
-    String name;
-    String shortCut;
-    Lecture prev, next;
-    GradeList gradesOfTheLecture;
+    String
+            code,
+            title;
+    Lecture
+            prev,
+            next;
+    Grade
+            head,
+            tail;
 
-    public Lecture(String name, String shortCut) {
-        this(name, shortCut, null, null);
-    }
-
-    public Lecture(String name, String shortCut, Lecture prev, Lecture next) {
-        this.name = name;
-        this.shortCut = shortCut;
+    public Lecture(
+            String code,
+            String title,
+            Lecture prev,
+            Lecture next) {
+        this.code = code;
+        this.title = title;
         this.prev = prev;
         this.next = next;
-        this.gradesOfTheLecture = new GradeList();
     }
 
-    public boolean matchLecture(String name, String shortCut) {
-        return shortCut == null ?
-                this.name.equalsIgnoreCase(name) :
-                this.shortCut.equalsIgnoreCase(shortCut);
+    public Lecture(String title, String code) {
+        this(title, code, null, null);
     }
-
-    public boolean matchLecture(String name) {
-        return matchLecture(name, null);
-    }
-
-    int compareTo(Lecture lecture) {
-        if (shortCut == null || lecture.shortCut == null) return name.compareToIgnoreCase(lecture.name);
-        else return shortCut.compareToIgnoreCase(lecture.shortCut);
-    }
-
-    public static void main(String[] args) {
-
-    }
-
 }
