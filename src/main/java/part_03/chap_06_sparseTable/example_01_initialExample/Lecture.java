@@ -2,15 +2,18 @@ package part_03.chap_06_sparseTable.example_01_initialExample;
 
 public class Lecture {
 
+    static Lecture
+            lectureHead = null,
+            lectureTail = null;
+    Lecture
+            prev = null,
+            next = null;
+    Grade
+            gradeHead = null,
+            gradeTail = null;
     String
             code,
             title;
-    Lecture
-            prev,
-            next;
-    Grade
-            head,
-            tail;
 
     public Lecture(
             String code,
@@ -24,6 +27,7 @@ public class Lecture {
     }
 
     public Lecture(String title, String code) {
-        this(title, code, null, null);
+        this.code = code;
+        this.title = title;
     }
 }

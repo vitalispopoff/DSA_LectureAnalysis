@@ -2,15 +2,18 @@ package part_03.chap_06_sparseTable.example_01_initialExample;
 
 public class Student {
 
+    static Student
+            studentHead  = null,
+            studentTail = null;
+    Student
+            prev = null,
+            next = null;
+    Grade
+            gradeHead = null,
+            gradeTail = null;
     String
             lastName,
             firstName;
-    Student
-            prev,
-            next;
-    Grade
-            head,
-            tail;
 
     public Student(
             String lastName,
@@ -24,10 +27,7 @@ public class Student {
     }
 
     public Student(String lastName, String firstName) {
-        this(
-                lastName,
-                firstName,
-                null,
-                null);
+        this.lastName = lastName;
+        this.firstName = firstName;
     }
 }

@@ -5,10 +5,10 @@ public class Grade {
     int
             value;
     Grade
-            prevStudentGrade,
-            nextStudentGrade,
-            prevLectureGrade,
-            nextLectureGrade;
+            prevStudentGrade = null,
+            nextStudentGrade = null,
+            prevLectureGrade = null,
+            nextLectureGrade = null;
 
     public Grade(
             int value,
@@ -24,10 +24,6 @@ public class Grade {
     }
 
     public Grade(int value) {
-        this(value,
-                null,
-                null,
-                null,
-                null);
+        this.value = value;
     }
 }
