@@ -35,10 +35,7 @@ public class Lecture {
     }
 
     public static void main(String[] args) {
-        Lecture L1 = new Lecture("dupa", "d1"),
-                L2 = new Lecture("dupc", "d3"),
-        L3 = new Lecture("dup", null);
-        System.out.println(L1.compareTo(L3));
+
     }
 
 }
