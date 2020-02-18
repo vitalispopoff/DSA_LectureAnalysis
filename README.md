@@ -3,10 +3,10 @@
 The project contains notes and parts of code referring to the content presented in 
 + Adam Drozdek, Data Structures anda Algorithms.
 
-Commit adnotations start with [part.chapter] :
+Commit annotations start with [part.chapter] :
  
 <ol type="1">
-<li><a href="oop">Object-oriented programming</a>
+<li><b>Object-oriented programming</b>
 <ol type="1">
 <li>primitive types</li>
 <li>operators</li>
@@ -14,7 +14,7 @@ Commit adnotations start with [part.chapter] :
 <li>loops</li>
 <li>exceptions</li>
 </ol></li>
-<li><a href="complexity">Complexity analysis</a>
+<li><b>Complexity analysis</b>
 <ol type="1">
  <li>complexity</li>
  <li><i>(big-o)</i></li>
@@ -27,7 +27,7 @@ Commit adnotations start with [part.chapter] :
  <li><i>(amortized complexity)</i></li>
  <li><i>(np-completeness)</i></li>
 </ol></li>
-<li><a href="lists">Linked lists</a>
+<li><b>Linked lists</b>
 <ol type="1">
 <li>single-linked list</li>
 <li>double-linked list</li>
