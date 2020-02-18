@@ -15,7 +15,7 @@ public class Lecture {
             code,
             title;
 
-    public Lecture(
+/*    public Lecture(
             String code,
             String title,
             Lecture prev,
@@ -24,7 +24,7 @@ public class Lecture {
         this.title = title;
         this.prev = prev;
         this.next = next;
-    }
+    }*/     //  TODO full constructor - disposable.
 
     public Lecture(String title, String code) {
         this.code = code;

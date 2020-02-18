@@ -15,7 +15,7 @@ public class Student {
             lastName,
             firstName;
 
-    public Student(
+/*    public Student(
             String lastName,
             String firstName,
             Student prev,
@@ -24,7 +24,7 @@ public class Student {
         this.firstName = firstName;
         this.prev = prev;
         this.next = next;
-    }
+    }*/     // TODO full constructor - disposable.
 
     public Student(String lastName, String firstName) {
         this.lastName = lastName;
@@ -47,6 +47,14 @@ public class Student {
                 cache = cache.next)
             if (this.compareStudents(cache) == 0) return true;
         return false;
+    }
+
+    public static Student addToList(String lastName, String firstName) {
+        Student student = new Student(lastName, firstName);
+
+        //        TODO fully rewrite the  algorithm
+
+        return student;
     }
 
     public static void main(String[] args) {

@@ -34,14 +34,15 @@ public class LectureTest {
         Assert.assertTrue(lecture.isInList());
     }
 
-//    @Ignore
+    //    @Ignore
     @Test // multi-item list
     public void isInList_03() {
-        Lecture
-                L4 = Lecture.lectureTail = new Lecture("d", "d"),
-                L3 = new Lecture("c", "c", null, L4),
-                L2 = new Lecture("b", "b", null, L3),
-                L1 = Lecture.lectureHead = new Lecture("a", "a", null, L2);
+        Lecture L1, L2, L3, L4;
+        L1 = Lecture.lectureHead = new Lecture("a", "a");
+        L2 = L1.next = new Lecture("b", "b");
+        L3 = L2.next = new Lecture("c", "c");
+        L4 = L3.next = Lecture.lectureTail = new Lecture("d", "d");
+
         Assert.assertTrue(L4.isInList());
         Assert.assertTrue(L3.isInList());
         Assert.assertFalse(new Lecture("b", "c").isInList());

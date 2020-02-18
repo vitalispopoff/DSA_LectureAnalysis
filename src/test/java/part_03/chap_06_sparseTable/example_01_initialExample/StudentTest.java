@@ -6,6 +6,7 @@ public class StudentTest {
 
     @Test
     public void isEmpty_01() {
+        Student.studentHead = Student.studentTail = null;
         Assert.assertTrue(Student.isEmpty());
     }
 
@@ -29,28 +30,47 @@ public class StudentTest {
     }
 
     @Test   //  for empty list
-    public void isInList_01(){
+    public void isInList_01() {
         Student.studentHead = null;
         Student student = new Student("a", "a");
         Assert.assertFalse(student.isInList());
     }
 
     @Test   // single-item list
-    public void isInList_02(){
+    public void isInList_02() {
         Student student = Student.studentHead = new Student("a", "a");
         Assert.assertTrue(student.isInList());
     }
 
     @Test // multi-item list
-    public void isInList_03(){
-        Student
-                s4 = Student.studentTail = new Student("d", "d"),
-                s3 = new Student("c", "c", null, s4),
-                s2 = new Student("b", "b", null, s3),
-                s1 = Student.studentHead = new Student("a", "a", null, s2);
+    public void isInList_03() {
+        Student s1, s2, s3, s4;
+        s1 = Student.studentHead = new Student("a", "a");
+        s2 = s1.next = new Student("b", "b");
+        s3 = s2.next = new Student("c", "c");
+        s4 = s3.next = Student.studentTail = new Student("d", "d");
+
         Assert.assertTrue(s4.isInList());
         Assert.assertTrue(s3.isInList());
         Assert.assertFalse(new Student("b", "c").isInList());
 
+    }
+
+    @Test
+    public void addToList_01() {
+        Student.studentHead = Student.studentTail = null;
+        Assert.assertSame(
+                Student.addToList("a", "a"),
+                Student.studentHead);
+    }
+
+    @Test
+    public void addToList_02() {
+        Student
+                s1 = Student.studentHead = new Student("a", "a"),
+                s3 = Student.studentTail = new Student("c", "c"),
+                s2 = Student.addToList("b", "b");
+        Assert.assertEquals(s2, s1.next);
+        Assert.assertEquals(s2, s3.prev);
     }
 }
