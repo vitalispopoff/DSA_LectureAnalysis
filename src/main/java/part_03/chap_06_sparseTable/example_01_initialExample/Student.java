@@ -3,7 +3,7 @@ package part_03.chap_06_sparseTable.example_01_initialExample;
 public class Student {
 
     static Student
-            studentHead  = null,
+            studentHead = null,
             studentTail = null;
     Student
             prev = null,
@@ -29,5 +29,27 @@ public class Student {
     public Student(String lastName, String firstName) {
         this.lastName = lastName;
         this.firstName = firstName;
+    }
+
+    public static boolean isEmpty() {
+        return studentHead == null;
+    }
+
+    public int compareStudents(Student student) {
+        int result = lastName.compareToIgnoreCase(student.lastName);
+        return result == 0 ? firstName.compareToIgnoreCase(student.firstName) : result;
+    }
+
+    public boolean isInList() {
+        for (
+                Student cache = studentHead;
+                cache != null;
+                cache = cache.next)
+            if (this.compareStudents(cache) == 0) return true;
+        return false;
+    }
+
+    public static void main(String[] args) {
+
     }
 }

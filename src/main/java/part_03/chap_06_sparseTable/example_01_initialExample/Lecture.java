@@ -30,4 +30,22 @@ public class Lecture {
         this.code = code;
         this.title = title;
     }
+
+    public static boolean isEmpty() {
+        return lectureHead == null;
+    }
+
+    public int compareLectures(Lecture lecture) {
+        int result = code.compareToIgnoreCase(lecture.code);
+        return result == 0 ? title.compareToIgnoreCase(lecture.title) : result;
+    }
+
+    public boolean isInList() {
+        for (
+                Lecture cache = lectureHead;
+                cache != null;
+                cache = cache.next)
+            if (this.compareLectures(cache) == 0) return true;
+        return false;
+    }
 }
