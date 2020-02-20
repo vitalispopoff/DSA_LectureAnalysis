@@ -6,7 +6,7 @@ The project contains notes and parts of code referring to the content presented 
 Commit annotations start with [part.chapter] :
  
 <ol type="1">
-<li><a href"https://github.com/vitalispopoff/DrozdekAnalysis/wiki/Part-1-:-Object-Oriented-Programming"><b>Object-oriented programming</b></a>
+<li><b>Object-oriented programming</b>
 <ol type="1">
 <li>primitive types</li>
 <li>operators</li>
