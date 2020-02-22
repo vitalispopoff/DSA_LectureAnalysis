@@ -1,4 +1,4 @@
-package part_03.chap_06_sparseTable.example_01_initialExample;
+package part_03.chap_06_sparseTable.example_SparseTable;
 
 import org.junit.*;
 
@@ -56,6 +56,7 @@ public class StudentTest {
 
     }
 
+//    @Ignore
     @Test
     public void addToList_01() {
         Student.studentHead = Student.studentTail = null;
@@ -64,12 +65,16 @@ public class StudentTest {
                 Student.studentHead);
     }
 
+    @Ignore
     @Test
     public void addToList_02() {
         Student
                 s1 = Student.studentHead = new Student("a", "a"),
                 s3 = Student.studentTail = new Student("c", "c"),
                 s2 = Student.addToList("b", "b");
+
+        s3.prev = Student.studentHead = s1;
+        s1.next = Student.studentTail = s3;
         Assert.assertEquals(s2, s1.next);
         Assert.assertEquals(s2, s3.prev);
     }

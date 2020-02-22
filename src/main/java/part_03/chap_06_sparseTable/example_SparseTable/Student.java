@@ -1,4 +1,4 @@
-package part_03.chap_06_sparseTable.example_01_initialExample;
+package part_03.chap_06_sparseTable.example_SparseTable;
 
 public class Student {
 
@@ -50,10 +50,21 @@ public class Student {
     }
 
     public static Student addToList(String lastName, String firstName) {
-        Student student = new Student(lastName, firstName);
-
-        //        TODO fully rewrite the  algorithm
-
+        Student
+                student = new Student(lastName, firstName),
+                counter = studentHead;
+        if (counter == null) studentHead = studentTail = student;
+        else {
+            for (; student.compareStudents(counter.prev) < 0; counter = counter.next) ;
+            {
+                student.prev = counter == null ? studentTail : counter == studentHead ? null : counter.prev;
+                student.next = counter == null ? null : counter;
+                if (student.prev != null) student.prev.next = student;
+                if (student.next != null) student.next.prev = student;
+                if (student.prev == null) studentHead = student;
+                if (student.next == null) studentTail = student;
+            }
+        }
         return student;
     }
 

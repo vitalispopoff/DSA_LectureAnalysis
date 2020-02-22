@@ -1,4 +1,4 @@
-package part_03.chap_06_sparseTable.example_01_initialExample;
+package part_03.chap_06_sparseTable.example_SparseTable;
 
 public class Grade {
 
