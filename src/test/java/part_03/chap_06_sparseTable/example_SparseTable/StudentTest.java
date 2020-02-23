@@ -124,6 +124,7 @@ public class StudentTest {
         Assert.assertEquals(s2.lastName, s3.prev.lastName);
     }
 
+    /*
     @Ignore
     @Test
     public void removeGrades_01() {
@@ -193,5 +194,5 @@ public class StudentTest {
 
 //        s.removeStudent();
         Assert.assertEquals(null, Student.studentHead);
-    }
+    }*/
 }
