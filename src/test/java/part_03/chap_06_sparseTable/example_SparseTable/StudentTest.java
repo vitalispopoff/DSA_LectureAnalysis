@@ -4,18 +4,21 @@ import org.junit.*;
 
 public class StudentTest {
 
+//    @Ignore
     @Test
     public void isEmpty_01() {
         Student.studentHead = Student.studentTail = null;
         Assert.assertTrue(Student.isEmpty());
     }
 
+//    @Ignore
     @Test
     public void isEmpty_02() {
         Student.studentHead = Student.studentTail = new Student("a", "a");
         Assert.assertFalse(Student.isEmpty());
     }
 
+//    @Ignore
     @Test
     public void compareStudents_01() {
         Student
@@ -29,6 +32,7 @@ public class StudentTest {
         Assert.assertEquals(0, s1.compareStudents(s4));
     }
 
+    @Ignore
     @Test   //  for empty list
     public void isInList_01() {
         Student.studentHead = null;
@@ -36,12 +40,14 @@ public class StudentTest {
         Assert.assertFalse(student.isInList());
     }
 
+    @Ignore
     @Test   // single-item list
     public void isInList_02() {
         Student student = Student.studentHead = new Student("a", "a");
         Assert.assertTrue(student.isInList());
     }
 
+    @Ignore
     @Test // multi-item list
     public void isInList_03() {
         Student s1, s2, s3, s4;
@@ -56,12 +62,14 @@ public class StudentTest {
 
     }
 
+//    @Ignore
     @Test
     public void findNearest_01() {
         Student.studentHead = Student.studentTail = null;
         Assert.assertEquals(null, Student.findNearest("a", "a"));
     }
 
+//    @Ignore
     @Test
     public void findNearest_02() {
         Student
@@ -74,6 +82,7 @@ public class StudentTest {
         Assert.assertEquals(null, Student.findNearest("c", "c"));
     }
 
+//    @Ignore
     @Test
     public void findNearest_03() {
         Student
@@ -85,11 +94,13 @@ public class StudentTest {
         c.next = e;
 
         Assert.assertEquals(c, Student.findNearest("b", "b"));
+        Assert.assertEquals("c", Student.findNearest("c", "c").lastName);
         Assert.assertEquals(c, Student.findNearest("c", "c"));
         Assert.assertEquals("e", Student.findNearest("d", "d").lastName);
         Assert.assertEquals(e, Student.findNearest("d", "d"));
     }
 
+    @Ignore
     @Test
     public void addToList_01() {
         Student.studentHead = Student.studentTail = null;
@@ -98,6 +109,7 @@ public class StudentTest {
                 Student.studentHead);
     }
 
+    @Ignore
     @Test
     public void addToList_02() {
         Student
@@ -116,13 +128,12 @@ public class StudentTest {
     @Test
     public void removeGrades_01() { }
 
+    @Ignore
     @Test
     public void removeStudent_01(){
         Student s = new Student("a", "a");
 
-        s.removeStudent();
+//        s.removeStudent();
         Assert.assertEquals(null, Student.studentHead);
-
-
     }
 }
