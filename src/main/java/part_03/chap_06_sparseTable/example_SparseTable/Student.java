@@ -52,55 +52,63 @@ public class Student {
         return false;
     }
 
-    public static Student findNearest(String lastName, String firstName) {
-        Student
-                input = new Student(lastName, firstName),
-                cache = studentHead,
+    public static Student findNearest(Student input) {
+        Student cache = studentHead;
 
         while (cache != null && input.compareStudents(cache) > 0)
             cache = cache.next;
-
         return cache;
     }
 
-    public static Student addToList(String lastName, String firstName) {
-        Student
-                student = new Student(lastName, firstName),
-                counter = studentHead;
+    public static Student findNearest(String lastName, String firstName) {
+        return findNearest(new Student(lastName, firstName));
+    }
 
-        if (counter == null) studentHead = studentTail = student;
-        else {
-            for (; counter != null && student.compareStudents(counter) == 0 && student.compareStudents(counter.prev) > 0; counter = counter.next)
-                ;
-            {
-                student.prev = counter == null ? studentTail : counter == studentHead ? null : counter.prev;
-                student.next = counter == null ? null : counter;
-                if (student.prev != null) student.prev.next = student;
-                if (student.next != null) student.next.prev = student;
-                if (student.prev == null) studentHead = student;
-                if (student.next == null) studentTail = student;
+    public static Student addToList(String lastName, String firstName) {
+        Student input = new Student(lastName, firstName);
+        Student cache = Student.findNearest(input);
+
+        if (cache != input) {
+
+            if (cache == studentHead) {
+                input.prev = null;
+                studentHead = input;
+            } else {
+                input.prev = cache.prev;
+                input.prev.next = input;
+            }
+            if (cache == null) {
+                input.next = null;
+                studentTail = input;
+            } else {
+                input.next = cache;
+                input.next.prev = input;
             }
         }
-        return student;
+        return input;
     }
 
-    public void removeGrades() {
-        Grade grade = gradeHead;
+/*    public void removeGrades() {
+        for (Grade grade = gradeHead; grade != null; grade = grade.nextLectureGrade) {
+            if (grade.prevStudentGrade == null && grade.nextStudentGrade ==null)
+                grade.prevStudentGrade = grade.nextStudentGrade = null;
+            else if(grade.prevStudentGrade == null){grade.nextStudentGrade.prevStudentGrade = null;}
+            else if(grade.nextStudentGrade == null){grade.prevStudentGrade.nextStudentGrade = null;}
+            else;
 
-        for (; grade != null; grade = grade.nextLectureGrade) {
-            if (grade.prevStudentGrade != null) grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
-            if (grade.nextStudentGrade != null) grade.nextStudentGrade.prevStudentGrade = grade.prevStudentGrade;
-            gradeHead = gradeTail = null;
         }
-    }
 
-    /*public void removeStudent(){
+
+        gradeHead = gradeTail = null;
+    }*/     // remove grades - needs grade.student ; grade.lecture in order to clear the list
+
+/*public void removeStudent(){
         removeGrades();
 
         if(next != null) next.prev =  prev ==null ? null : prev;
         if(prev != null) prev.next = next == null ? null : next;
         next = prev = null;     // this might be an overkill - disposable?
-    }*/
+    }*/     // remove student - needs removeGrades() in order to clear the student entry.
 
     public static void main(String[] args) {
 
