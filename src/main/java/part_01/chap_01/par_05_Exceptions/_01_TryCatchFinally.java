@@ -1,4 +1,4 @@
-package main.java.part_01.chap_01.par_05_Exceptions;
+package part_01.chap_01.par_05_Exceptions;
 
 public class _01_TryCatchFinally {
 

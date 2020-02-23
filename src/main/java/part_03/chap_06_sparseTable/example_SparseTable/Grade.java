@@ -26,4 +26,5 @@ public class Grade {
     public Grade(int value) {
         this.value = value;
     }
+
 }
