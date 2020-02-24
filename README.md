@@ -1,7 +1,7 @@
 # DrozdekAnalysis
 
 The project contains notes and parts of code referring to the content presented in 
-+ Adam Drozdek, Data Structures anda Algorithms.
++ Adam Drozdek, Data Structures and Algorithms.
 
 Commit annotations start with [part.chapter] :
  
