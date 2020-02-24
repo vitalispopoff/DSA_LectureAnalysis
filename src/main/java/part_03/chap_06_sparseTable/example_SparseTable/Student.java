@@ -88,9 +88,9 @@ public class Student {
         return input;
     }
 
-    public void unbindGrade(Grade grade, Lecture lecture){
+    public void unbindGrade(Grade grade, Lecture lecture) {
         if (lecture.gradeHead == grade) {
-            if(grade.nextStudentGrade != null) grade.nextStudentGrade.prevStudentGrade = null;
+            if (grade.nextStudentGrade != null) grade.nextStudentGrade.prevStudentGrade = null;
             lecture.gradeHead = grade.nextStudentGrade;
         } else {
             grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
@@ -98,13 +98,26 @@ public class Student {
         }
 
         if (lecture.gradeTail == grade) {
-            if(grade.prevStudentGrade != null) grade.prevStudentGrade.nextStudentGrade = null;
+            if (grade.prevStudentGrade != null) grade.prevStudentGrade.nextStudentGrade = null;
             lecture.gradeTail = grade.prevStudentGrade;
         } else {
             grade.nextStudentGrade.prevStudentGrade = grade.prevStudentGrade;
             if (grade.prevStudentGrade != null) grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
         }
     }
+
+    public void verifyGradeReferencing(Grade grade) {
+        Lecture
+                head = Lecture.lectureHead,
+                tail = Lecture.lectureTail;
+
+        if (grade.prevStudentGrade == null) for (; head./*next.*/gradeHead != grade; head = head.next) ;
+        if (grade.nextStudentGrade == null) for (; tail./*next.*/gradeTail != grade; tail = tail.next) ;
+
+
+    }
+
+
 
     /*public Lecture removeGrade(Grade grade, Lecture lecture) {
 //        Lecture lecture = Lecture.lectureHead;
