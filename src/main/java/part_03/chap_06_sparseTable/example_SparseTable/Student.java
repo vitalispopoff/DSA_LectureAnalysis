@@ -88,27 +88,49 @@ public class Student {
         return input;
     }
 
-/*    public void removeGrades() {
-        for (Grade grade = gradeHead; grade != null; grade = grade.nextLectureGrade) {
-            if (grade.prevStudentGrade == null && grade.nextStudentGrade ==null)
-                grade.prevStudentGrade = grade.nextStudentGrade = null;
-            else if(grade.prevStudentGrade == null){grade.nextStudentGrade.prevStudentGrade = null;}
-            else if(grade.nextStudentGrade == null){grade.prevStudentGrade.nextStudentGrade = null;}
-            else;
-
+    public void unbindGrade(Grade grade, Lecture lecture){
+        if (lecture.gradeHead == grade) {
+            if(grade.nextStudentGrade != null) grade.nextStudentGrade.prevStudentGrade = null;
+            lecture.gradeHead = grade.nextStudentGrade;
+        } else {
+            grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
+            if (grade.nextStudentGrade != null) grade.nextStudentGrade.prevStudentGrade = grade.prevStudentGrade;
         }
 
+        if (lecture.gradeTail == grade) {
+            if(grade.prevStudentGrade != null) grade.prevStudentGrade.nextStudentGrade = null;
+            lecture.gradeTail = grade.prevStudentGrade;
+        } else {
+            grade.nextStudentGrade.prevStudentGrade = grade.prevStudentGrade;
+            if (grade.prevStudentGrade != null) grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
+        }
+    }
 
-        gradeHead = gradeTail = null;
-    }*/     // remove grades - needs grade.student ; grade.lecture in order to clear the list
+    /*public Lecture removeGrade(Grade grade, Lecture lecture) {
+//        Lecture lecture = Lecture.lectureHead;
 
-/*public void removeStudent(){
-        removeGrades();
+        // remove the grade
+        for(boolean breakCondition = true; breakCondition; ){
+            breakCondition = lecture.gradeHead != grade && lecture.gradeTail != grade && lecture != null;
 
-        if(next != null) next.prev =  prev ==null ? null : prev;
-        if(prev != null) prev.next = next == null ? null : next;
-        next = prev = null;     // this might be an overkill - disposable?
-    }*/     // remove student - needs removeGrades() in order to clear the student entry.
+            if (lecture.gradeHead == grade) {
+                lecture.gradeHead = grade.nextStudentGrade;
+                lecture.gradeHead.prevStudentGrade = null;
+            } else {
+                grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
+                grade.nextStudentGrade.prevStudentGrade = grade.prevStudentGrade;
+            }
+            if (lecture.gradeTail == grade) {
+                lecture.gradeTail = grade.prevStudentGrade;
+                lecture.gradeTail.nextStudentGrade = null;
+            } else {
+                grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
+                grade.nextStudentGrade.prevStudentGrade = grade.prevStudentGrade;
+            }
+            if(breakCondition)lecture = lecture.next;
+        }
+        return lecture;
+    }*/
 
     public static void main(String[] args) {
 

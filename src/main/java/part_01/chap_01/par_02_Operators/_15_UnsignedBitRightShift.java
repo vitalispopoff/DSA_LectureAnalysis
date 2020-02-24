@@ -1,4 +1,4 @@
-package main.java.part_01.chap_01.par_02_Operators;
+package part_01.chap_01.par_02_Operators;
 
 import static main.java.part_0.Temporal.*;
 
