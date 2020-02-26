@@ -36,14 +36,13 @@ public class Queens {
                 rightDiagonal[row - col + norm] = !available;                   //      both of'em
 
                 if (row < squares - 1) PutQueen(row + 1);                  // ! is the row the last one: recursive call to another row
-                else PrintBoard(System.out);
+                else PrintBoard(System.out);                                    // upon hitting the end - print the results
 
-                column[col] = available;                                        // make the spot available again
+                column[col] = available;                                        // ? make the spot available again ? - this is after recursion part
                 leftDiagonal[row + col] = available;                            //      with its diagonals
                 rightDiagonal[row - col + norm] = available;                    //      both of'em
             }
     }
-
 
     public static void main(String[] args) {
     }
