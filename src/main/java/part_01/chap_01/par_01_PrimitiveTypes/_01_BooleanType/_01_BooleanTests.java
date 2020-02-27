@@ -1,4 +1,4 @@
-package part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes._01_BooleanType;
 
 import static java.lang.Boolean.*;
 

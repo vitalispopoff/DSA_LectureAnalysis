@@ -1,6 +1,6 @@
-package main.java.part_03.chap_05_selfOrganizingList.transpose;
+package part_03.chap_05_selfOrganizingList.transpose;
 
-import static main.java.part_0.Temporal.bln;
+import static part_0.Temporal.bln;
 
 public class TransposeList {
 

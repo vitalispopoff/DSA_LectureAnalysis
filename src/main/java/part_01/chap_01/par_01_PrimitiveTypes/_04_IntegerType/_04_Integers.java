@@ -3,7 +3,7 @@ package part_01.chap_01.par_01_PrimitiveTypes._04_IntegerType;
 
 import static java.lang.Integer.*;
 
-public class _04_IntegerTests {
+public class _04_Integers {
 
     public static void properties() {
         String primitiveType = TYPE.getCanonicalName();

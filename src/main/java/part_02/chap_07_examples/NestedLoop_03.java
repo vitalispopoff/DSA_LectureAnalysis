@@ -1,4 +1,4 @@
-package main.java.part_02.chap_07_examples;
+package part_02.chap_07_examples;
 
 interface NestedLoop_03 {
 

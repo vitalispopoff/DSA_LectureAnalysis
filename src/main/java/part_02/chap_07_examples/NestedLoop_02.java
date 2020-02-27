@@ -1,4 +1,4 @@
-package main.java.part_02.chap_07_examples;
+package part_02.chap_07_examples;
 
 /* complexity = O(n), because inner loop (for j) is executed 1+i-(i-3) times */
 public class NestedLoop_02 {

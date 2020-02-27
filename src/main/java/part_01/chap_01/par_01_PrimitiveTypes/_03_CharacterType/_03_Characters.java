@@ -1,8 +1,8 @@
-package main.java.part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes._03_CharacterType;
 
 import static java.lang.Character.*;
 
-public class _03_CharacterTests {
+public class _03_Characters {
 
     public static void properties() {
         String primitiveType = TYPE.getCanonicalName();

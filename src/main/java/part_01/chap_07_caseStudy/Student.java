@@ -1,4 +1,4 @@
-package main.java.part_01.chap_07_caseStudy;
+package part_01.chap_07_caseStudy;
 
 import java.io.IOException;
 import java.io.RandomAccessFile;

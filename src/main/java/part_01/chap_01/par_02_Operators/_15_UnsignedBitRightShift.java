@@ -1,16 +1,16 @@
 package part_01.chap_01.par_02_Operators;
 
-import static main.java.part_0.Temporal.*;
+import static part_0.Temporal.*;
 
 public class _15_UnsignedBitRightShift {
 
-    static int a = 0x0C;
-    static int b = 0x06;
-    static int c;
-
-    static byte d = 5;
-    static byte e;
-
+    static int
+            a = 0x0C,
+            b = 0x06,
+            c;
+    static byte
+            d = 5,
+            e;
 
     public static void main(String[] args) {
 

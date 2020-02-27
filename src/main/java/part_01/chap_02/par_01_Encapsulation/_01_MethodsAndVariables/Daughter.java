@@ -1,4 +1,4 @@
-package part_01.chap_02.par_01_Encapsulation;
+package part_01.chap_02.par_01_Encapsulation._01_MethodsAndVariables;
 
 public final class Daughter extends Mother {
 
@@ -6,8 +6,8 @@ public final class Daughter extends Mother {
 //    public String moreToString() { return ""; }
 
     /*
-    Error: java: moreToString() in part_01.chap_02.par_01_Encapsulation.
-    Daughter cannot override moreToString() in part_01.chap_02.par_01_Encapsulation.Mother overridden method is final
+    Error: java: moreToString() in .par_01_Encapsulation.
+    Daughter cannot override moreToString() in .par_01_Encapsulation.Mother overridden method is final
   */
 
 //    static final int i;

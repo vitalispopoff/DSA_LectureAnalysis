@@ -1,4 +1,4 @@
-package main.java.part_03.chap_05_selfOrganizingList.moveToFront;
+package part_03.chap_05_selfOrganizingList.moveToFront;
 
 public class MoveToFrontList {
 

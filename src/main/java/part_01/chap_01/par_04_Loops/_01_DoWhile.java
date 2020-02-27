@@ -1,6 +1,6 @@
 package part_01.chap_01.par_04_Loops;
 
-import static main.java.part_0.Temporal.bln;
+import static part_0.Temporal.*;
 
 public class _01_DoWhile {
 

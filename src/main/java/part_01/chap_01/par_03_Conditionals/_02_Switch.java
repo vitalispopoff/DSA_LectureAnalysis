@@ -1,6 +1,6 @@
-package main.java.part_01.chap_01.par_03_Conditionals;
+package part_01.chap_01.par_03_Conditionals;
 
-import static main.java.part_0.Temporal.bln;
+import static part_0.Temporal.*;
 
 //  *   Oracle tutorial: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
 

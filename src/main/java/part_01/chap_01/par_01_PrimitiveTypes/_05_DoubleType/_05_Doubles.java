@@ -1,8 +1,8 @@
-package main.java.part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes._05_DoubleType;
 
 import static java.lang.Double.*;
 
-public class _05_DoubleTests {
+public class _05_Doubles {
 
 
 

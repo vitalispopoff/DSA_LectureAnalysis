@@ -1,4 +1,4 @@
-package main.java.part_01.chap_08_exercises.exc_04;
+package part_01.chap_08_exercises.exc_04;
 
 public interface I2 {
 

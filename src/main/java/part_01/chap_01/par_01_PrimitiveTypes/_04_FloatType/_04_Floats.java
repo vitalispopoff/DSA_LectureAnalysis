@@ -1,9 +1,9 @@
-package main.java.part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes._04_FloatType;
 
 
 import static java.lang.Float.*;
 
-public class _04_FloatTests {
+public class _04_Floats {
 
     static float a;
 

@@ -1,4 +1,4 @@
-package main.java.part_03.chap_03_circularList.unidirectional;
+package part_03.chap_03_circularList.unidirectional;
 
 public class CircUniNode {
     public int info;

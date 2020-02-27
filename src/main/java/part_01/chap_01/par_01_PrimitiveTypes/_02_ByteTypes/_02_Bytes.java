@@ -1,8 +1,8 @@
-package part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes._02_ByteTypes;
 
 import static java.lang.Byte.*;
 
-public class _02_ByteTests {
+public class _02_Bytes {
 
     public static void properties(){
         String primitiveType =  TYPE.getCanonicalName();

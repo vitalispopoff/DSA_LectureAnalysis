@@ -1,4 +1,4 @@
-package main.java.part_01.chap_08_exercises.exc_06;
+package part_01.chap_08_exercises.exc_06;
 
 class SomeInfo {
 

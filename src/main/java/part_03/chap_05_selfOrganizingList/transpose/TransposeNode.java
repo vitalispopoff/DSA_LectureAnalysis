@@ -1,4 +1,4 @@
-package main.java.part_03.chap_05_selfOrganizingList.transpose;
+package part_03.chap_05_selfOrganizingList.transpose;
 
 public class TransposeNode {
 

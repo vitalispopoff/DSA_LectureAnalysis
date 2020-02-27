@@ -5,7 +5,6 @@ import static java.lang.Math.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-
 public class Fibonacci {
 
     static ArrayList<Integer> list = new ArrayList<>();

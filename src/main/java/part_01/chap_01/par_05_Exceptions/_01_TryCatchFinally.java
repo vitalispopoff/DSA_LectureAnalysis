@@ -2,7 +2,10 @@ package part_01.chap_01.par_05_Exceptions;
 
 public class _01_TryCatchFinally {
 
-    static int a, b = 0;
+    static int
+            a,
+            b = 0,
+            c;
 
     static {
         try {
@@ -12,14 +15,11 @@ public class _01_TryCatchFinally {
         }
     }
 
-
-    static int c;
-
 /*    static {
 
 //        c = new Integer("dupa");
-*//*java.lang.ExceptionInInitializerError
-Caused by: java.lang.NumberFormatException: For input string: "dupa"*//*
+//  java.lang.ExceptionInInitializerError
+//  Caused by: java.lang.NumberFormatException: For input string: "dupa"
 
         try {
             c = new Integer("dupa");
@@ -29,9 +29,7 @@ Caused by: java.lang.NumberFormatException: For input string: "dupa"*//*
         }
     }*/
 
-
     public static void main(String[] args) {
 
     }
-
 }

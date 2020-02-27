@@ -1,4 +1,4 @@
-package main.java.part_01.chap_08_exercises.exc_05.inner;
+package part_01.chap_08_exercises.exc_05.inner;
 
 abstract class AC1 {
 }

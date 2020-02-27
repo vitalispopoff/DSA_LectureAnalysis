@@ -1,4 +1,4 @@
-package main.java.part_02.chap_07_examples;
+package part_02.chap_07_examples;
 
 /*complexity = O(n^2) because in terms of number of iterations both loops (inner and outer) are strictly related to the iterated array size */
 public class NestedLoop_01 {

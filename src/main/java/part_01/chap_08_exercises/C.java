@@ -1,4 +1,4 @@
-package main.java.part_01.chap_08_exercises;
+package part_01.chap_08_exercises;
 
 public class C implements Cloneable{
     public static C C = new C();

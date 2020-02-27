@@ -1,16 +1,17 @@
-package main.java.part_01.chap_01.par_04_Loops;
+package part_01.chap_01.par_04_Loops;
+
+import static part_0.Temporal.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static main.java.part_0.Temporal.bln;
-
 public class _03_ForEach {
 
-    static int[] a = new int[3];
-    static int[] b = new int[3];
     static List<Integer> c = new ArrayList<>();
+    static int[]
+            a = new int[3],
+            b = new int[3];
     static int d = 0;
 
     static {
@@ -20,24 +21,24 @@ public class _03_ForEach {
     }
 
     static {
-        System.out.println("before foreach block : "+Arrays.toString(b));
+        System.out.println("before foreach block : " + Arrays.toString(b));
         for (int i : b) {
             i = d++;
-            System.out.println("inside foreach block, d : "+d+ " , i : "+i);
+            System.out.println("inside foreach block, d : " + d + " , i : " + i);
         }
-        System.out.println("post foreach block : "+Arrays.toString(b));
+        System.out.println("post foreach block : " + Arrays.toString(b));
         bln();
     }
 
-//    TODO Work it out! - foreach
+    //    TODO Work it out! - foreach
     static {
-        d=0;
-        System.out.println("before foreach block : "+c.toString());
+        d = 0;
+        System.out.println("before foreach block : " + c.toString());
         for (int i : c) {
             i = d++;
-            System.out.println("inside foreach block, d : "+d+ " , i : "+i);
+            System.out.println("inside foreach block, d : " + d + " , i : " + i);
         }
-        System.out.println("post foreach block : "+c.toString());
+        System.out.println("post foreach block : " + c.toString());
         bln();
     }
 
@@ -53,7 +54,7 @@ public class _03_ForEach {
         System.out.println("forEach02 : ");
         d = 0;
         for (int i : a) {
-            System.out.println("d : "+d++);
+            System.out.println("d : " + d++);
         }
     }
 
@@ -68,7 +69,5 @@ public class _03_ForEach {
         bln();
 
         forEach02();
-
-
     }
 }

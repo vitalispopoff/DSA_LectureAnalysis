@@ -1,8 +1,8 @@
-package main.java.part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes._03_ShortType;
 
 import static java.lang.Short.*;
 
-public class _03_ShortTests {
+public class _03_Shorts {
 
     public static void properties(){
         String primitiveType =  TYPE.getCanonicalName();

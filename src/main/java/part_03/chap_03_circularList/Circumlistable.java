@@ -1,4 +1,4 @@
-package main.java.part_03.chap_03_circularList;
+package part_03.chap_03_circularList;
 
 public interface Circumlistable {
 

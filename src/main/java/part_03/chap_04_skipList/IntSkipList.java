@@ -1,4 +1,4 @@
-package main.java.part_03.chap_04_skipList;
+package part_03.chap_04_skipList;
 
 import java.util.Random;
 

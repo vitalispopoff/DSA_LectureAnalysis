@@ -18,9 +18,6 @@ public class SingleLinkList_03 extends SingleLinkList_01 {
     }
 
     public static void main(String[] args) {
-
-
-
     }
 
 }

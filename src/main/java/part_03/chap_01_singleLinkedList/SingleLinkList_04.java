@@ -47,7 +47,4 @@ public class SingleLinkList_04 {
                     precursor.next = temporal.next;
             }
     }
-
-
-
 }

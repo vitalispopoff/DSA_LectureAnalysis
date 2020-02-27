@@ -1,4 +1,4 @@
-package main.java.part_01.chap_08_exercises.exc_02sq.inner;
+package part_01.chap_08_exercises.exc_02sq.inner;
 
 public class A {
     private String k;

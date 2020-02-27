@@ -1,10 +1,9 @@
-package main.java.part_01.chap_01.par_05_Exceptions;
+package part_01.chap_01.par_05_Exceptions;
 
 //  Oracle tutorial https://docs.oracle.com/javase/tutorial/essential/exceptions/throwing.html
 public class _02_Throw {
 
     static int a;
-
 
     static void throw01(String s) throws NumberFormatException {
         a = new Integer(s);

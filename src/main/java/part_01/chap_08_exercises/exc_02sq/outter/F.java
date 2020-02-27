@@ -1,6 +1,6 @@
-package main.java.part_01.chap_08_exercises.exc_02sq.outter;
+package part_01.chap_08_exercises.exc_02sq.outter;
 
-import main.java.part_01.chap_08_exercises.exc_02sq.inner.A;
+import part_01.chap_08_exercises.exc_02sq.inner.A;
 
 public class F extends A {
 

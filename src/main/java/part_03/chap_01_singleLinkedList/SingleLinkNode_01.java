@@ -18,6 +18,5 @@ public class SingleLinkNode_01 {
         SingleLinkNode_01 p = new SingleLinkNode_01(10);
         p.next = new SingleLinkNode_01(8);
         p.next.next = new SingleLinkNode_01(50);
-
     }
 }

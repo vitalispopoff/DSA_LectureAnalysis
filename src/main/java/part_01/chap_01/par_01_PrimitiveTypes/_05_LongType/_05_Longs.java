@@ -1,8 +1,8 @@
-package main.java.part_01.chap_01.par_01_PrimitiveTypes;
+package part_01.chap_01.par_01_PrimitiveTypes._05_LongType;
 
 import static java.lang.Long.*;
 
-public class _05_LongTests {
+public class _05_Longs {
 
     public static void properties(){
         String primitiveType =  TYPE.getCanonicalName();
