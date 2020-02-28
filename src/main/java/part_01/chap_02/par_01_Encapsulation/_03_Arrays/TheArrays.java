@@ -19,5 +19,15 @@ public class TheArrays {
 
         for (int i = 0; i < d.length; i++) System.out.print(d[i]+", ");
 
+        System.out.println();
+
+        System.out.println("\n* * * Object[] * * *\n");
+        Object[] e = new Object[1];
+        System.out.println(e[0]);
+
+        System.out.println("\n* * * String[] * * *\n");
+        String[] f = new String[1];
+        System.out.println(f[0]);
+
     }
 }
