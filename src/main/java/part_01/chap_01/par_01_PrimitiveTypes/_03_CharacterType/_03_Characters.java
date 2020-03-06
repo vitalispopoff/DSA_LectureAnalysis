@@ -38,6 +38,8 @@ public class _03_Characters {
         System.out.println(a + b + c + d + e);
         System.out.println("" + a + b + c + d + e + f + g);
 
+        Object[] obj = new Object[1];
+        System.out.println(obj[0].equals('\u0000'));
     }
 
 }

@@ -44,6 +44,7 @@ public class EmptyEntryArrays {
 
         Character[] c1 = new Character[1];
         System.out.println("charactrer: " + c1[0]);
+//        char letter = c1[0];     // throws NullPointerException, because 'u\0000' is null
 
         Short[] d1 = new Short[1];
         System.out.println("short: " + d1[0]);

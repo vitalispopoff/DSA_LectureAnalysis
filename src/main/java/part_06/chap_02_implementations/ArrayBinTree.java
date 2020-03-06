@@ -12,4 +12,7 @@ public class ArrayBinTree {
     ArrayBinTree() {
         if (root == null) root = this;
     }
+
+//    TODO implement addToTail()
+//    TODO implement remove()
 }

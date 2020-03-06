@@ -15,4 +15,7 @@ public class ListBinTree {
 
     ListBinTree() {
         if (root == null) root = lastLeaf = this;}
+
+//      TODO implement addToTail()
+//      TODO implement remove()
 }
