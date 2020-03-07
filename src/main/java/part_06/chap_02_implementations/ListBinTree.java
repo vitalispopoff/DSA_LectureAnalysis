@@ -1,5 +1,7 @@
 package part_06.chap_02_implementations;
 
+import java.util.Stack;
+
 public class ListBinTree {
 
     static ListBinTree
@@ -12,7 +14,8 @@ public class ListBinTree {
             rightBranch = null,
             prev = null,
             next = null;
-    String value = null;
+    String name = null;
+    int value;
 
     ListBinTree() {
         this(null);
@@ -24,12 +27,23 @@ public class ListBinTree {
         }
     }
 
+    ListBinTree goToBranch(int destination) {
+        ListBinTree cache = this;
+        String path = Integer.toBinaryString(destination);
+
+        for (int i = 1; i < path.length(); i++) {
+            boolean turnRight = path.charAt(i) == '1';
+            if(cache!=null) cache = turnRight ? cache.rightBranch: cache.leftBranch;
+            else i = path.length();
+        }
+        return cache;
+    }
 
     ListBinTree findLowerLeaf() {
-                                                        // assuming the branch is not null
+        // assuming the branch is not null
         boolean left = leftBranch == null;
         boolean right = rightBranch == null;
-                                                        // we go left-to-right on the branches
+        // we go left-to-right on the branches
         if (left) return leftBranch;                    // left is a leaf (forget the right branch then)
         else if (!left & right) return rightBranch;     //  left is branch, and leaf on right
         else return this;                               //  branch is a root
@@ -37,14 +51,21 @@ public class ListBinTree {
 
     ListBinTree findSmallestPath() {
         ListBinTree cache = findLowerLeaf();
+        int counter = 1;
 
-        return null;
+        if (cache == this) {
+//            cache = cache.leftBranch.findSmallestPath();
+//            counter +=1;
+//
+        }
+
+        return cache;
     }
 
     ListBinTree addLeaf(String value) {
         ListBinTree cache = this.findLowerLeaf();
         cache = new ListBinTree();
-        cache.value = value;
+        cache.name = value;
         return cache;
     }
 
@@ -55,8 +76,33 @@ public class ListBinTree {
 
     public static void main(String[] args) {
 
-        ListBinTree theRoot = new ListBinTree();
-        ListBinTree theBranch = new ListBinTree(theRoot);
-        System.out.println(theBranch.findLowerLeaf());
+        /*{
+        int
+                a = 2,
+                b = 3,
+                c = 11,
+                d = 26;
+
+        System.out.println(a + ": " + Integer.toBinaryString(a));
+        System.out.println(b + ": " + Integer.toBinaryString(b));
+        System.out.println(c + ": " + Integer.toBinaryString(c));
+        System.out.println(d + ": " + Integer.toBinaryString(d));
+}*/
+
+        ListBinTree
+                root = new ListBinTree(),
+                _2 = root.leftBranch = new ListBinTree(),
+                _3 = root.rightBranch = new ListBinTree(),
+                _4 = _2.leftBranch = new ListBinTree();
+
+        root.value = 1;
+        _2.value = 2;
+        _3.value = 3;
+        _4.value = 4;
+
+
+        System.out.println(root.goToBranch(2).value);
+
+
     }
 }
