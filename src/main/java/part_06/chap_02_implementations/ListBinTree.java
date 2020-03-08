@@ -33,8 +33,19 @@ public class ListBinTree {
 
         for (int i = 1; i < path.length(); i++) {
             boolean turnRight = path.charAt(i) == '1';
-            if(cache!=null) cache = turnRight ? cache.rightBranch: cache.leftBranch;
+            if (cache != null) cache = turnRight ? cache.rightBranch : cache.leftBranch;
             else i = path.length();
+        }
+        return cache;
+    }
+
+    ListBinTree findLowestLeaf(){
+        ListBinTree cache = this;
+        for(int i = 1; cache != null; i++){
+            String path = Integer.toBinaryString(i);
+            for( int j = 1 ; j < path.length(); j ++){
+                cache = path.charAt(j) == '1' ? cache.rightBranch : cache.leftBranch;
+            }
         }
         return cache;
     }
@@ -89,20 +100,25 @@ public class ListBinTree {
         System.out.println(d + ": " + Integer.toBinaryString(d));
 }*/
 
-        ListBinTree
-                root = new ListBinTree(),
-                _2 = root.leftBranch = new ListBinTree(),
-                _3 = root.rightBranch = new ListBinTree(),
-                _4 = _2.leftBranch = new ListBinTree();
+        /*{
+            ListBinTree
+                    root = new ListBinTree(),
+                    _2 = root.leftBranch = new ListBinTree(),
+                    _3 = root.rightBranch = new ListBinTree(),
+                    _4 = _2.leftBranch = new ListBinTree();
 
-        root.value = 1;
-        _2.value = 2;
-        _3.value = 3;
-        _4.value = 4;
+            root.value = 1;
+            _2.value = 2;
+            _3.value = 3;
+            _4.value = 4;
+            System.out.println(root.goToBranch(2).value);
+        }*/
 
 
-        System.out.println(root.goToBranch(2).value);
+        Stack<Integer> stackyMcStack = new Stack<>();
 
+        stackyMcStack.add(1);
 
+        System.out.println(stackyMcStack.size());
     }
 }

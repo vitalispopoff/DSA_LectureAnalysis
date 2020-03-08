@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class ListBinTreeTest {
 
-    //    @Ignore
+
     @Test
     public void goToBranch_01() {
         ListBinTree
@@ -30,6 +30,28 @@ public class ListBinTreeTest {
         Assert.assertEquals(_3, root.goToBranch(3));
         Assert.assertEquals(_11, root.goToBranch(11));
         Assert.assertEquals(_26, root.goToBranch(26));
+    }
+
+    @Test
+    public void findLowestLeaf_01() {
+        ListBinTree
+                root = new ListBinTree(),
+                _2 = root.leftBranch = new ListBinTree(),
+                _3 = root.rightBranch = new ListBinTree(),
+                _4 = _2.leftBranch = new ListBinTree(),
+                _5 = _2.rightBranch = new ListBinTree(),
+                _6 = _3.leftBranch = new ListBinTree(),
+                _7 = _3.rightBranch = new ListBinTree(),
+                _8 = _4.leftBranch = new ListBinTree(),
+
+                _10 = _5.leftBranch = new ListBinTree(),
+                _11 = _5.rightBranch= new ListBinTree(),
+
+                _15 = _7.rightBranch = new ListBinTree();
+
+        Assert.assertEquals(_4.rightBranch, root.findLowestLeaf());
+
+
     }
 
     @Test
