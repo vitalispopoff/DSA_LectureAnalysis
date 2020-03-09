@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class ListBinTreeTest {
 
-
     @Test
     public void goToBranch_01() {
         ListBinTree
@@ -33,7 +32,14 @@ public class ListBinTreeTest {
     }
 
     @Test
-    public void findLowestLeafLocation_01() {
+    public void findLowestLeafLocation_01(){
+        ListBinTree theRoot = null;
+
+        Assert.assertEquals(1, ListBinTree.findLowestLeafLocation(theRoot));
+    }
+
+    @Test
+    public void findLowestLeafLocation_02() {
         ListBinTree
                 theRoot = new ListBinTree(),
                 _2 = theRoot.leftBranch = new ListBinTree(),
@@ -55,7 +61,7 @@ public class ListBinTreeTest {
         Assert.assertFalse(_5 == null);
         }
 //      * * * TEST * * *
-        {Assert.assertEquals(9, theRoot.findLowestLeafLocation());}
+        {Assert.assertEquals(9, ListBinTree.findLowestLeafLocation(theRoot));}
     }
 
     @Test
@@ -75,8 +81,8 @@ public class ListBinTreeTest {
 
                 _15 = _7.rightBranch = new ListBinTree();
 
-        Assert.assertEquals(_4.rightBranch, theRoot.findLowestLeaf());
-        Assert.assertEquals(_9, theRoot.findLowestLeaf());
+        Assert.assertEquals(_4.rightBranch, ListBinTree.findLowestLeaf(theRoot));
+        Assert.assertEquals(_9, ListBinTree.findLowestLeaf(theRoot));
     }
 
     @Test
@@ -117,7 +123,6 @@ public class ListBinTreeTest {
         Assert.assertEquals(branch, branch.findLowerLeaf());
     }
 
-    @Ignore
     @Test
     public void addToTail_01() {
         ListBinTree
@@ -129,16 +134,12 @@ public class ListBinTreeTest {
                 _6 = _3.leftBranch = new ListBinTree(),
                 _7 = _3.rightBranch = new ListBinTree(),
                 _8 = _4.leftBranch = new ListBinTree(),
-
                 _10 = _5.leftBranch = new ListBinTree(),
                 _11 = _5.rightBranch = new ListBinTree(),
-
                 _15 = _7.rightBranch = new ListBinTree();
-
         String name = "name";
-        int value = 9;
 
-        Assert.assertEquals("name", root.addToTail(name, 9).name);
+        Assert.assertEquals("name", root.addToTail(name).name);
         Assert.assertNull(_4.rightBranch);
     }
 

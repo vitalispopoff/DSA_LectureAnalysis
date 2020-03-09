@@ -6,9 +6,7 @@ import java.util.Stack;
 public class ListBinTree {
 
     static ListBinTree
-            root = null/*,
-            lastLeaf = null*/;      // lastLeaf is pretty useless: being null cannot lead to its root...
-
+            root = null;
     ListBinTree
             localRoot = null,
             leftBranch = null,
@@ -16,14 +14,13 @@ public class ListBinTree {
             prev = null,
             next = null;
     String name = null;
-    int value;
 
     ListBinTree() {
         this(null);
     }
 
     ListBinTree(ListBinTree localRoot) {
-        if (root == null) root = /*lastLeaf =*/ this;
+        if (root == null) root = this;
         else {
         }
     }
@@ -40,13 +37,14 @@ public class ListBinTree {
         return cache;
     }
 
-    int findLowestLeafLocation() {
-        ListBinTree cache = this;
-        if (this == null) return 1;
+    static int findLowestLeafLocation(ListBinTree localRoot) {
+        if (localRoot == null)
+            return 1;                    // has to be static - refering to the null fores throwing NullPointerException
         else {
+            ListBinTree cache = localRoot;
             int i = 2;
-            for (; cache != null;) {
-                 cache = this;
+            for (; cache != null; ) {
+                cache = localRoot;
                 i++;                                        //moved inside the loop body, to prevent unintentional increment after the loop breaks.
                 String path = Integer.toBinaryString(i);
                 for (int j = 1; j < path.length(); j++) {
@@ -57,8 +55,8 @@ public class ListBinTree {
         }
     }
 
-    ListBinTree findLowestLeaf() {
-        ListBinTree cache = this;
+    static ListBinTree findLowestLeaf(ListBinTree localRoot) {
+        ListBinTree cache = localRoot;
         for (int i = 1; cache != null; i++) {
             String path = Integer.toBinaryString(i);
             for (int j = 1; j < path.length(); j++) {
@@ -67,7 +65,6 @@ public class ListBinTree {
         }
         return cache;
     }
-
 
     ListBinTree findLowerLeaf() {
         // assuming the branch is not null
@@ -79,19 +76,18 @@ public class ListBinTree {
         else return this;                               //  branch is a root
     }
 
-    static ListBinTree addToTail(String name/*, int value*/) {
-        int location = root.findLowestLeafLocation();
+    static ListBinTree addToTail(String name) {
+        int location = findLowestLeafLocation(root);
         ListBinTree
                 localRoot = root.goToBranch(location >> 1),
-                cache = location % 2 == 0 ? localRoot.leftBranch : localRoot.rightBranch;
-        cache = new ListBinTree();
+//                cache = location % 2 == 0 ? localRoot.leftBranch : localRoot.rightBranch;
+                cache = new ListBinTree();
         cache.name = name;
-//        cache.value = value;
 
         return cache;
     }
 
-    static ListBinTree addToTail(){
+    static ListBinTree addToTail() {
         return addToTail(null);
     }
 
@@ -102,57 +98,8 @@ public class ListBinTree {
         return cache;
     }
 
-
-
 //      TODO implement remove()
 
     public static void main(String[] args) {
-
-        /*{
-        int
-                a = 2,
-                b = 3,
-                c = 11,
-                d = 26;
-
-        System.out.println(a + ": " + Integer.toBinaryString(a));
-        System.out.println(b + ": " + Integer.toBinaryString(b));
-        System.out.println(c + ": " + Integer.toBinaryString(c));
-        System.out.println(d + ": " + Integer.toBinaryString(d));
-}*/
-
-        /*{
-            ListBinTree
-                    root = new ListBinTree(),
-                    _2 = root.leftBranch = new ListBinTree(),
-                    _3 = root.rightBranch = new ListBinTree(),
-                    _4 = _2.leftBranch = new ListBinTree();
-
-            root.value = 1;
-            _2.value = 2;
-            _3.value = 3;
-            _4.value = 4;
-            System.out.println(root.goToBranch(2).value);
-        }*/
-
-        /*{
-    ListBinTree
-            theRoot = new ListBinTree(),
-            _2 = theRoot.leftBranch = new ListBinTree(),
-            _3 = theRoot.rightBranch = new ListBinTree(),
-            _4 = _2.leftBranch = new ListBinTree(),
-            _5 = _2.rightBranch = new ListBinTree(),
-            _6 = _3.leftBranch = new ListBinTree(),
-            _7 = _3.rightBranch = new ListBinTree(),
-            _8 = _4.leftBranch = new ListBinTree(),
-
-            _10 = _5.leftBranch = new ListBinTree(),
-            _11 = _5.rightBranch = new ListBinTree(),
-
-            _15 = _7.rightBranch = new ListBinTree();
-
-    System.out.println(theRoot.findLowestLeafLocation());
-}*/
-
     }
 }
