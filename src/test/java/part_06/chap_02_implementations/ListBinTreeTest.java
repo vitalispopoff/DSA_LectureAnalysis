@@ -33,25 +33,50 @@ public class ListBinTreeTest {
     }
 
     @Test
-    public void findLowestLeaf_01() {
+    public void findLowestLeafLocation_01() {
         ListBinTree
-                root = new ListBinTree(),
-                _2 = root.leftBranch = new ListBinTree(),
-                _3 = root.rightBranch = new ListBinTree(),
+                theRoot = new ListBinTree(),
+                _2 = theRoot.leftBranch = new ListBinTree(),
+                _3 = theRoot.rightBranch = new ListBinTree(),
                 _4 = _2.leftBranch = new ListBinTree(),
                 _5 = _2.rightBranch = new ListBinTree(),
                 _6 = _3.leftBranch = new ListBinTree(),
                 _7 = _3.rightBranch = new ListBinTree(),
                 _8 = _4.leftBranch = new ListBinTree(),
-
+                _9 = _4.rightBranch,
                 _10 = _5.leftBranch = new ListBinTree(),
-                _11 = _5.rightBranch= new ListBinTree(),
+                _11 = _5.rightBranch = new ListBinTree(),
 
                 _15 = _7.rightBranch = new ListBinTree();
 
-        Assert.assertEquals(_4.rightBranch, root.findLowestLeaf());
+//      * * * PRETEST * * *
+        {
+            Assert.assertNull(_9);
+        Assert.assertFalse(_5 == null);
+        }
+//      * * * TEST * * *
+        {Assert.assertEquals(9, theRoot.findLowestLeafLocation());}
+    }
 
+    @Test
+    public void findLowestLeaf_01() {
+        ListBinTree
+                theRoot = new ListBinTree(),
+                _2 = theRoot.leftBranch = new ListBinTree(),
+                _3 = theRoot.rightBranch = new ListBinTree(),
+                _4 = _2.leftBranch = new ListBinTree(),
+                _5 = _2.rightBranch = new ListBinTree(),
+                _6 = _3.leftBranch = new ListBinTree(),
+                _7 = _3.rightBranch = new ListBinTree(),
+                _8 = _4.leftBranch = new ListBinTree(),
+                _9 = _4.rightBranch,
+                _10 = _5.leftBranch = new ListBinTree(),
+                _11 = _5.rightBranch = new ListBinTree(),
 
+                _15 = _7.rightBranch = new ListBinTree();
+
+        Assert.assertEquals(_4.rightBranch, theRoot.findLowestLeaf());
+        Assert.assertEquals(_9, theRoot.findLowestLeaf());
     }
 
     @Test
@@ -92,10 +117,29 @@ public class ListBinTreeTest {
         Assert.assertEquals(branch, branch.findLowerLeaf());
     }
 
-
     @Ignore
     @Test
-    public void findSmallestPath_01() {
+    public void addToTail_01() {
+        ListBinTree
+                root = new ListBinTree(),
+                _2 = root.leftBranch = new ListBinTree(),
+                _3 = root.rightBranch = new ListBinTree(),
+                _4 = _2.leftBranch = new ListBinTree(),
+                _5 = _2.rightBranch = new ListBinTree(),
+                _6 = _3.leftBranch = new ListBinTree(),
+                _7 = _3.rightBranch = new ListBinTree(),
+                _8 = _4.leftBranch = new ListBinTree(),
+
+                _10 = _5.leftBranch = new ListBinTree(),
+                _11 = _5.rightBranch = new ListBinTree(),
+
+                _15 = _7.rightBranch = new ListBinTree();
+
+        String name = "name";
+        int value = 9;
+
+        Assert.assertEquals("name", root.addToTail(name, 9).name);
+        Assert.assertNull(_4.rightBranch);
     }
 
     @Test

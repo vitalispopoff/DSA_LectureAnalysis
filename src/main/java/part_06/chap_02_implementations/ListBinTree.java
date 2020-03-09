@@ -1,5 +1,6 @@
 package part_06.chap_02_implementations;
 
+import java.util.List;
 import java.util.Stack;
 
 public class ListBinTree {
@@ -39,16 +40,34 @@ public class ListBinTree {
         return cache;
     }
 
-    ListBinTree findLowestLeaf(){
+    int findLowestLeafLocation() {
         ListBinTree cache = this;
-        for(int i = 1; cache != null; i++){
+        if (this == null) return 1;
+        else {
+            int i = 2;
+            for (; cache != null;) {
+                 cache = this;
+                i++;                                        //moved inside the loop body, to prevent unintentional increment after the loop breaks.
+                String path = Integer.toBinaryString(i);
+                for (int j = 1; j < path.length(); j++) {
+                    cache = path.charAt(j) == '1' ? cache.rightBranch : cache.leftBranch;
+                }
+            }
+            return i;
+        }
+    }
+
+    ListBinTree findLowestLeaf() {
+        ListBinTree cache = this;
+        for (int i = 1; cache != null; i++) {
             String path = Integer.toBinaryString(i);
-            for( int j = 1 ; j < path.length(); j ++){
+            for (int j = 1; j < path.length(); j++) {
                 cache = path.charAt(j) == '1' ? cache.rightBranch : cache.leftBranch;
             }
         }
         return cache;
     }
+
 
     ListBinTree findLowerLeaf() {
         // assuming the branch is not null
@@ -60,17 +79,20 @@ public class ListBinTree {
         else return this;                               //  branch is a root
     }
 
-    ListBinTree findSmallestPath() {
-        ListBinTree cache = findLowerLeaf();
-        int counter = 1;
-
-        if (cache == this) {
-//            cache = cache.leftBranch.findSmallestPath();
-//            counter +=1;
-//
-        }
+    static ListBinTree addToTail(String name/*, int value*/) {
+        int location = root.findLowestLeafLocation();
+        ListBinTree
+                localRoot = root.goToBranch(location >> 1),
+                cache = location % 2 == 0 ? localRoot.leftBranch : localRoot.rightBranch;
+        cache = new ListBinTree();
+        cache.name = name;
+//        cache.value = value;
 
         return cache;
+    }
+
+    static ListBinTree addToTail(){
+        return addToTail(null);
     }
 
     ListBinTree addLeaf(String value) {
@@ -81,9 +103,8 @@ public class ListBinTree {
     }
 
 
-//      TODO implement addToTail()
+
 //      TODO implement remove()
-//      TODO implement findShortestBranch()
 
     public static void main(String[] args) {
 
@@ -114,11 +135,24 @@ public class ListBinTree {
             System.out.println(root.goToBranch(2).value);
         }*/
 
+        /*{
+    ListBinTree
+            theRoot = new ListBinTree(),
+            _2 = theRoot.leftBranch = new ListBinTree(),
+            _3 = theRoot.rightBranch = new ListBinTree(),
+            _4 = _2.leftBranch = new ListBinTree(),
+            _5 = _2.rightBranch = new ListBinTree(),
+            _6 = _3.leftBranch = new ListBinTree(),
+            _7 = _3.rightBranch = new ListBinTree(),
+            _8 = _4.leftBranch = new ListBinTree(),
 
-        Stack<Integer> stackyMcStack = new Stack<>();
+            _10 = _5.leftBranch = new ListBinTree(),
+            _11 = _5.rightBranch = new ListBinTree(),
 
-        stackyMcStack.add(1);
+            _15 = _7.rightBranch = new ListBinTree();
 
-        System.out.println(stackyMcStack.size());
+    System.out.println(theRoot.findLowestLeafLocation());
+}*/
+
     }
 }
