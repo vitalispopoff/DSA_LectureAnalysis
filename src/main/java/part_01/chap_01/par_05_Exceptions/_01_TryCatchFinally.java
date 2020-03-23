@@ -1,5 +1,7 @@
 package part_01.chap_01.par_05_Exceptions;
 
+import static java.lang.Double.NaN;
+
 public class _01_TryCatchFinally {
 
     static int
@@ -15,6 +17,11 @@ public class _01_TryCatchFinally {
         }
     }
 
+    /* TODO
+    *
+    *   does catch() catch more than just Exception ?
+    * */
+
 /*    static {
 
 //        c = new Integer("dupa");
@@ -29,7 +36,5 @@ public class _01_TryCatchFinally {
         }
     }*/
 
-    public static void main(String[] args) {
-
-    }
+    public static void main(String[] args) {}
 }
