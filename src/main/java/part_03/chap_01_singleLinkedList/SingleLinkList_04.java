@@ -14,7 +14,8 @@ public class SingleLinkList_04 {
 
     public void printAll(java.io.PrintStream out) {
         for (SingleLinkNode_04 temporal = head; temporal != null; temporal = temporal.next)
-            out.print(temporal.info);   // info is an Object object - we avoid casting.
+
+            out.print(temporal.info);       // * info is an Object object - we avoid casting.
     }
 
     public void add(Object element) {
@@ -23,28 +24,28 @@ public class SingleLinkList_04 {
 
     public Object find(Object element) {
         SingleLinkNode_04 temporal = head;
-        for (; temporal != null && !element.equals(temporal.info); temporal = temporal.next) ;
-        if (temporal == null)
-            return null;
+
+        for (; temporal != null && !element.equals(temporal.info); temporal = temporal.next)
+            ;
+        if (temporal == null) return null;
         else return temporal.info;
     }
 
-    public Object deleteHead(){
+    public Object deleteHead() {
         Object element = head.info;
         head = head.next;
+
         return element;
     }
 
-    public void delete (Object element){
+    public void delete(Object element) {
         if (head != null)
-            if (element.equals(head.info))
-                head = head.next;
-            else{
+            if (element.equals(head.info)) head = head.next;
+            else {
                 SingleLinkNode_04 precursor = head, temporal = head.next;
-                for(; temporal != null && !(temporal.info.equals(element));
-                    precursor = precursor.next, temporal = temporal.next);
-                if(temporal !=null)
-                    precursor.next = temporal.next;
+                for (; temporal != null && !(temporal.info.equals(element)); precursor = precursor.next, temporal = temporal.next)
+                    ;
+                if (temporal != null) precursor.next = temporal.next;
             }
     }
 }

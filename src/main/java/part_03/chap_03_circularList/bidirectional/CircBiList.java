@@ -84,14 +84,11 @@ public class CircBiList implements Circumlistable {
     }
 
     public static void main(String[] args) {
-
         CircBiList list = new CircBiList();
+
         list.addToHead(2);
         list.addToHead(1);
         list.addToHead(0);
-
         list.printAll();
-
-
     }
 }

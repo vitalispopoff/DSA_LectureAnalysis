@@ -13,6 +13,5 @@ public class NullChar {
 
         System.out.println(Character.isDefined(tab[5]));
         System.out.println(Character.getType(tab[5]));
-
     }
 }

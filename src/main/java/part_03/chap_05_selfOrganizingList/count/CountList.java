@@ -1,12 +1,12 @@
 package part_03.chap_05_selfOrganizingList.count;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class CountList {
 
-    CountNode head = null, tail = null;
+    CountNode
+            head = null,
+            tail = null;
 
     public CountNode add(int element) {
         CountNode node = new CountNode(element);
@@ -81,14 +81,12 @@ public class CountList {
                 if (node == head) head = node.next;
                 if (node == tail) tail = node.prev;
             }
-
         } catch (NullPointerException e) {
             System.out.println("element was not in the list");
         } finally {
             return node;
         }
     }
-
 
     @Override
     public String toString() {

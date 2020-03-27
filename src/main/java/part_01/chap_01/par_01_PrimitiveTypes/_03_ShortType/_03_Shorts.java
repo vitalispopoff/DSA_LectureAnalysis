@@ -4,14 +4,14 @@ import static java.lang.Short.*;
 
 public class _03_Shorts {
 
-    public static void properties(){
-        String primitiveType =  TYPE.getCanonicalName();
+    public static void properties() {
+        String primitiveType = TYPE.getCanonicalName();
         System.out.println(
                 primitiveType + " instance representation: " + TYPE + "\n" +
                         primitiveType + " size in bits: " + SIZE + "\n" +
-                        primitiveType + " size in bytes: " + BYTES+ "\n" +
-                        primitiveType + " min value: " + MIN_VALUE+ "\n" +
-                        primitiveType + " max value: " + MAX_VALUE+ "\n"
+                        primitiveType + " size in bytes: " + BYTES + "\n" +
+                        primitiveType + " min value: " + MIN_VALUE + "\n" +
+                        primitiveType + " max value: " + MAX_VALUE + "\n"
         );
     }
 
@@ -19,14 +19,13 @@ public class _03_Shorts {
 
         properties();
 
-        short a, b, c, d, e;
-
-        a = 1;
-        b = (short) 1;
-        c = new Short((short) 1);
-        d = new Short("1");
+        short
+                a = 1,
+                b = '1',
+                c = (short) 1,
+                d = new Short((short) 1),
+                e = new Short("1");
 
         System.out.println(MAX_VALUE + b == MIN_VALUE);
-
     }
 }

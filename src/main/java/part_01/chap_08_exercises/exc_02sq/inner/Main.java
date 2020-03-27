@@ -2,9 +2,10 @@ package part_01.chap_08_exercises.exc_02sq.inner;
 
 public class Main {
 
-
     public static void main(String[] args) {
+
         ExtC1 object1 = new ExtC1();
+
         C1 object2 = new ExtC1(), object3 = new ExtC1();
 
 //        object1.process1(1000); //  "Inside process1 in ExtC1 1000"

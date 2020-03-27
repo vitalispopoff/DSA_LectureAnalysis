@@ -4,9 +4,10 @@ import static part_0.Temporal.*;
 
 public class _12_BitwiseComplement {
 
-    static int a = 0xF0F0F0F0;
-    static int b = 0x06;
-    static int c;
+    static int
+            a = 0xF0F0F0F0,
+            b = 0x06,
+            c;
 
     /*static void string(int c) {
         System.out.print(Integer.toBinaryString(c));

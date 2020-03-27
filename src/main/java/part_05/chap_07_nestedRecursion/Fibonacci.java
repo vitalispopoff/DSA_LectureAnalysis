@@ -2,8 +2,7 @@ package part_05.chap_07_nestedRecursion;
 
 import static java.lang.Math.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 
 public class Fibonacci {
 
@@ -26,7 +25,7 @@ public class Fibonacci {
     static int iterationFibo(int n) {
         ArrayList<Integer> cache = new ArrayList<>(Arrays.asList(0, 1));
         for (int i = 2; i <= n; i++) {
-            cache.add(i, cache.get(i-1) + cache.get(i-2));
+            cache.add(i, cache.get(i - 1) + cache.get(i - 2));
         }
         return cache.get(n);
     }
@@ -50,10 +49,9 @@ public class Fibonacci {
     public static void main(String[] args) {
 
         int n = 25;
-
         fibonacci(n);
         System.out.println();
-        System.out.println("no recursion: "+ noRecursionFibo(n));
-        System.out.println("iteration: "+ iterationFibo(n));
+        System.out.println("no recursion: " + noRecursionFibo(n));
+        System.out.println("iteration: " + iterationFibo(n));
     }
 }

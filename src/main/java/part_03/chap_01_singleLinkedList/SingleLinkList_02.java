@@ -13,7 +13,6 @@ public class SingleLinkList_02 extends SingleLinkList_01 {
         } else return 0;
     }
 
-
     public static void main(String[] args) {
 
         SingleLinkList_02 list = new SingleLinkList_02();

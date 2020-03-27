@@ -2,9 +2,7 @@ package part_01.chap_01.par_04_Loops;
 
 import static part_0.Temporal.*;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class _03_ForEach {
 

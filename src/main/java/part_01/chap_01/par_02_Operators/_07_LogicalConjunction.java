@@ -17,7 +17,5 @@ public class _07_LogicalConjunction {
         System.out.println("FALSE & FALSE : "+Boolean.toString(FALSE & FALSE));
         System.out.println("FALSE & TRUE : "+ Boolean.toString(FALSE & TRUE));
         System.out.println("TRUE & FALSE : "+ Boolean.toString(TRUE & FALSE));
-
-
     }
 }

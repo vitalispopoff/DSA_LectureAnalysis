@@ -1,7 +1,5 @@
 package part_01.chap_01.par_01_PrimitiveTypes;
 
-
-
 public class PrimitiveTypeProperties {
 
 /*    public static void main(String[] args) {

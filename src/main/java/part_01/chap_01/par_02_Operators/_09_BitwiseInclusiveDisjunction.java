@@ -5,14 +5,14 @@ import static part_0.Temporal.bln;
 
 public class _09_BitwiseInclusiveDisjunction {
 
-    static int a = 0x0A;
-    static int b = 0x06;
-    static int c;
+    static int
+            a = 0x0A,
+            b = 0x06,
+            c;
 
     static void string(int c) {
         System.out.print(Integer.toBinaryString(c));
     }
-
 
     public static void main(String[] args) {
 
@@ -25,7 +25,6 @@ public class _09_BitwiseInclusiveDisjunction {
             string(c);
             bln();
         }
-
         c = a | b;
         {
             string(a);
@@ -35,7 +34,6 @@ public class _09_BitwiseInclusiveDisjunction {
             string(c);
             bln();
         }
-
         bln();
         {
             System.out.print("1 | 1 == ");
@@ -58,8 +56,5 @@ public class _09_BitwiseInclusiveDisjunction {
             System.out.println("    TRUE | FALSE : " + Boolean.toString(TRUE | FALSE));
         }
         bln();
-
-
     }
-
 }

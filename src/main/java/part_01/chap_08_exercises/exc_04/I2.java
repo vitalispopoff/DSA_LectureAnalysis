@@ -28,4 +28,3 @@ public interface I2 {
 
     final int k = l;
 }
-

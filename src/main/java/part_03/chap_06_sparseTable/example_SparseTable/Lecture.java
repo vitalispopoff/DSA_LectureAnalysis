@@ -15,17 +15,6 @@ public class Lecture {
             code,
             title;
 
-/*    public Lecture(
-            String code,
-            String title,
-            Lecture prev,
-            Lecture next) {
-        this.code = code;
-        this.title = title;
-        this.prev = prev;
-        this.next = next;
-    }*/     //  TODO full constructor - disposable.
-
     public Lecture(String title, String code) {
         this.code = code;
         this.title = title;
@@ -84,6 +73,6 @@ public class Lecture {
 
         if(next != null) next.prev = prev == null ? null : prev;
         if(prev != null) prev.next = next == null ? null : next;
-        next = prev = null;     // this might be an overkill - disposable?
+        next = prev = null;     // ? this might be an overkill - disposable?
     }
 }

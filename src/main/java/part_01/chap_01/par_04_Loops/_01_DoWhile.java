@@ -16,6 +16,7 @@ public class _01_DoWhile {
     static void doWhile02() {
         a = 0;
         String result = "";
+
         do {
             result = a == 0 ? "wha'da...?" : (a % 2 == 0 ? "even" : "odd");
             System.out.println("a=" + a++ + " : " + result);
@@ -23,10 +24,8 @@ public class _01_DoWhile {
     }
 
     public static void main(String[] args) {
-
         doWhile01();
         bln();
-
         doWhile02();
     }
 }

@@ -2,7 +2,9 @@ package part_03.chap_02_doubleLinkedList;
 
 public class DoubleLinkList {
 
-    private DoubleLinkNode head, tail;
+    private DoubleLinkNode
+            head,
+            tail;
 
     public DoubleLinkList() {
         head = tail = null;
@@ -27,16 +29,15 @@ public class DoubleLinkList {
 
     public int removeFromHead() {
         int element = head.info;
-        if (head == tail)
-            head = tail = null;
+        if (head == tail) head = tail = null;
         else head = head.next;
+
         return element;
     }
 
     public int removeFromTail() {
         int value = tail.info;
-        if (head == tail)
-            head = tail = null;
+        if (head == tail) head = tail = null;
         else {
             tail = tail.prev;
             tail.next = null;
@@ -65,8 +66,8 @@ public class DoubleLinkList {
                 DoubleLinkNode pred, temp;
                 for (pred = head, temp = head.next;
                      temp != null && temp.info != element;
-                     pred = pred.next, temp = temp.next) ;
-
+                     pred = pred.next, temp = temp.next)
+                    ;
                 if (temp != null) {
                     temp.next.prev = pred;
                     pred.next = temp.next;

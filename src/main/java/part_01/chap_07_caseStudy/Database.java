@@ -6,15 +6,14 @@ public class Database {
 
     private RandomAccessFile database;
     private String fName = new String();
-//    private IOmethods io = new IOmethods();
 
     Database() throws IOException{
         System.out.print("File name: ");
-//        fName = io.readLine();
     }
 
     private void add(DbObject d) throws IOException{
         database = new RandomAccessFile(fName, "rw");
+
         database.seek(database.length());
         d.writeToFile(database);
         database.close();
@@ -22,6 +21,7 @@ public class Database {
 
     private void modify(DbObject d) throws IOException{
         DbObject[] tmp = new DbObject[1];
+
         d.copy(tmp);
         database = new RandomAccessFile(fName, "rw");
 
@@ -42,6 +42,7 @@ public class Database {
 
     private boolean find(DbObject d) throws IOException{
         DbObject[] tmp = new DbObject[1];
+
         d.copy(tmp);
         database = new RandomAccessFile(fName, "r");
 
@@ -59,6 +60,7 @@ public class Database {
 
     private void printDb(DbObject d) throws IOException{
         database = new RandomAccessFile(fName, "r");
+
         while (database.getFilePointer()<database.length()){
             d.readFromFile(database);
             d.writeLegibly();
@@ -68,11 +70,9 @@ public class Database {
     }
 
     public void run(DbObject rec) throws IOException{
-//        String option;    // this line was in the first place
         String option ="";
         System.out.println("1. Add; 2. Find; 3. Modify a record; 4. Exit");
         System.out.println("Enter an option: ");
-//        option = io.readLine();
         
         while (true){
             if (option.charAt(0)=='1'){
@@ -96,9 +96,6 @@ public class Database {
             else return;
             printDb(rec);
             System.out.print("Enter an option: ");
-//            option = io.readLine();
         }
     }
-
-
 }

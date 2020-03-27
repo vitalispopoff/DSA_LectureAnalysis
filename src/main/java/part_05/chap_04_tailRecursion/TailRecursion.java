@@ -1,7 +1,5 @@
 package part_05.chap_04_tailRecursion;
 
-import java.util.ArrayList;
-
 public class TailRecursion {
 
     static double nthOfHalf(int nth) {
@@ -15,9 +13,7 @@ public class TailRecursion {
     }
 
     public static void main(String[] args) {
-
         System.out.println(nthOfHalf(8));
-
         System.out.println(numberOfDigits(1024));
     }
 }

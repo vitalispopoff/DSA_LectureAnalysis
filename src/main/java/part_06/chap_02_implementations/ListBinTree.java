@@ -1,8 +1,5 @@
 package part_06.chap_02_implementations;
 
-import java.util.List;
-import java.util.Stack;
-
 public class ListBinTree {
 
     static ListBinTree
@@ -39,13 +36,13 @@ public class ListBinTree {
 
     static int findLowestLeafLocation(ListBinTree localRoot) {
         if (localRoot == null)
-            return 1;                    // has to be static - refering to the null fores throwing NullPointerException
+            return 1;                                                                       // * has to be static - refering to the null forces throwing NullPointerException
         else {
             ListBinTree cache = localRoot;
             int i = 2;
             for (; cache != null; ) {
                 cache = localRoot;
-                i++;                                        //moved inside the loop body, to prevent unintentional increment after the loop breaks.
+                i++;                                                                        // * moved inside the loop body, to prevent unintentional increment after the loop breaks.
                 String path = Integer.toBinaryString(i);
                 for (int j = 1; j < path.length(); j++) {
                     cache = path.charAt(j) == '1' ? cache.rightBranch : cache.leftBranch;
@@ -71,16 +68,15 @@ public class ListBinTree {
         boolean left = leftBranch == null;
         boolean right = rightBranch == null;
         // we go left-to-right on the branches
-        if (left) return leftBranch;                    // left is a leaf (forget the right branch then)
-        else if (!left & right) return rightBranch;     //  left is branch, and leaf on right
-        else return this;                               //  branch is a root
+        if (left) return leftBranch;                    // * left is a leaf (forget the right branch then)
+        else if (!left & right) return rightBranch;     // * left is branch, and leaf on right
+        else return this;                               // * branch is a root
     }
 
     static ListBinTree addToTail(String name) {
         int location = findLowestLeafLocation(root);
         ListBinTree
                 localRoot = root.goToBranch(location >> 1),
-//                cache = location % 2 == 0 ? localRoot.leftBranch : localRoot.rightBranch;
                 cache = new ListBinTree();
         cache.name = name;
 
@@ -98,7 +94,7 @@ public class ListBinTree {
         return cache;
     }
 
-//      TODO implement remove()
+//    !  TODO implement remove()
 
     public static void main(String[] args) {
     }

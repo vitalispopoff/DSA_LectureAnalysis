@@ -2,11 +2,12 @@ package part_01.chap_01.par_02_Operators;
 
 public class _04_Division {
 
-    static int a = 2;
-    static int b = -2;
-    static final int e = 2;
-    static final int f = 0;
-    static int c, d, g;
+    static final int
+            e = 2,
+            f = 0;
+    static int a = 2,
+            b = -2,
+            c, d, g;
 
     public static void main(String[] args) {
 

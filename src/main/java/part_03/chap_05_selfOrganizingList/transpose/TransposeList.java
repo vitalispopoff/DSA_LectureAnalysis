@@ -4,7 +4,9 @@ import static part_0.Temporal.bln;
 
 public class TransposeList {
 
-    protected TransposeNode head, tail;
+    TransposeNode
+            head,
+            tail;
 
     public TransposeList() {
         head = tail = null;
@@ -19,10 +21,10 @@ public class TransposeList {
             tail.prev = head;
 
         } else {
-            temp.prev = tail.prev;  // temporal linked to one but last
-            tail.prev.next = temp;  // one but last relinked to temporal
-            temp.next = tail;       //  temporal linked to tail
-            tail.prev = temp;       // tail relinked to temporal
+            temp.prev = tail.prev;  // * temporal linked to one but last
+            tail.prev.next = temp;  // * one but last relinked to temporal
+            temp.next = tail;       //  * temporal linked to tail
+            tail.prev = temp;       // * tail relinked to temporal
         }
     }
 
@@ -81,6 +83,7 @@ public class TransposeList {
     public static void main(String[] args) {
 
         TransposeList list = new TransposeList();
+
         list.add(0);
         list.add(3);
         list.add(1);
@@ -88,12 +91,8 @@ public class TransposeList {
 
         list.printAll();
         bln();
-        /*list.remove(2);
-        list.printAll();
-        bln();*/
+
         list.search(2);
         list.printAll();
-
-
     }
 }

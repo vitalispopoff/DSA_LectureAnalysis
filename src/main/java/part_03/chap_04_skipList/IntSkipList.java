@@ -10,7 +10,7 @@ public class IntSkipList {
     private Random rd = new Random();
 
     IntSkipList() {
-        this(4);        // default maxLevel set to 4;
+        this(4);        // * default maxLevel set to 4;
     }
 
     IntSkipList(int i) {
@@ -25,11 +25,11 @@ public class IntSkipList {
 
     // fills the powers[] array
     void choosePowers() {
-        // sets last entry:
+        // * sets last entry:
         powers[maxLevel] = (2 << (maxLevel)) - 1;
-        // iterates from one but last to the 1st:
+        // * iterates from one but last to the 1st:
         for (int i = maxLevel - 1, j = 0; i >= 0; i--, j++)
-            //subtracts an increasing power of 2 from the level above - how does it meet the 1?
+            // * subtracts an increasing power of 2 from the level above - how does it meet the 1?
             powers[i] = powers[i + 1] - (2 << j);
     }
     /*
@@ -83,39 +83,39 @@ public class IntSkipList {
 
     public void skipListInsert(int key) {
 
-        IntSkipListNode[] current = new IntSkipListNode[maxLevel];      //array filled to the brim with nulls
-        current[maxLevel] = root[maxLevel];     // root by default is full of nulls
+        IntSkipListNode[] current = new IntSkipListNode[maxLevel];      // * array filled to the brim with nulls
+        current[maxLevel] = root[maxLevel];     // * root by default is full of nulls
 
         IntSkipListNode[] previous = new IntSkipListNode[maxLevel];
         previous[maxLevel] = null;
 
-        IntSkipListNode newNode;    // node to be inserted
+        IntSkipListNode newNode;    // * node to be inserted
         int level, i;
 
-        for (level = maxLevel; level >= 0; level--) {   // as levels fail we go deeper
+        for (level = maxLevel; level >= 0; level--) {   // * as levels fail we go deeper
 
-            while (current[level] != null && current[level].key < key) {    // the actual searching: the node ain't last and it's key is before our key; we keep the level
-                previous[level] = current[level];       // jump : this node is now previous
-                current[level] = current[level].next[level];    // jump to the next node
+            while (current[level] != null && current[level].key < key) {    // * the actual searching: the node ain't last and it's key is before our key; we keep the level
+                previous[level] = current[level];       // * jump : this node is now previous
+                current[level] = current[level].next[level];    // * jump to the next node
             }
 
-            if (current[level] != null && current[level].key == key)    // finding the node
+            if (current[level] != null && current[level].key == key)    // * finding the node
                 return;
 
-            if (level > 0)  // passing the node or hitting the end while being above the lowest level
+            if (level > 0)  // * passing the node or hitting the end while being above the lowest level
 
-                if (previous[level] == null) {      // hitting the end : go down (and start all over?)
+                if (previous[level] == null) {      // * hitting the end : go down (and start all over?)
 
-                    current[level - 1] = root[level - 1];   // reset current for lower level (set as root)
-                    previous[level - 1] = null;     // clear previous for lower level
+                    current[level - 1] = root[level - 1];   // * reset current for lower level (set as root)
+                    previous[level - 1] = null;     // * clear previous for lower level
 
-                } else { // passing the node : get back to the last node and go down
+                } else { // * passing the node : get back to the last node and go down
 
-                    // set back current to the previous node, and go down + forward ;
-                    // do we leave the current[level] intact ?
+                    // * set back current to the previous node, and go down + forward ;
+                    // * do we leave the current[level] intact ?
                     current[level - 1] = previous[level].next[level - 1];
 
-                    // and what is this? an undo?
+                    // * and what is this? an undo?
                     previous[level - 1] = previous[level];
                 }
         }
@@ -123,12 +123,12 @@ public class IntSkipList {
         level = chooseLevel();  //  randomization
 
         //inserting the node
-        newNode = new IntSkipListNode(key, level + 1);  // node has one more level than one at which the search ended
+        newNode = new IntSkipListNode(key, level + 1);  //* node has one more level than one at which the search ended
         for (i = 0; i <= level; i++) {
-            newNode.next[i] = current[i];   // fill the node links
-            if (previous[i] == null)    //  whether newNode is first on the list
-                root[i] = newNode;      // make it root
-            else previous[i].next[i] = newNode; // if not redirect the previous node to the newNode
+            newNode.next[i] = current[i];   // * fill the node links
+            if (previous[i] == null)    //  * whether newNode is first on the list
+                root[i] = newNode;      // * make it root
+            else previous[i].next[i] = newNode; // * if not redirect the previous node to the newNode
         }
     }
 
@@ -152,9 +152,9 @@ public class IntSkipList {
      *  maxLev = 3, powers[2] = 3, r = random %powers[2] + 1 = random % ((2<<3)-1) + 1 = random from <1,8)
      *      returns <0,2>
      *
-     */ // chooseLevel result analysis
+     */ // * chooseLevel result analysis
 
-    // simplified version of chooseLevel ?
+    // * simplified version of chooseLevel ?
     int chooseLevel_01() {
         int i = 1, random = Math.abs(rd.nextInt()) % powers[maxLevel] + 1;
         for (; i < maxLevel && random < powers[i]; i++) ;
@@ -166,29 +166,29 @@ public class IntSkipList {
         int level;
         IntSkipListNode previous, current;
 
-        for (level = maxLevel; level >= 0 && root[level] == null; level--) ; // establish the working top level
+        for (level = maxLevel; level >= 0 && root[level] == null; level--) ; // * establish the working top level
 
-        previous = current = root[level];   //  establish the starting point of the search
+        previous = current = root[level];   //  * establish the starting point of the search
 
-        while (true)    // why while(true) ? to make sure it stops on one of the returns or what?
+        while (true)    // * why while(true) ? to make sure it stops on one of the returns or what?
         {
-            if (key == current.key) return current.key;     // root is the key
+            if (key == current.key) return current.key;     // * root is the key
 
-            else if (key < current.key) {       // key is ahead
+            else if (key < current.key) {       // * key is ahead
 
-                if (level == 0) return 0;   // it's a single-element list and the key ain't there (?)
+                if (level == 0) return 0;   // * it's a single-element list and the key ain't there (?)
 
-                else if (current == root[level]) // current is root[level] already - what does this condition secure?
-                    current = root[--level];    // go down
+                else if (current == root[level]) // * current is root[level] already - what does this condition secure?
+                    current = root[--level];    // * go down
 
-                else current = previous.next[--level];  // how on earth current != root[level] ?
+                else current = previous.next[--level];  // * how on earth current != root[level] ?
 
-            } else {    // for current.key > key : we go deeper
+            } else {    // * for current.key > key : we go deeper
 
                 previous = current; // we deeper already and step back
 
                 if (current.next[level] != null)    // ?
-                    current = current.next[level];  // one step forward
+                    current = current.next[level];  // * one step forward
                 else {
 
                     // ???
@@ -202,8 +202,6 @@ public class IntSkipList {
             }
         }
     }
-
-
 
     public static void main(String[] args) {
 

@@ -23,6 +23,12 @@ public class _01_TryCatchFinally {
     * */
 
 /*    static {
+        try{
+
+        } catch (Throwable t){}
+    }*/ // TODO  - check: catch Throwable;
+
+/*    static {
 
 //        c = new Integer("dupa");
 //  java.lang.ExceptionInInitializerError

@@ -27,7 +27,6 @@ public class _15_UnsignedBitRightShift {
         string(e);
         bln();
 
-/*
 {        c = b >>> 1;
         System.out.println(c == a);
         bln();
@@ -44,7 +43,5 @@ public class _15_UnsignedBitRightShift {
         bln();
         System.out.println("min+1 :");
         string(Integer.MIN_VALUE+1);}
-*/
-
     }
 }

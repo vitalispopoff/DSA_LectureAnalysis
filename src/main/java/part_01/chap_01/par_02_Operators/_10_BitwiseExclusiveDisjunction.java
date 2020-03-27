@@ -5,9 +5,10 @@ import static part_0.Temporal.bln;
 
 public class _10_BitwiseExclusiveDisjunction {
 
-    static int a = 0x0A;
-    static int b = 0x06;
-    static int c;
+    static int
+            a = 0x0A,
+            b = 0x06,
+            c;
 
     static void string(int c) {
         System.out.print(Integer.toBinaryString(c));

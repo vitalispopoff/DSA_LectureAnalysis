@@ -2,12 +2,9 @@ package part_01.chap_01.par_03_Conditionals;
 
 import static part_0.Temporal.*;
 
-//  *   Oracle tutorial: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html
-
 public class _02_Switch {
 
     static int a = 1;
-
 
     static void condition01() {
         String result = "b=" + a + " : ";
@@ -24,16 +21,13 @@ public class _02_Switch {
         }
         a--;
         System.out.println(result);
-
     }
 
     public static void main(String[] args) {
-
         condition01();
         condition01();
         condition01();
         bln();
-
-
     }
 }
+//  *   Oracle tutorial: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/if.html

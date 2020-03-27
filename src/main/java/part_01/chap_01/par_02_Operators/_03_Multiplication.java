@@ -2,10 +2,11 @@ package part_01.chap_01.par_02_Operators;
 
 public class _03_Multiplication {
 
-    static int a = 2;
-    static int b = -2;
     static final int e = 2;
-    static int c, d, g;
+    static int
+            a = 2,
+            b = -2,
+            c, d, g;
 
     public static void main(String[] args) {
 
@@ -21,7 +22,7 @@ public class _03_Multiplication {
 
         a = e;
         a *= a;
-        System.out.println("a+=a: "+a);
+        System.out.println("a+=a: " + a);
 
         /* a**; */                // ! java: illegal start of expression
     }

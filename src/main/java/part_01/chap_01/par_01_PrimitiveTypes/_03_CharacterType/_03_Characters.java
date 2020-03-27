@@ -24,16 +24,17 @@ public class _03_Characters {
 
         properties();
 
-        char a, b, c, d, e, f, g;
-        a = 'a';
-        b = '\u0061';
-        c = new Character('a');
-        d = 97;
-        e = 0x0061;
-        f = 0141;
-        g = new Character((char) 97);
-        /*char h = new Character(97)*/
-        ;     //  ! java: incompatible types: possible lossy conversion from int to char
+        char
+                a = 'a',
+                b = '\u0061',
+                c = new Character('a'),
+                d = 97,
+                e = 0x0061,
+                f = 0141,
+                g = new Character((char) 97);
+
+
+        /*char h = new Character(97);*/     //  ! java: incompatible types: possible lossy conversion from int to char
 
         System.out.println(a + b + c + d + e);
         System.out.println("" + a + b + c + d + e + f + g);
@@ -41,7 +42,4 @@ public class _03_Characters {
         Object[] obj = new Object[1];
         System.out.println(obj[0].equals('\u0000'));
     }
-
 }
-
-

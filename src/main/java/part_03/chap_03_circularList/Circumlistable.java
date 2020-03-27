@@ -10,6 +10,4 @@ public interface Circumlistable {
     void remove(int element);
     void printAll();
     boolean isInList(int element);
-
-
 }

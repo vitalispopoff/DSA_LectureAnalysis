@@ -9,5 +9,4 @@ public interface A {
      static void main(String[] args) {
     a();
     }
-
 }

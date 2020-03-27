@@ -17,9 +17,10 @@ class SomeInfo {
 
     public static void main(String[] args) {
         int i = 0, j = 1;
+
         SomeInfo a = new SomeInfo(i), b = new SomeInfo(i), c = new SomeInfo(j);
+
         System.out.println(a.equals(b));
         System.out.println(b.equals(c));
     }
-
 }

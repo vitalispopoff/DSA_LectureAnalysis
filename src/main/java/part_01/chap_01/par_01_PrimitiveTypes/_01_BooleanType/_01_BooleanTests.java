@@ -14,17 +14,15 @@ public class _01_BooleanTests {
 
         properties();
 
-        boolean a, b, c;
-        a = false;
-        b = new Boolean(false);
-        c = new Boolean("true");
+        boolean
+                a = false,
+                b = new Boolean(false),
+                c = new Boolean("true"),
+                d = FALSE;
 
         /*System.out.println(a + b);*/  //  ! Error:(18, 30) java: bad operand types for binary operator '+'
 
         System.out.println(b & c);
         System.out.println(b | c);
-
-
-
     }
 }

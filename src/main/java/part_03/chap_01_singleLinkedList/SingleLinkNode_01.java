@@ -8,6 +8,7 @@ public class SingleLinkNode_01 {
     public SingleLinkNode_01(int i){
         this(i, null);
     }
+
     public SingleLinkNode_01(int info, SingleLinkNode_01 next){
         this.info = info;
         this.next = next;

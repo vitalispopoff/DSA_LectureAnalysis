@@ -77,7 +77,6 @@ public class CircUniList implements Circumlistable {
                 if (temporal.next == tail) tail = temporal;
                 temporal.next = temporal.next.next;
             }
-
     }
 
     @Override
@@ -100,30 +99,13 @@ public class CircUniList implements Circumlistable {
                 temporal = temporal.next;
             }
             while(temporal.info!=element && temporal!=tail);
+
             return temporal.info == element;
     }
-
 }
 
     public static void main(String[] args) {
-//        System.out.println((int) Float.NaN);
 
         CircUniList list = new CircUniList();
-
-//        list.printAll();
-
-//        list.addToHead(0);
-//        list.addToTail(1);
-//        list.addToTail(2);
-
-//        System.out.println(list.isInList(0));
-//        list.printAll();
-        /*{
-            int element = 0;
-            CircularNode temporal = list.tail.next;
-            for (; temporal.info != element && temporal != list.tail; temporal = temporal.next) ;
-            System.out.println(temporal.info);
-        }*/     // remove() else>iteration test
-
     }
 }

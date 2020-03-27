@@ -1,6 +1,5 @@
 package part_01.chap_01.par_01_PrimitiveTypes._04_FloatType;
 
-
 import static java.lang.Float.*;
 
 public class _04_Floats {
@@ -30,31 +29,26 @@ public class _04_Floats {
 
     static void declarationAndInitialization() {
 
-        float a, b, c, d, e, f, g;
-
-        a = 1.F;
-        b = (float) 1;
-        c = new Float(a);
-        d = new Float("1.");
-        e = new Float((double) 1);
-
+        float
+                a = 1.F,
+                b = (float) 1,
+                c = new Float(a),
+                d = new Float("1."),
+                e = new Float((double) 1);
 
         System.out.println(a + b + c + d + e);
         System.out.println((MAX_VALUE + a == MIN_VALUE)); // false
     }
 
-    static void zeroes(){
-
+    static void zeroes() {
         System.out.print(0.f);
         System.out.print(.0f);
-//        System.out.print(.f);   // Error: java: illegal start of expression
+        /*System.out.print(.f);*/   // ! Error: java: illegal start of expression
     }
 
     public static void main(String[] args) {
-
-//        properties();
-//        declarationAndInitialization();
-//        zeroes();
-
+        properties();
+        declarationAndInitialization();
+        zeroes();
     }
 }

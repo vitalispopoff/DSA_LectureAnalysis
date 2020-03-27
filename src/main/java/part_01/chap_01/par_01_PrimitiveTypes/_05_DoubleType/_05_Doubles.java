@@ -4,10 +4,8 @@ import static java.lang.Double.*;
 
 public class _05_Doubles {
 
-
-
-    public static void nope(){
-        System.out.println(0.d/0.d+"\n");
+    public static void nope() {
+        System.out.println(0.d / 0.d + "\n");
     }
 
     public static void properties() {
@@ -34,21 +32,18 @@ public class _05_Doubles {
     public static void main(String[] args) {
 
         nope();
-
         properties();
 
-        double a, b, c, d;
-
-        a = 1;
-        b = (double) 1;
-        c = new Double(1);
-        d = new Double("1");
+        double
+                a = 1.,                      // * standard initialiization with a floating-point number parameter
+                b = 1,                       // * standard initialization with an integer number parameter - will be casted to the floating-point number by default
+                c = (double) 1,              // * initialization with forced casting integer to the floating-point
+                d = new Double(1),     // * initialization with a wrapper class constructor
+                e = new Double("1"),      // * initialization with a wrapper class constructor using a string init parameter
+                f = 'c';                     // * initialization with a char init parameter - will be casted to the floating-point number by default
 
         System.out.println(a == b);
         System.out.println(c == d);
-
         System.out.println(MAX_VALUE + b == MIN_VALUE);
-
-
     }
 }

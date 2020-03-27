@@ -1,13 +1,10 @@
 package part_01.chap_07_caseStudy;
 
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.io.*;
+//import java.io.IOException;
+//import java.io.RandomAccessFile;
 
 public class Student extends Personal {
-
-    public int size() {
-        return super.size() + majorLen * 2;
-    }
 
     protected String major;
     protected final int majorLen = 10;
@@ -19,20 +16,21 @@ public class Student extends Personal {
         major = m;
     }
 
+    public int size() {
+        return super.size() + majorLen * 2;
+    }
+
     public void writeToFile(RandomAccessFile out) throws IOException {
         super.writeToFile(out);
-//        wrteString(major, out);
     }
 
     public void readFromFile(RandomAccessFile in) throws IOException {
         super.readFromFile(in);
-//        major = readString(majorLen, in);
     }
 
     public void readFromConsole() throws IOException {
         super.readFromConsole();
         System.out.print("Enter major: ");
-//        major = readLine();
         for (int i = major.length(); i < nameLen; i++)
             major += ' ';
     }
@@ -45,5 +43,4 @@ public class Student extends Personal {
     public void copy(DbObject[] d) {
         d[0] = new Student(SSN, name, city, year, salary, major);
     }
-
 }

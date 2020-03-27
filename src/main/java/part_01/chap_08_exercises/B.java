@@ -9,8 +9,9 @@ class B {
     char b(){return a;}
 
     public static void main(String[] args) {
-//        System.out.println(B.b.b());
-//        System.out.println(B.b.c.a);
+
+        System.out.println(B.b.b());
+        System.out.println(B.b.c.a);
         System.out.println(C.C.c);
     }
 }

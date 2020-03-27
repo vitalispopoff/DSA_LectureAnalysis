@@ -2,7 +2,9 @@ package part_03.chap_05_selfOrganizingList.moveToFront;
 
 public class MoveToFrontList {
 
-    protected MoveToFrontNode head, tail;
+    MoveToFrontNode
+            head,
+            tail;
 
     public MoveToFrontList() {
         head = tail = null;
@@ -82,23 +84,5 @@ public class MoveToFrontList {
         list.add(2);
         list.add(1);
         list.add(0);
-
-//        System.out.println(list.tail.info);
-
-        /*
-        int i = 3;
-        MoveToFrontNode cache = list.head;
-        for(; cache!=list.tail & cache.info != i; cache = cache.next);
-        System.out.println(cache.info);*/
-
-//        boolean search = list.search(0);
-//        System.out.println(search);
-//        list.printAll();
-//        System.out.println();
-
-//        list.remove(2);
-//        list.printAll();
-
-
     }
 }

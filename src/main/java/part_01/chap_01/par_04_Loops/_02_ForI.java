@@ -2,7 +2,6 @@ package part_01.chap_01.par_04_Loops;
 
 import static part_0.Temporal.*;
 
-//  * Oracle tutorial: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html
 public class _02_ForI {
 
     static int a = 0;
@@ -66,3 +65,5 @@ public class _02_ForI {
         bln();
     }
 }
+
+//  * Oracle tutorial: https://docs.oracle.com/javase/tutorial/java/nutsandbolts/for.html

@@ -15,7 +15,6 @@ public class SingleLinkNode_04 {
     }
 
     public static void main(String[] args) {
-
         SingleLinkNode_04 p = new SingleLinkNode_04(10);
         p.next = new SingleLinkNode_04(8, new SingleLinkNode_04(50));
     }

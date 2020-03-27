@@ -2,7 +2,6 @@ package part_01.chap_08_exercises.exc_04;
 
 public class CI1 implements I1 {
 
-
 //    @Override
 //    int I1f1() {return 0;}
         //  Error: java: I1f1() in (...).CI1 cannot implement I1f1() in (...).I1
@@ -25,6 +24,5 @@ public class CI1 implements I1 {
             //  Error:(23, 17) java: cannot find symbol
             //  symbol:   method I1()
             //  location: (...).CI1
-
     }
 }

@@ -7,9 +7,8 @@ abstract class AC1 {
     void AC1f2(int i){}
 
 //    int AC1f3();
-        //  Error: java: missing method body, or declare abstract
+        //  ! Error: java: missing method body, or declare abstract
 
     public static void main(String[] args) {
-
     }
 }

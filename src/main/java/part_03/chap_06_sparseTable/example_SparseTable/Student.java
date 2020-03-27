@@ -15,17 +15,6 @@ public class Student {
             lastName,
             firstName;
 
-/*    public Student(
-            String lastName,
-            String firstName,
-            Student prev,
-            Student next) {
-        this.lastName = lastName;
-        this.firstName = firstName;
-        this.prev = prev;
-        this.next = next;
-    }*/     // TODO full constructor - disposable.
-
     public Student(String lastName, String firstName) {
         this.lastName = lastName;
         this.firstName = firstName;
@@ -36,7 +25,7 @@ public class Student {
     }
 
     public int compareStudents(Student student) {
-        if (student == null) return 1;         // a mistake? shouldn't return 1 ?
+        if (student == null) return 1;         // ? a mistake? shouldn't return 1 ?
         else {
             int result = lastName.compareToIgnoreCase(student.lastName);
             return result == 0 ? firstName.compareToIgnoreCase(student.firstName) : result;
@@ -113,37 +102,7 @@ public class Student {
 
         if (grade.prevStudentGrade == null) for (; head./*next.*/gradeHead != grade; head = head.next) ;
         if (grade.nextStudentGrade == null) for (; tail./*next.*/gradeTail != grade; tail = tail.next) ;
-
-
     }
-
-
-
-    /*public Lecture removeGrade(Grade grade, Lecture lecture) {
-//        Lecture lecture = Lecture.lectureHead;
-
-        // remove the grade
-        for(boolean breakCondition = true; breakCondition; ){
-            breakCondition = lecture.gradeHead != grade && lecture.gradeTail != grade && lecture != null;
-
-            if (lecture.gradeHead == grade) {
-                lecture.gradeHead = grade.nextStudentGrade;
-                lecture.gradeHead.prevStudentGrade = null;
-            } else {
-                grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
-                grade.nextStudentGrade.prevStudentGrade = grade.prevStudentGrade;
-            }
-            if (lecture.gradeTail == grade) {
-                lecture.gradeTail = grade.prevStudentGrade;
-                lecture.gradeTail.nextStudentGrade = null;
-            } else {
-                grade.prevStudentGrade.nextStudentGrade = grade.nextStudentGrade;
-                grade.nextStudentGrade.prevStudentGrade = grade.prevStudentGrade;
-            }
-            if(breakCondition)lecture = lecture.next;
-        }
-        return lecture;
-    }*/
 
     public static void main(String[] args) {
 

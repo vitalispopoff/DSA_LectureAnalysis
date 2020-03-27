@@ -2,8 +2,9 @@ package part_02.chap_07_examples;
 
 interface NestedLoop_03 {
 
-    static int[] a = {1, 8, 1, 2, 5, 7, 0, 11, 12, 15};
-    static int[] b = {1, 2, 0};
+    /*static */int[]
+            a = {1, 8, 1, 2, 5, 7, 0, 11, 12, 15},
+            b = {1, 2, 0};
 
 /*    static void comboLengthByDrozdek(int[]a){
         for (int i = 0; i < n-1; i++) {

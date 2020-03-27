@@ -2,10 +2,11 @@ package part_01.chap_01.par_02_Operators;
 
 public class _02_SubtractionAndDecrementation {
 
-    static int a = 1;
-    static int b = -1;
     static final int e = 1;
-    static int c, d, g;
+    static int
+            a = 1,
+            b = -1,
+            c, d, g;
 
     public static void main(String[] args) {
 
