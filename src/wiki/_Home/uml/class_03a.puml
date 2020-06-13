@@ -1,10 +1,10 @@
 @startuml
 
 
-    note top of ASSOCIATION #white
+/'    note top of ASSOCIATION #white
     note about
     ASSOCIATION
-    end note
+    end note'/
 
 package ASSOCIATION <<Rectangle>>{
 
@@ -22,7 +22,7 @@ package ASSOCIATION <<Rectangle>>{
     }
 
 
-    Chain "1" <--> "*" Anchor : +anchorUp
+    Chain "1" -- "*" Anchor : +anchorUp >
 
     hide members
 }
