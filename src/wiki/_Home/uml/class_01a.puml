@@ -1,0 +1,8 @@
+@startuml
+
+class class {
+    +{field} aThing: anotherClass 1 = null {final}
+    +{method} notAThing (class : Class) : boolean {static}
+
+}
+@enduml

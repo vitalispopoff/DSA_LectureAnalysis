@@ -1,0 +1,28 @@
+@startuml
+
+package AGGREGATION <<Rectangle>>{
+    hide members
+
+    class Wheel {
+            +{field} Tyre
+    }
+
+    class Tyre {
+            +{Type} type
+    }
+
+    enum Type{
+        WINTER,
+        SUMMER,
+        ALL_SEASON
+    }
+
+
+    Wheel "*" o--> "*" Tyre
+    Tyre "1" *--> "1" Type
+'    Chain "1" <--> "*" Anchor : +anchorUp
+
+
+}
+
+@enduml

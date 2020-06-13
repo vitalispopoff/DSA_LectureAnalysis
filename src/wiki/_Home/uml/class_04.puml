@@ -1,0 +1,13 @@
+@startuml
+
+hide members
+
+class Equation {
+}
+
+class Result{
+}
+
+Equation ..> Result
+
+@enduml

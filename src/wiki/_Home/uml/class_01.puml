@@ -1,0 +1,13 @@
+@startuml
+
+package CLASS <<Rectangle>>{
+
+    class Chain {
+            +{field} Anchor front
+            +{field} Anchor back
+        --
+            +{method} anchorUp (Anchor)
+    }
+}
+
+@enduml

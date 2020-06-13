@@ -1,0 +1,20 @@
+@startuml
+
+package ASSOCIATION <<Rectangle>>{
+
+    class Chain {
+            +{field} Anchor front
+            +{field} Anchor back
+        --
+            +{method} anchorUp (Anchor)
+    }
+
+    class Anchor {
+    }
+
+    Chain "1" --> "*" Anchor : +anchorUp
+
+    hide members
+}
+
+@enduml
