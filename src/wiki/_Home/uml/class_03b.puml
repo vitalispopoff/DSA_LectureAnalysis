@@ -1,5 +1,11 @@
 @startuml
 
+
+/'    note top of ASSOCIATION #white
+    note about
+    ASSOCIATION
+    end note'/
+
 package ASSOCIATION <<Rectangle>>{
 
     class Chain {
@@ -10,9 +16,13 @@ package ASSOCIATION <<Rectangle>>{
     }
 
     class Anchor {
+            +{field} Chain chain
+        --
+'            +{method} enchain (Chain)
     }
 
-    Chain --> "*" Anchor : +anchorUp
+
+    Chain "1" -- "*" Anchor : +anchorUp >
 
     hide members
 }

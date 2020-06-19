@@ -22,7 +22,7 @@ package ASSOCIATION <<Rectangle>>{
     }
 
 
-    Chain "1" -- "*" Anchor : +anchorUp >
+    Chain "1" -- "*" Anchor
 
     hide members
 }
