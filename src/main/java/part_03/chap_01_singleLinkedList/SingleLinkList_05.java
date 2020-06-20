@@ -26,19 +26,24 @@ public class SingleLinkList_05 {
         return next;
     }
 
-    void setId(){id = mainId++;}
+    void setId() {
+        id = mainId++;
+    }
 
-    public int getId() {return id;
+    public int getId() {
+        return id;
     }
 
 //  main method //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 
-    static SingleLinkList_05 list = new SingleLinkList_05();
-
     public static void main(String[] args) {
 
-        for (int i = 0; i < 2; i++) list = new SingleLinkList_05(list);
+        SingleLinkList_05 list = new SingleLinkList_05();
 
-        for (SingleLinkList_05 i = list; i != null; i = i.getNext()) System.out.println(i.getId());
+        for (int i = 0; i < 2; i++)
+            list = new SingleLinkList_05(list);
+
+        for (SingleLinkList_05 i = list; i != null; i = i.getNext())
+            System.out.println(i.getId());
     }
 }
