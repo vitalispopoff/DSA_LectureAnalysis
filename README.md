@@ -1,4 +1,4 @@
-# DrozdekAnalysis
+# DSA_LectureAnalysis
 
 The project contains notes and parts of code referring to the content presented in 
 + Adam Drozdek, Data Structures and Algorithms.
