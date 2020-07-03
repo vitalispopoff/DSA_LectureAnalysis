@@ -1,6 +1,7 @@
+//  @formatter:off
+
 package part_06.chap_04_traversal;
 
-//  @formatter:off
 public class BinTreeTraversal {
 
     int queueLength = 1;
@@ -17,7 +18,8 @@ public class BinTreeTraversal {
     }
 
     BinTreeTraversalNode traverse() {
-        BinTreeTraversalNode result = null;
+        BinTreeTraversalNode
+                result = null;
 
         while (queueLength > 0) {
             if (head.branchLeft != null) addToQueue(head.branchLeft);
@@ -34,7 +36,8 @@ public class BinTreeTraversal {
     }
 
     BinTreeTraversalNode removeFromQueue() {
-        BinTreeTraversalNode result = head;
+        BinTreeTraversalNode
+                result = head;
 
         if (queueLength > 1) {
             head = head.nextInQueue;
