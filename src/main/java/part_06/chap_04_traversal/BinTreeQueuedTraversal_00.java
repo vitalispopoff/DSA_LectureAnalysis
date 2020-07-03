@@ -2,16 +2,13 @@
 
 package part_06.chap_04_traversal;
 
-public class BinTreeQueuedTraversal implements Traversing{
+public class BinTreeQueuedTraversal_00 /*implements Traversing*/{
 
-    int
-            queueLength = 1;
+    int queueLength = 1;
     BinTreeTraversalNode
             root = null,        // * root of the tree ; declaring !static we allow to make subtrees to a later merge
             head = root,        // * head of the queue ; FIXME this one should be managed by reflection for cases of tree merging
             tail = root;        // * tail of the queue ; FIXME this one should be managed by reflection for cases of tree merging
-
-
 
     void resetTraversal() {head = tail = root;}
 
@@ -52,16 +49,16 @@ public class BinTreeQueuedTraversal implements Traversing{
 
     static class BinTreeTraversalNode {
 
-        BinTreeQueuedTraversal
+        BinTreeQueuedTraversal_00
                 tree = null;
         BinTreeTraversalNode
                 branchLeft = null,
                 branchRight = null,
                 nextInQueue = null;
 
-        BinTreeTraversalNode(BinTreeQueuedTraversal tree){this.tree = tree;}
+        BinTreeTraversalNode(BinTreeQueuedTraversal_00 tree){this.tree = tree;}
 
-        void setTree(BinTreeQueuedTraversal tree) {this.tree = tree;}
+        void setTree(BinTreeQueuedTraversal_00 tree) {this.tree = tree;}
 
         void setLeftBranch(BinTreeTraversalNode node) {this.branchLeft = node;}
         void setRightBranch(BinTreeTraversalNode node) {this.branchRight = node;}

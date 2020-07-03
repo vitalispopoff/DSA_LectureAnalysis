@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class BinTreeRecursiveTraversal implements Traversing{
 
-    BinTreeRecursiveTraversal
+    Traversing
             branchLeft,
             branchRight;
     int
@@ -23,29 +23,31 @@ public class BinTreeRecursiveTraversal implements Traversing{
         setBranchRight(right);
     }
 
+    @Override
     public void traversal() {
-            System.out.println(getValue());
-            if (branchLeft != null) branchLeft.traversal();
-            if (branchRight != null) branchRight.traversal();
+
+/*            if (branchLeft != null) this.branchLeft.traversal();
+            if (branchRight != null) this.branchRight.traversal();
+        System.out.println(getValue());*/
     }
 
 //  getters & setters \\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 
 //    @formatter:off
 
-    public BinTreeRecursiveTraversal getBranchLeft() { return branchLeft; }
-    public BinTreeRecursiveTraversal getBranchRight() { return branchRight; }
+    public Traversing getBranchLeft() { return branchLeft; }
+    public Traversing getBranchRight() { return branchRight; }
     public int getValue() { return value;}
 
-    public void setBranchLeft(BinTreeRecursiveTraversal branchLeft) { this.branchLeft = branchLeft; }
-    public void setBranchRight(BinTreeRecursiveTraversal branchRight) { this.branchRight = branchRight; }
+    public void setBranchLeft(Traversing branchLeft) { this.branchLeft = branchLeft; }
+    public void setBranchRight(Traversing branchRight) { this.branchRight = branchRight; }
 
     @Override
     public void setValue(int value) { this.value = value; }
 
 //    @formatter:on
 
-    public static BinTreeRecursiveTraversal makeTree(int levels) {
+/*    public static BinTreeRecursiveTraversal makeTree(int levels) {
         ArrayList<BinTreeRecursiveTraversal>
                 tree = new ArrayList<>();
 
@@ -69,5 +71,5 @@ public class BinTreeRecursiveTraversal implements Traversing{
 
         tree.traversal();
 
-    }
+    }*/ // old makeTree method - disposable ?
 }

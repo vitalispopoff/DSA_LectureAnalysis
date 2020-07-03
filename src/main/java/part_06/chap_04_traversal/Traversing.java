@@ -6,20 +6,28 @@ import java.util.ArrayList;
 
 public interface Traversing {
 
+    void setBranchLeft(Traversing left);
+    void setBranchRight(Traversing right);
     void setValue(int value);
+    void traversal();
 
     static Traversing makeTree(Traversing tree, int levels) {
         ArrayList<Traversing>
                 treeArray = new ArrayList<>();
         treeArray.add(tree);
-        Class
-                treeClass = tree.getClass();
 
-
-        for (int i = 1; i < 2 << levels; i++)
-            treeArray.add(i, tree);
-
-
+        for (int i = 1; i < 2 << levels; i++){
+            treeArray.add(i, cloneIt(tree));
+            treeArray.get(i).setValue(i+1);
+        }
+        for (int i = 1; i <= 2<<(levels - 1); i++){
+            Traversing
+                    node = treeArray.get(i-1),
+                    left = treeArray.get((i<<1) - 2),
+                    right = treeArray.get((i<<1) - 1);
+            node.setBranchLeft(left);
+            node.setBranchRight(right);
+        }
         return tree;
     }
 
@@ -29,7 +37,7 @@ public interface Traversing {
                 objectClassName = object.getClass().toString().substring(6);
         Class
                 objectClass,
-                fields[] = new Class[0];
+                fields[] = {/*Integer.TYPE*/};
         Constructor
                 objectClassConstructor;
         Object
@@ -49,14 +57,8 @@ public interface Traversing {
 
     public static void main(String[] args) {
 
-        cloneIt(new BinTreeQueuedTraversal()).setValue(1);
+//        cloneIt(new BinTreeQueuedTraversal()).setValue(1);
 //        BinTreeRecursiveTraversal tree = (BinTreeRecursiveTraversal) cloneIt(new BinTreeQueuedTraversal());
-
-
-
-
-
-
 /*
 
         {
@@ -77,6 +79,10 @@ public interface Traversing {
         }
 */  //
 
+        Traversing tree = new BinTreeRecursiveTraversal();
+        makeTree(tree, 3);
+
+        ((BinTreeRecursiveTraversal)tree).traversal();
 
     }
 }
