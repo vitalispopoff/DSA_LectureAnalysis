@@ -2,7 +2,7 @@
 
 package part_06.chap_04_traversal;
 
-public class BinTreeTraversal {
+public class BinTreeQueuedTraversal {
 
     int queueLength = 1;
     BinTreeTraversalNode
@@ -49,16 +49,16 @@ public class BinTreeTraversal {
 
     static class BinTreeTraversalNode {
 
-        BinTreeTraversal
+        BinTreeQueuedTraversal
                 tree = null;
         BinTreeTraversalNode
                 branchLeft = null,
                 branchRight = null,
                 nextInQueue = null;
 
-        BinTreeTraversalNode(BinTreeTraversal tree){this.tree = tree;}
+        BinTreeTraversalNode(BinTreeQueuedTraversal tree){this.tree = tree;}
 
-        void setTree(BinTreeTraversal tree) {this.tree = tree;}
+        void setTree(BinTreeQueuedTraversal tree) {this.tree = tree;}
 
         void setLeftBranch(BinTreeTraversalNode node) {this.branchLeft = node;}
         void setRightBranch(BinTreeTraversalNode node) {this.branchRight = node;}
