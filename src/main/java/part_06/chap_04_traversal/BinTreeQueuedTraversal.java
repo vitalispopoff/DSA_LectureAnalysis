@@ -2,13 +2,16 @@
 
 package part_06.chap_04_traversal;
 
-public class BinTreeQueuedTraversal {
+public class BinTreeQueuedTraversal implements Traversing{
 
-    int queueLength = 1;
+    int
+            queueLength = 1;
     BinTreeTraversalNode
             root = null,        // * root of the tree ; declaring !static we allow to make subtrees to a later merge
             head = root,        // * head of the queue ; FIXME this one should be managed by reflection for cases of tree merging
             tail = root;        // * tail of the queue ; FIXME this one should be managed by reflection for cases of tree merging
+
+
 
     void resetTraversal() {head = tail = root;}
 

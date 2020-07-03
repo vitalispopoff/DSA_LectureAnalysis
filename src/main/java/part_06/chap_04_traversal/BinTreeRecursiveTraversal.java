@@ -2,12 +2,11 @@ package part_06.chap_04_traversal;
 
 import java.util.ArrayList;
 
-public class BinTreeRecursiveTraversal {
+public class BinTreeRecursiveTraversal implements Traversing{
 
     BinTreeRecursiveTraversal
             branchLeft,
-            branchRight,
-            localRoot;
+            branchRight;
     int
             value;
 
@@ -36,12 +35,12 @@ public class BinTreeRecursiveTraversal {
 
     public BinTreeRecursiveTraversal getBranchLeft() { return branchLeft; }
     public BinTreeRecursiveTraversal getBranchRight() { return branchRight; }
-    public BinTreeRecursiveTraversal getLocalRoot() {return localRoot; }
     public int getValue() { return value;}
 
     public void setBranchLeft(BinTreeRecursiveTraversal branchLeft) { this.branchLeft = branchLeft; }
     public void setBranchRight(BinTreeRecursiveTraversal branchRight) { this.branchRight = branchRight; }
-    public void setLocalRoot(BinTreeRecursiveTraversal localRoot) { this.localRoot = localRoot; }
+
+    @Override
     public void setValue(int value) { this.value = value; }
 
 //    @formatter:on
