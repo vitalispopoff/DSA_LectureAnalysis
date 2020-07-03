@@ -1,5 +1,7 @@
 package part_06.chap_04_traversal;
 
+import java.util.ArrayList;
+
 public class BinTreeRecursiveTraversal {
 
     BinTreeRecursiveTraversal
@@ -23,12 +25,9 @@ public class BinTreeRecursiveTraversal {
     }
 
     public void traversal() {
-        if (this == null) ;
-
-
-        System.out.println(getValue());
-        if (branchLeft != null) branchLeft.traversal();
-        if (branchRight != null) branchRight.traversal();
+            System.out.println(getValue());
+            if (branchLeft != null) branchLeft.traversal();
+            if (branchRight != null) branchRight.traversal();
     }
 
 //  getters & setters \\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
@@ -47,33 +46,29 @@ public class BinTreeRecursiveTraversal {
 
 //    @formatter:on
 
-    public static BinTreeRecursiveTraversal[] makeTree(int levels) {
-        BinTreeRecursiveTraversal[]
-                tree = new BinTreeRecursiveTraversal[2 << (levels - 1)];
+    public static BinTreeRecursiveTraversal makeTree(int levels) {
+        ArrayList<BinTreeRecursiveTraversal>
+                tree = new ArrayList<>();
 
-/*
-        for (int i = 0; i < 2 << (levels - 1); i++) {
-            tree[i] = new BinTree_01(i+1);
+        for (int i = 0; i < 2 << levels; i++)
+            tree.add(i, new BinTreeRecursiveTraversal(i+1));
+
+        for (int i = 1; i <= 2 << (levels - 1); i++) {
+            BinTreeRecursiveTraversal
+                    node = tree.get(i - 1 ),
+                    left = tree.get((i<<1) - 2 ),
+                    right = tree.get((i<<1) - 1);
+            node.setBranchLeft(left);
+            node.setBranchRight(right);
         }
-*/
-        int i = 1;
-        for(BinTreeRecursiveTraversal node : tree)
-            node = new BinTreeRecursiveTraversal(i++);
-
-
-        return tree;
+        return tree.get(0);
     }
 
     public static void main(String[] args) {
 
-        BinTreeRecursiveTraversal[] tree = makeTree(5);
+        BinTreeRecursiveTraversal tree = makeTree(6);
 
-//        System.out.println(tree[0]);
-
-        for(BinTreeRecursiveTraversal node : tree) System.out.println(node.getValue());
-
+        tree.traversal();
 
     }
-
-
 }
