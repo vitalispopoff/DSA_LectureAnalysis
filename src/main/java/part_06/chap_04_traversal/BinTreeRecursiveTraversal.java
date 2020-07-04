@@ -1,10 +1,8 @@
 package part_06.chap_04_traversal;
 
-import java.util.ArrayList;
+public class BinTreeRecursiveTraversal implements Structured, Traversing {
 
-public class BinTreeRecursiveTraversal implements Traversing{
-
-    Traversing
+    Structured
             branchLeft,
             branchRight;
     int
@@ -17,14 +15,14 @@ public class BinTreeRecursiveTraversal implements Traversing{
         setValue(value);
     }
 
-    public BinTreeRecursiveTraversal(BinTreeRecursiveTraversal left, BinTreeRecursiveTraversal right, int value) {
+    public BinTreeRecursiveTraversal(Structured left, Structured right, int value) {
         setValue(value);
         setBranchLeft(left);
         setBranchRight(right);
     }
 
     @Override
-    public void traversal() {
+    public void traverse() {
 
 /*            if (branchLeft != null) this.branchLeft.traversal();
             if (branchRight != null) this.branchRight.traversal();
@@ -35,41 +33,13 @@ public class BinTreeRecursiveTraversal implements Traversing{
 
 //    @formatter:off
 
-    public Traversing getBranchLeft() { return branchLeft; }
-    public Traversing getBranchRight() { return branchRight; }
+    public Structured getBranchLeft() { return branchLeft; }
+    public Structured getBranchRight() { return branchRight; }
     public int getValue() { return value;}
 
-    public void setBranchLeft(Traversing branchLeft) { this.branchLeft = branchLeft; }
-    public void setBranchRight(Traversing branchRight) { this.branchRight = branchRight; }
-
-    @Override
-    public void setValue(int value) { this.value = value; }
+    @Override public void setBranchLeft(Structured branchLeft) { this.branchLeft = branchLeft; }
+    @Override public void setBranchRight(Structured branchRight) { this.branchRight = branchRight; }
+    @Override public void setValue(int value) { this.value = value; }
 
 //    @formatter:on
-
-/*    public static BinTreeRecursiveTraversal makeTree(int levels) {
-        ArrayList<BinTreeRecursiveTraversal>
-                tree = new ArrayList<>();
-
-        for (int i = 0; i < 2 << levels; i++)
-            tree.add(i, new BinTreeRecursiveTraversal(i+1));
-
-        for (int i = 1; i <= 2 << (levels - 1); i++) {
-            BinTreeRecursiveTraversal
-                    node = tree.get(i - 1 ),
-                    left = tree.get((i<<1) - 2 ),
-                    right = tree.get((i<<1) - 1);
-            node.setBranchLeft(left);
-            node.setBranchRight(right);
-        }
-        return tree.get(0);
-    }
-
-    public static void main(String[] args) {
-
-        BinTreeRecursiveTraversal tree = makeTree(6);
-
-        tree.traversal();
-
-    }*/ // old makeTree method - disposable ?
 }
