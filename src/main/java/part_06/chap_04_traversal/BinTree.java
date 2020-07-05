@@ -49,7 +49,7 @@ public class BinTree implements Structured {
         this.value = value;
     }
 
-    @Override
+//    @Override
     public void traversal() { }
 
 
