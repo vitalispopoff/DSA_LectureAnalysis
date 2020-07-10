@@ -6,11 +6,13 @@ import java.util.*;
 
 public class _03_ForEach {
 
-    static List<Integer> c = new ArrayList<>();
+    static List<Integer>
+            c = new ArrayList<>();
     static int[]
             a = new int[3],
             b = new int[3];
-    static int d = 0;
+    static int
+            d = 0;
 
     static {
         for (int i = 0; i < 3; i++) {
@@ -58,6 +60,7 @@ public class _03_ForEach {
 
     public static void main(String[] args) {
 
+/*
         System.out.println("a & b arrays");
         System.out.println("a : " + Arrays.toString(a));
         System.out.println("b : " + Arrays.toString(b));
@@ -67,5 +70,6 @@ public class _03_ForEach {
         bln();
 
         forEach02();
+*/
     }
 }
