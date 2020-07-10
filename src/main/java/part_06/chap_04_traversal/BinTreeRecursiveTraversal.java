@@ -1,32 +1,30 @@
 package part_06.chap_04_traversal;
 
-public class BinTreeRecursiveTraversal/*<T extends Structured>*/  implements Structured<BinTreeRecursiveTraversal>, Traversing {
+public class BinTreeRecursiveTraversal implements Structured<BinTreeRecursiveTraversal>, Traversing {
 
-    BinTreeRecursiveTraversal
+    private BinTreeRecursiveTraversal
             branchLeft,
             branchRight;
     int
             value;
 
+//  constructors
 
-    public BinTreeRecursiveTraversal() {
-    }
+    public BinTreeRecursiveTraversal() { }
 
-    public BinTreeRecursiveTraversal(int value) {
+/*    public BinTreeRecursiveTraversal(int value) {
         setValue(value);
-    }
+    }*/     //  overloaded constructor - currently unused
 
-    public BinTreeRecursiveTraversal(BinTreeRecursiveTraversal left, BinTreeRecursiveTraversal right, int value) {
+/*    public BinTreeRecursiveTraversal(BinTreeRecursiveTraversal left, BinTreeRecursiveTraversal right, int value) {
         setValue(value);
         setBranchLeft(left);
         setBranchRight(right);
-    }
+    }*/     //  overloaded constructor - currently unused
 
-//    @Override
-    /*public <T> T cloneIt(){
-        return (T) new BinTreeRecursiveTraversal();
-    }*/
+//  overrides
 
+    @Override
     public BinTreeRecursiveTraversal cloneIt(){
         return new BinTreeRecursiveTraversal();
     }
@@ -39,7 +37,7 @@ public class BinTreeRecursiveTraversal/*<T extends Structured>*/  implements Str
         System.out.println(getValue());*/
     }
 
-//  getters & setters \\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+//  getters & setters
 
 //    @formatter:off
 

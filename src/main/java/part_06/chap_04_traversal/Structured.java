@@ -43,9 +43,9 @@ public interface Structured<T extends Structured> {
         }
         for (int i = 1; i <= 2<<(levels - 1); i++){
             T
-                    node = treeArray.get(i-1),
-                    left = treeArray.get((i<<1) - 2),
-                    right = treeArray.get((i<<1) - 1);
+                    node = (T) treeArray.get(i-1),
+                    left = (T) treeArray.get((i<<1) - 2),
+                    right = (T) treeArray.get((i<<1) - 1);
             node.setBranchLeft(left);
             node.setBranchRight(right);
         }
@@ -78,8 +78,8 @@ public interface Structured<T extends Structured> {
     static void main(String[] args) {
 
         BinTreeRecursiveTraversal tree = new BinTreeRecursiveTraversal();
-//        makeGenericTree(tree, 3);
-        makeReflectionTree(tree, 3);
+        makeGenericTree(tree, 3);
+//        makeReflectionTree(tree, 3);
 
         System.out.println(tree.getBranchRight().getBranchLeft().getValue());
 

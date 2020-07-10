@@ -1,14 +1,14 @@
 package part_06.chap_04_traversal;
 
-public class BinTree implements Structured<BinTree> {
+public class BinTree implements Structured<BinTree>, Traversing {
 
-    private Structured
-        branchLeft,
-        branchRight;
+    private BinTree
+            branchLeft,
+            branchRight;
     private int
-        value;
+            value;
 
-    public BinTree(Structured branchLeft, Structured branchRight, int value) {
+    public BinTree(BinTree branchLeft, BinTree branchRight, int value) {
         this.branchLeft = branchLeft;
         this.branchRight = branchRight;
         this.value = value;
@@ -16,44 +16,48 @@ public class BinTree implements Structured<BinTree> {
 
 //    constructors
 
+    public BinTree() {}
+
     public BinTree(int value) {
         this.value = value;
     }
 
-    public BinTree() {
+
+//  constructors
+
+    @Override
+    public BinTree cloneIt() {
+        return new BinTree();
     }
 
-//    @Override
-    public BinTree cloneIt(){
-        return  new BinTree();
-    }
+    @Override
+    public void traverse() {}
 
 //    getters and setters
 
-    public Structured getBranchLeft() {
+    public BinTree getBranchLeft() {
         return branchLeft;
     }
 
-    public void setBranchLeft(BinTree branchLeft) {
-        this.branchLeft = branchLeft;
-    }
-
-    public Structured getBranchRight() {
+    public BinTree getBranchRight() {
         return branchRight;
-    }
-
-    public void setBranchRight(BinTree branchRight) {
-        this.branchRight = branchRight;
     }
 
     public int getValue() {
         return value;
     }
 
+
+
+    public void setBranchLeft(BinTree branchLeft) {
+        this.branchLeft = branchLeft;
+    }
+
+    public void setBranchRight(BinTree branchRight) {
+        this.branchRight = branchRight;
+    }
+
     public void setValue(int value) {
         this.value = value;
     }
-
-//    @Override
-    public void traversal() { }
 }
