@@ -11,8 +11,8 @@ public interface Structured {
     void setValue(int value);
     int getValue();
 
-    static Structured makeGenericTree(Structured tree, int levels) {
-        ArrayList<Structured>
+    static <T extends Structured> T makeGenericTree(T tree, int levels) {
+        ArrayList<T>
                 treeArray = new ArrayList<>();
         treeArray.add(tree);
 
@@ -21,7 +21,7 @@ public interface Structured {
             treeArray.get(i).setValue(i+1);
         }
         for (int i = 1; i <= 2<<(levels - 1); i++){
-            Structured
+            T
                     node = treeArray.get(i-1),
                     left = treeArray.get((i<<1) - 2),
                     right = treeArray.get((i<<1) - 1);
@@ -31,12 +31,14 @@ public interface Structured {
         return tree;
     }
 
-    Structured cloneIt();
+    <T> T cloneIt();
 
     static void main(String[] args) {
 
-        Structured tree = new BinTreeRecursiveTraversal();
+        BinTreeRecursiveTraversal tree = new BinTreeRecursiveTraversal();
         makeGenericTree(tree, 3);
+
+        System.out.println(tree.getBranchRight().getValue());
 
     }
 

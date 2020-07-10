@@ -24,7 +24,7 @@ public class BinTree implements Structured {
     }
 
     @Override
-    public Structured cloneIt(){
+    public BinTree cloneIt(){
         return new BinTree();
     }
 

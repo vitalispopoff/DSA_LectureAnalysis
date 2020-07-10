@@ -9,7 +9,7 @@ public class BinTreeRecursiveTraversal implements Structured, Traversing {
             value;
 
     @Override
-    public Structured cloneIt(){
+    public BinTreeRecursiveTraversal cloneIt(){
         return new BinTreeRecursiveTraversal();
     }
 
