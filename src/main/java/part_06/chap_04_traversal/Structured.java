@@ -9,7 +9,7 @@ public interface Structured {
     void setBranchLeft(Structured left);
     void setBranchRight(Structured right);
     void setValue(int value);
-    void getValue();
+    int getValue();
 
     static Structured makeGenericTree(Structured tree, int levels) {
         ArrayList<Structured>

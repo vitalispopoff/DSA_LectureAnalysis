@@ -23,6 +23,11 @@ public class BinTree implements Structured {
     public BinTree() {
     }
 
+    @Override
+    public Structured cloneIt(){
+        return new BinTree();
+    }
+
 //    getters and setters
 
     public Structured getBranchLeft() {
@@ -51,6 +56,4 @@ public class BinTree implements Structured {
 
 //    @Override
     public void traversal() { }
-
-
 }
