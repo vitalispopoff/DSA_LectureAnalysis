@@ -1,3 +1,5 @@
+//    @formatter:off
+
 package part_06.chap_04_traversal;
 
 public class BinTreeRecursiveTraversal implements Structured<BinTreeRecursiveTraversal>, Traversing {
@@ -39,7 +41,7 @@ public class BinTreeRecursiveTraversal implements Structured<BinTreeRecursiveTra
 
 //  getters & setters
 
-//    @formatter:off
+
 
     public BinTreeRecursiveTraversal getBranchLeft() { return branchLeft; }
     public BinTreeRecursiveTraversal getBranchRight() { return branchRight; }

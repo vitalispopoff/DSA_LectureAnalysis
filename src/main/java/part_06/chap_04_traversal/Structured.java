@@ -4,20 +4,23 @@ import java.lang.Class;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
-public interface Structured<T extends Structured> {
+public interface Structured<T extends Structured<T>> {
 
     void setBranchLeft(T left);
     void setBranchRight(T right);
     void setValue(int value);
     int getValue();
 
-    static <T extends Structured> void makeGenericTree(T tree, int levels) {
+    static <T extends Structured<T>> void makeGenericTree(T tree, int levels) {
         ArrayList<T>
-                treeArray = new ArrayList<>();
+                treeArray = new ArrayList<T>();
         treeArray.add(tree);
 
         for (int i = 1; i < 2 << levels; i++){
-            treeArray.add(i, (T) tree.cloneIt());
+            T
+                    temporal = tree.cloneIt();
+
+            treeArray.add(i, temporal);
             treeArray.get(i).setValue(i+1);
         }
         for (int i = 1; i <= 2<<(levels - 1); i++){
@@ -30,9 +33,11 @@ public interface Structured<T extends Structured> {
         }
     }
 
-    <T> T cloneIt();
+    default <T extends Structured<T>> T cloneIt(){
+        return cloneIt((T)this);
+    }
 
-    static <T extends Structured> void makeReflectionTree(T tree, int levels) {
+/*    static <T extends Structured<T>> void makeReflectionTree(T tree, int levels) {
         ArrayList<T>
                 treeArray = new ArrayList<>();
         treeArray.add(tree);
@@ -49,21 +54,21 @@ public interface Structured<T extends Structured> {
             node.setBranchLeft(left);
             node.setBranchRight(right);
         }
-    }
+    }*/     // makeTree disposable implementation
 
-    static <T extends Structured> T cloneIt(T object){
+    static <T> T cloneIt(T object){
         String
                 objectClassName = object.getClass().toString().substring(6);
-        Class
+        Class<T>
 //                fields[] = {},
                 objectClass;
-        Constructor
+        Constructor<T>
                 objectClassConstructor;
         Object
                 clone;
 
         try{
-            objectClass = Class.forName(objectClassName);
+            objectClass = (Class<T>) Class.forName(objectClassName);
             objectClassConstructor = objectClass.getConstructor(/*fields*/);
             clone = objectClassConstructor.newInstance(/*fields*/);
         }
@@ -79,7 +84,6 @@ public interface Structured<T extends Structured> {
 
         BinTreeRecursiveTraversal tree = new BinTreeRecursiveTraversal();
         makeGenericTree(tree, 3);
-//        makeReflectionTree(tree, 3);
 
         System.out.println(tree.getBranchRight().getBranchLeft().getValue());
 

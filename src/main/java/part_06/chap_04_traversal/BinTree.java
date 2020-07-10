@@ -8,22 +8,26 @@ public class BinTree implements Structured<BinTree>, Traversing {
     private int
             value;
 
-    public BinTree(BinTree branchLeft, BinTree branchRight, int value) {
-        this.branchLeft = branchLeft;
-        this.branchRight = branchRight;
-        this.value = value;
-    }
-
 //    constructors
 
     public BinTree() {}
 
-    public BinTree(int value) {
+/*    public BinTree(BinTree branchLeft, BinTree branchRight, int value) {
+        this.branchLeft = branchLeft;
+        this.branchRight = branchRight;
         this.value = value;
+    }*/     // constructor - unused
+
+/*    public BinTree(int value) {
+        this.value = value;
+    }*/     // constructor - unused
+
+
+//  @overrides
+
+    @Override
+    public void traverse() {
     }
-
-
-//  constructors
 
     @Override
     public BinTree cloneIt() {
@@ -31,33 +35,30 @@ public class BinTree implements Structured<BinTree>, Traversing {
     }
 
     @Override
-    public void traverse() {}
+    public void setBranchLeft(BinTree left) {
+        left = branchLeft;
+    }
 
-//    getters and setters
+    @Override
+    public void setBranchRight(BinTree right) {
+        right = branchRight;
+    }
 
-    public BinTree getBranchLeft() {
+    @Override
+    public void setValue(int value) {
+        this.value = value;
+    }
+
+/*    public BinTree getBranchLeft() {
         return branchLeft;
-    }
+    }*/     // getBranchLeft - unused
 
-    public BinTree getBranchRight() {
+/*    public BinTree getBranchRight() {
         return branchRight;
-    }
+    }*/     // getBranchRight - unused
 
     public int getValue() {
         return value;
     }
 
-
-
-    public void setBranchLeft(BinTree branchLeft) {
-        this.branchLeft = branchLeft;
-    }
-
-    public void setBranchRight(BinTree branchRight) {
-        this.branchRight = branchRight;
-    }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
 }
