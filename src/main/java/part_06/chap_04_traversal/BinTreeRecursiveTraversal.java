@@ -1,17 +1,13 @@
 package part_06.chap_04_traversal;
 
-public class BinTreeRecursiveTraversal implements Structured, Traversing {
+public class BinTreeRecursiveTraversal/*<T extends Structured>*/  implements Structured<BinTreeRecursiveTraversal>, Traversing {
 
-    Structured
+    BinTreeRecursiveTraversal
             branchLeft,
             branchRight;
     int
             value;
 
-    @Override
-    public BinTreeRecursiveTraversal cloneIt(){
-        return new BinTreeRecursiveTraversal();
-    }
 
     public BinTreeRecursiveTraversal() {
     }
@@ -20,10 +16,19 @@ public class BinTreeRecursiveTraversal implements Structured, Traversing {
         setValue(value);
     }
 
-    public BinTreeRecursiveTraversal(Structured left, Structured right, int value) {
+    public BinTreeRecursiveTraversal(BinTreeRecursiveTraversal left, BinTreeRecursiveTraversal right, int value) {
         setValue(value);
         setBranchLeft(left);
         setBranchRight(right);
+    }
+
+//    @Override
+    /*public <T> T cloneIt(){
+        return (T) new BinTreeRecursiveTraversal();
+    }*/
+
+    public BinTreeRecursiveTraversal cloneIt(){
+        return new BinTreeRecursiveTraversal();
     }
 
     @Override
@@ -38,12 +43,12 @@ public class BinTreeRecursiveTraversal implements Structured, Traversing {
 
 //    @formatter:off
 
-    public Structured getBranchLeft() { return branchLeft; }
-    public Structured getBranchRight() { return branchRight; }
+    public BinTreeRecursiveTraversal getBranchLeft() { return branchLeft; }
+    public BinTreeRecursiveTraversal getBranchRight() { return branchRight; }
     public int getValue() { return value;}
 
-    @Override public void setBranchLeft(Structured branchLeft) { this.branchLeft = branchLeft; }
-    @Override public void setBranchRight(Structured branchRight) { this.branchRight = branchRight; }
+    @Override public void setBranchLeft(BinTreeRecursiveTraversal branchLeft) { this.branchLeft = branchLeft; }
+    @Override public void setBranchRight(BinTreeRecursiveTraversal branchRight) { this.branchRight = branchRight; }
     @Override public void setValue(int value) { this.value = value; }
 
 //    @formatter:on

@@ -1,6 +1,6 @@
 package part_06.chap_04_traversal;
 
-public class BinTree implements Structured {
+public class BinTree implements Structured<BinTree> {
 
     private Structured
         branchLeft,
@@ -23,9 +23,9 @@ public class BinTree implements Structured {
     public BinTree() {
     }
 
-    @Override
+//    @Override
     public BinTree cloneIt(){
-        return new BinTree();
+        return  new BinTree();
     }
 
 //    getters and setters
@@ -34,7 +34,7 @@ public class BinTree implements Structured {
         return branchLeft;
     }
 
-    public void setBranchLeft(Structured branchLeft) {
+    public void setBranchLeft(BinTree branchLeft) {
         this.branchLeft = branchLeft;
     }
 
@@ -42,7 +42,7 @@ public class BinTree implements Structured {
         return branchRight;
     }
 
-    public void setBranchRight(Structured branchRight) {
+    public void setBranchRight(BinTree branchRight) {
         this.branchRight = branchRight;
     }
 

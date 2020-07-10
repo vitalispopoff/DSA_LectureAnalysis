@@ -1,23 +1,23 @@
 package part_06.chap_04_traversal;
 
-//import java.lang.Class;
-//import java.lang.reflect.Constructor;
+import java.lang.Class;
+import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
-public interface Structured {
+public interface Structured<T extends Structured> {
 
-    void setBranchLeft(Structured left);
-    void setBranchRight(Structured right);
+    void setBranchLeft(T left);
+    void setBranchRight(T right);
     void setValue(int value);
     int getValue();
 
-    static <T extends Structured> T makeGenericTree(T tree, int levels) {
+    static <T extends Structured> void makeGenericTree(T tree, int levels) {
         ArrayList<T>
                 treeArray = new ArrayList<>();
         treeArray.add(tree);
 
         for (int i = 1; i < 2 << levels; i++){
-            treeArray.add(i, tree.cloneIt());
+            treeArray.add(i, (T) tree.cloneIt());
             treeArray.get(i).setValue(i+1);
         }
         for (int i = 1; i <= 2<<(levels - 1); i++){
@@ -28,23 +28,12 @@ public interface Structured {
             node.setBranchLeft(left);
             node.setBranchRight(right);
         }
-        return tree;
     }
 
     <T> T cloneIt();
 
-    static void main(String[] args) {
-
-        BinTreeRecursiveTraversal tree = new BinTreeRecursiveTraversal();
-        makeGenericTree(tree, 3);
-
-        System.out.println(tree.getBranchRight().getValue());
-
-    }
-
-/*
-    static Structured makeReflectionTree(Structured tree, int levels) {
-        ArrayList<Structured>
+    static <T extends Structured> void makeReflectionTree(T tree, int levels) {
+        ArrayList<T>
                 treeArray = new ArrayList<>();
         treeArray.add(tree);
 
@@ -53,22 +42,21 @@ public interface Structured {
             treeArray.get(i).setValue(i+1);
         }
         for (int i = 1; i <= 2<<(levels - 1); i++){
-            Structured
+            T
                     node = treeArray.get(i-1),
                     left = treeArray.get((i<<1) - 2),
                     right = treeArray.get((i<<1) - 1);
             node.setBranchLeft(left);
             node.setBranchRight(right);
         }
-        return tree;
     }
 
-    static Structured cloneIt(Structured object){
+    static <T extends Structured> T cloneIt(T object){
         String
                 objectClassName = object.getClass().toString().substring(6);
         Class
-                objectClass,
-                fields[] = {};
+//                fields[] = {},
+                objectClass;
         Constructor
                 objectClassConstructor;
         Object
@@ -76,15 +64,24 @@ public interface Structured {
 
         try{
             objectClass = Class.forName(objectClassName);
-            objectClassConstructor = objectClass.getConstructor(fields);
-            clone = objectClassConstructor.newInstance(fields);
+            objectClassConstructor = objectClass.getConstructor(/*fields*/);
+            clone = objectClassConstructor.newInstance(/*fields*/);
         }
         catch (Exception e){
             e.printStackTrace();
             clone = null;
         }
 
-        return (Structured) clone;
+        return (T) clone;
     }
-    */      //makeReflectionTree - disposable?
+
+    static void main(String[] args) {
+
+        BinTreeRecursiveTraversal tree = new BinTreeRecursiveTraversal();
+//        makeGenericTree(tree, 3);
+        makeReflectionTree(tree, 3);
+
+        System.out.println(tree.getBranchRight().getBranchLeft().getValue());
+
+    }
 }
