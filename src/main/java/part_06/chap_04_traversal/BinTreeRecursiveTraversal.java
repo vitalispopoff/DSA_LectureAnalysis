@@ -22,12 +22,7 @@ public class BinTreeRecursiveTraversal implements Structured, Traversing {
     }
 
     @Override
-    public void traverse() {
-
-/*            if (branchLeft != null) this.branchLeft.traversal();
-            if (branchRight != null) this.branchRight.traversal();
-        System.out.println(getValue());*/
-    }
+    public void traverse() { }  // TODO
 
 //  getters & setters \\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 

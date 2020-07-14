@@ -9,7 +9,7 @@ public class _01_TryCatchFinally {
             b = 0,
             c;
 
-    static {
+    static void method_0() {
         try {
             a = 1 / b++;
         } catch (Exception e) {
@@ -17,9 +17,28 @@ public class _01_TryCatchFinally {
         }
     }
 
+    static int method_01(){
+        try{
+            return 1;
+        } catch (Exception e){}
+        finally {
+            System.out.println("the the finally goes");
+        }
+        return 0;
+    }
+
+    static int method_02(){
+        try{
+            return 1;
+        } catch (Exception ignored){}
+        finally {
+            return 3;
+        }
+    }
+
     /* TODO
     *
-    *   does catch() catch more than just Exception ?
+    *   does `catch()` catch more than just Exception ?
     * */
 
 /*    static {
@@ -42,5 +61,13 @@ public class _01_TryCatchFinally {
         }
     }*/
 
-    public static void main(String[] args) {}
+    public static void main(String[] args) {
+
+
+        int x = 0;
+        System.out.println("x is : "+x);
+
+        x = method_02();
+        System.out.println(x);
+    }
 }

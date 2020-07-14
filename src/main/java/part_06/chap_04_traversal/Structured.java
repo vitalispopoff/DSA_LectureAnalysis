@@ -6,83 +6,61 @@ import java.util.ArrayList;
 
 public interface Structured {
 
-    abstract void setBranchLeft(Structured left);
-    abstract void setBranchRight(Structured right);
-    abstract void setValue(int value);
+	abstract void setBranchLeft(Structured left);
 
-    static Structured makeTree(Structured tree, int levels) {
-        ArrayList<Structured>
-                treeArray = new ArrayList<>();
-        treeArray.add(tree);
+	abstract void setBranchRight(Structured right);
 
-        for (int i = 1; i < 2 << levels; i++){
-            treeArray.add(i, cloneIt(tree));
-            treeArray.get(i).setValue(i+1);
-        }
-        for (int i = 1; i <= 2<<(levels - 1); i++){
-            Structured
-                    node = treeArray.get(i-1),
-                    left = treeArray.get((i<<1) - 2),
-                    right = treeArray.get((i<<1) - 1);
-            node.setBranchLeft(left);
-            node.setBranchRight(right);
-        }
-        return tree;
-    }
+	abstract void setValue(int value);
 
+	abstract int getValue();
 
-    static Structured cloneIt(Structured object){
-        String
-                objectClassName = object.getClass().toString().substring(6);
-        Class
-                objectClass,
-                fields[] = {};
-        Constructor
-                objectClassConstructor;
-        Object
-                clone;
+	static Structured makeTree(Structured tree, int levels) {
+		ArrayList<Structured>
+				treeArray = new ArrayList<>();
+		treeArray.add(tree);
 
-        try{
-            objectClass = Class.forName(objectClassName);
-            objectClassConstructor = objectClass.getConstructor(fields);
-            clone = objectClassConstructor.newInstance(fields);
-        }
-        catch (Exception e){
-            e.printStackTrace();
-            clone = null;
-        }
+		for (int i = 1; i <= 2 << levels; i++) {
+			treeArray.add(i, cloneIt(tree));
+		}
+		for (int i = 1; i <= 2 << (levels - 1); i++) {
+			Structured
+					node = treeArray.get(i - 1),
+					left = treeArray.get((i << 1) - 2),
+					right = treeArray.get((i << 1) - 1);
+			node.setBranchLeft(left);
+			node.setBranchRight(right);
+		}
+		return tree;
+	}
 
-        return (Structured) clone;
-    }
+	static Structured cloneIt(Structured object) {
+		String
+				objectClassName = object.getClass().toString().substring(6);
+		Class<?>
+				objectClass;
+		Constructor<?>
+				objectClassConstructor;
+		Object
+				clone;
 
-    public static void main(String[] args) {
+		try {
+			objectClass = Class.forName(objectClassName);
+			objectClassConstructor = objectClass.getConstructor();
+			clone = objectClassConstructor.newInstance();
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+			clone = null;
+		}
 
-//        cloneIt(new BinTreeQueuedTraversal()).setValue(1);
-//        BinTreeRecursiveTraversal tree = (BinTreeRecursiveTraversal) cloneIt(new BinTreeQueuedTraversal());
-/*
+		return (Structured) clone;
+	}
 
-        {
-            Traversing temp = new BinTreeRecursiveTraversal();
+	static void main(String[] args) {
 
-            String tempClass = temp.getClass().toString().substring(6);
+		int levels = 3;
 
-            try {
-                Class c = Class.forName(tempClass);
-                Constructor constructor = c.getConstructor();
-
-                Object o = c.newInstance();
-
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-*/  //
-
-        Structured tree = new BinTreeRecursiveTraversal();
-        makeTree(tree, 3);
-
-
-
-    }
+		BinTreeRecursiveTraversal
+				tree = (BinTreeRecursiveTraversal) makeTree(new BinTreeRecursiveTraversal(), levels);
+	}
 }
