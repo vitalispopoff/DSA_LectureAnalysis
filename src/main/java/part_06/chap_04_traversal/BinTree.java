@@ -12,11 +12,36 @@ public class BinTree implements Structured {
         this.branchLeft = branchLeft;
         this.branchRight = branchRight;
         this.value = value;
+    }*/     // constructor - unused
+
+/*    public BinTree(int value) {
+        this.value = value;
+    }*/     // constructor - unused
+
+
+//  @overrides
+
+    @Override
+    public void traverse() {
     }
 
-//    constructors
+    @Override
+    public BinTree cloneIt() {
+        return new BinTree();
+    }
 
-    public BinTree(int value) {
+    @Override
+    public void setBranchLeft(BinTree left) {
+        left = branchLeft;
+    }
+
+    @Override
+    public void setBranchRight(BinTree right) {
+        right = branchRight;
+    }
+
+    @Override
+    public void setValue(int value) {
         this.value = value;
     }
 
@@ -27,7 +52,7 @@ public class BinTree implements Structured {
 
     public Structured getBranchLeft() {
         return branchLeft;
-    }
+    }*/     // getBranchLeft - unused
 
     public void setBranchLeft(Structured branchLeft) {
         this.branchLeft = branchLeft;
@@ -44,13 +69,5 @@ public class BinTree implements Structured {
     public int getValue() {
         return value;
     }
-
-    public void setValue(int value) {
-        this.value = value;
-    }
-
-//    @Override
-    public void traversal() { }
-
 
 }
