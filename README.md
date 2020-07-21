@@ -37,7 +37,17 @@ Commit annotations start with [part.chapter] :
 <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/3.6-Sparse-Tables">sparse table</a></li>
 </ol></li>
  <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/4.-Stacks-and-queues">Stacks and queues</a></li>
-<li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/Part-5-:-Recursion">Recursion</a></li>
+<li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/Part-5-:-Recursion">Recursion</a>
+ <ol type="1">
+  <li>recursive definitions</li>
+  <li>implementations</li>
+  <li>recursive call</li>
+  <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/5.4-Tail-Recursion">tail recursion</a></li>
+  <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/5.5-Nontail-Recursion">non-tail recursion</a></li>
+  <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/5.6-Indirect-Recursion">indirect recursion</a></li>
+  <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/5.7-Nested-Recursion">nested recursion</a></li>
+  <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/5.9-Backtracking">backtracking</a></li>
+ </ol></li>
 <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/6.-Binary-Trees">Binary trees</a></li>
 <li><i>Multiway trees</i></li>
 <li><i>Graphs</i></li>
