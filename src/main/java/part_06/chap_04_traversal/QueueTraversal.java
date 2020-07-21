@@ -5,13 +5,6 @@ public abstract class QueueTraversal implements Structured {
     TraverseQueue
         queue;
 
-
-
-
-
-
-
-
 //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
 
     private class TraverseQueue {

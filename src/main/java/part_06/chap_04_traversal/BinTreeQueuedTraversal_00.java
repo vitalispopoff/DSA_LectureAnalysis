@@ -4,11 +4,12 @@ package part_06.chap_04_traversal;
 
 public class BinTreeQueuedTraversal_00 /*implements Traversing*/{
 
-    int queueLength = 1;
+    int
+            queueLength = 1;
     BinTreeTraversalNode
-            root = null,        // * root of the tree ; declaring !static we allow to make subtrees to a later merge
-            head = root,        // * head of the queue ; FIXME this one should be managed by reflection for cases of tree merging
-            tail = root;        // * tail of the queue ; FIXME this one should be managed by reflection for cases of tree merging
+            root = null,
+            head = null,
+            tail = null;
 
     void resetTraversal() {head = tail = root;}
 
@@ -47,7 +48,7 @@ public class BinTreeQueuedTraversal_00 /*implements Traversing*/{
         return result;
     }
 
-    static class BinTreeTraversalNode {
+    static class BinTreeTraversalNode implements Structured<BinTreeTraversalNode> {
 
         BinTreeQueuedTraversal_00
                 tree = null;
@@ -55,15 +56,17 @@ public class BinTreeQueuedTraversal_00 /*implements Traversing*/{
                 branchLeft = null,
                 branchRight = null,
                 nextInQueue = null;
+        int
+                value;
+
+        BinTreeTraversalNode(){ }
 
         BinTreeTraversalNode(BinTreeQueuedTraversal_00 tree){this.tree = tree;}
 
         void setTree(BinTreeQueuedTraversal_00 tree) {this.tree = tree;}
 
-        void setLeftBranch(BinTreeTraversalNode node) {this.branchLeft = node;}
-        void setRightBranch(BinTreeTraversalNode node) {this.branchRight = node;}
-
         void setNextInQueue(BinTreeTraversalNode node) {this.nextInQueue = node;}
+
         void removeFromQueue() {nextInQueue = null;}
 
         void addAsBranch(BinTreeTraversalNode node) {
@@ -71,6 +74,18 @@ public class BinTreeQueuedTraversal_00 /*implements Traversing*/{
             else if (branchRight == null) branchRight = node;
             else System.out.println("both branches are already there");
         }
+
+        public void setBranchLeft(BinTreeTraversalNode node) {this.branchLeft = node;}
+        public BinTreeTraversalNode getBranchLeft(){ return branchLeft;}
+
+        public void setBranchRight(BinTreeTraversalNode node) {this.branchRight = node;}
+        public BinTreeTraversalNode getBranchRight(){ return branchRight;}
+
+        public void setValue(int value){this.value = value;}
+        public int getValue(){return value;}
+
+        public BinTreeTraversalNode cloneIt(){return new BinTreeTraversalNode();}
     }
 }
+
 //    @formatter:on

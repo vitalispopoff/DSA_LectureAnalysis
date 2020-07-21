@@ -33,34 +33,12 @@ public interface Structured<T extends Structured<T>> {
         }
     }
 
-    default <T extends Structured<T>> T cloneIt(){
-        return cloneIt((T)this);
-    }
-
-/*    static <T extends Structured<T>> void makeReflectionTree(T tree, int levels) {
-        ArrayList<T>
-                treeArray = new ArrayList<>();
-        treeArray.add(tree);
-
-        for (int i = 1; i < 2 << levels; i++){
-            treeArray.add(i, cloneIt(tree));
-            treeArray.get(i).setValue(i+1);
-        }
-        for (int i = 1; i <= 2<<(levels - 1); i++){
-            T
-                    node = (T) treeArray.get(i-1),
-                    left = (T) treeArray.get((i<<1) - 2),
-                    right = (T) treeArray.get((i<<1) - 1);
-            node.setBranchLeft(left);
-            node.setBranchRight(right);
-        }
-    }*/     // makeTree disposable implementation
+    <T extends Structured<T>> T cloneIt();
 
     static <T> T cloneIt(T object){
         String
                 objectClassName = object.getClass().toString().substring(6);
         Class<T>
-//                fields[] = {},
                 objectClass;
         Constructor<T>
                 objectClassConstructor;
@@ -69,8 +47,8 @@ public interface Structured<T extends Structured<T>> {
 
         try{
             objectClass = (Class<T>) Class.forName(objectClassName);
-            objectClassConstructor = objectClass.getConstructor(/*fields*/);
-            clone = objectClassConstructor.newInstance(/*fields*/);
+            objectClassConstructor = objectClass.getConstructor();
+            clone = objectClassConstructor.newInstance();
         }
         catch (Exception e){
             e.printStackTrace();
@@ -82,10 +60,15 @@ public interface Structured<T extends Structured<T>> {
 
     static void main(String[] args) {
 
-        BinTreeRecursiveTraversal tree = new BinTreeRecursiveTraversal();
-        makeGenericTree(tree, 3);
+        BinTreeRecursiveTraversal tree1 = new BinTreeRecursiveTraversal();
+        makeGenericTree(tree1, 3);
 
-        System.out.println(tree.getBranchRight().getBranchLeft().getValue());
+        BinTreeQueuedTraversal_00.BinTreeTraversalNode tree2 = new BinTreeQueuedTraversal_00.BinTreeTraversalNode();
+        makeGenericTree(tree2, 8);
+
+        BinTreeQueuedTraversal_00 traverse = new BinTreeQueuedTraversal_00();
+        traverse.addNode(tree2);
+        traverse.traverse();
 
     }
 }

@@ -14,17 +14,6 @@ public class BinTreeRecursiveTraversal implements Structured<BinTreeRecursiveTra
 
     public BinTreeRecursiveTraversal() { }
 
-/*    public BinTreeRecursiveTraversal(int value) {
-        setValue(value);
-    }*/     //  overloaded constructor - currently unused
-
-/*    public BinTreeRecursiveTraversal(BinTreeRecursiveTraversal left, BinTreeRecursiveTraversal right, int value) {
-        setValue(value);
-        setBranchLeft(left);
-        setBranchRight(right);
-    }*/     //  overloaded constructor - currently unused
-
-//  overrides
 
     @Override
     public BinTreeRecursiveTraversal cloneIt(){
@@ -36,15 +25,23 @@ public class BinTreeRecursiveTraversal implements Structured<BinTreeRecursiveTra
 
 //  getters & setters
 
-
-
+    @Override
+    public void setBranchLeft(BinTreeRecursiveTraversal branchLeft) { this.branchLeft = branchLeft; }
     public BinTreeRecursiveTraversal getBranchLeft() { return branchLeft; }
+
+
+    @Override
+    public void setBranchRight(BinTreeRecursiveTraversal branchRight) { this.branchRight = branchRight; }
     public BinTreeRecursiveTraversal getBranchRight() { return branchRight; }
+
+
+    @Override
+    public void setValue(int value) { this.value = value; }
     public int getValue() { return value;}
 
-    @Override public void setBranchLeft(BinTreeRecursiveTraversal branchLeft) { this.branchLeft = branchLeft; }
-    @Override public void setBranchRight(BinTreeRecursiveTraversal branchRight) { this.branchRight = branchRight; }
-    @Override public void setValue(int value) { this.value = value; }
+
+
+
 
 //    @formatter:on
 }
