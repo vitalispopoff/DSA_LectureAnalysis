@@ -29,12 +29,12 @@ Commit annotations start with [part.chapter] :
 </ol></li>
 <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/3.-Linked-Lists"><b>Linked lists</b></a>
 <ol type="1">
-<li>single-linked list</li>
-<li>double-linked list</li>
-<li>circular list</li>
+<li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/3.1-Single-Link-List">single-linked list</a></li>
+<li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/3.2-Doubly-linked-lists">double-linked list</a></li>
+<li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/3.3-Circular-Lists">circular list</a></li>
 <li>skip list</li>
 <li>self-organizing list</li>
-<li>sparse table</li>
+<li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/3.6-Sparse-Tables">sparse table</a></li>
 </ol></li>
  <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/4.-Stacks-and-queues">Stacks and queues</a></li>
 <li><a href="https://github.com/vitalispopoff/DSA_LectureAnalysis/wiki/Part-5-:-Recursion">Recursion</a></li>
