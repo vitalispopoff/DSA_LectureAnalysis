@@ -16,6 +16,7 @@ public class Grade {
             Grade nextStudentGrade,
             Grade prevLectureGrade,
             Grade nextLectureGrade) {
+
         this.value = value;
         this.prevStudentGrade = prevStudentGrade;
         this.nextStudentGrade = nextStudentGrade;

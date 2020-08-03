@@ -9,6 +9,8 @@ public class CountNode {
             next,
             prev;
 
+//  --------------------------------------------------------------------------------------------------------------------
+
     public CountNode(int info) {
         this(info, null, null);
     }
@@ -18,12 +20,16 @@ public class CountNode {
     }
 
     public CountNode(int info, CountNode next, CountNode prev) {
+
         this.info = info;
         this.prev = next;
         this.next = prev;
     }
 
+//  --------------------------------------------------------------------------------------------------------------------
+
     public CountNode(int info, CountNode next, CountNode prev, int counter) {
+
         this(info, next, prev);
         this.counter = counter;
     }

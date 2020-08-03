@@ -1,3 +1,5 @@
+//  @formatter:off
+
 package part_06.chap_04_traversal;
 
 public abstract class QueueTraversal implements Structured {
@@ -5,7 +7,7 @@ public abstract class QueueTraversal implements Structured {
     TraverseQueue
         queue;
 
-//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+//  --------------------------------------------------------------------------------------------------------------------
 
     private class TraverseQueue {
 
@@ -15,17 +17,18 @@ public abstract class QueueTraversal implements Structured {
         Structured
                 node;
 
-//  constructor //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+    //  ----------------------------------------------------------------------------------------------------------------
+
+        TraverseQueue(){ }
 
         TraverseQueue(Structured node) {
             this.node = node;
         }
 
-        TraverseQueue(){}
-
-//  methods     //\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\//\\
+    //  ----------------------------------------------------------------------------------------------------------------
 
         Structured removeFromQueue() {
+
             TraverseQueue
                     cache = head;
 
@@ -36,8 +39,10 @@ public abstract class QueueTraversal implements Structured {
         }
 
         void addToQueue(Structured node) {
+
             TraverseQueue
                     queuer = new TraverseQueue(node);
+
             if (head == tail) {
                 if (tail == null)
                     setFirstQueuer(queuer);
@@ -54,3 +59,5 @@ public abstract class QueueTraversal implements Structured {
         }
     }
 }
+
+//  @formatter:on

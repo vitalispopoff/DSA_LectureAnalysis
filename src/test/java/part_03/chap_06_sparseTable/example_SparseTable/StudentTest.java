@@ -32,7 +32,7 @@ public class StudentTest {
         Assert.assertEquals(0, s1.compareStudents(s4));
     }
 
-    @Ignore
+//    @Ignore
     @Test   //  for empty list
     public void isInList_01() {
         Student.studentHead = null;
@@ -40,14 +40,14 @@ public class StudentTest {
         Assert.assertFalse(student.isInList());
     }
 
-    @Ignore
+//    @Ignore
     @Test   // single-item list
     public void isInList_02() {
         Student student = Student.studentHead = new Student("a", "a");
         Assert.assertTrue(student.isInList());
     }
 
-    @Ignore
+//    @Ignore
     @Test // multi-item list
     public void isInList_03() {
         Student s1, s2, s3, s4;
@@ -315,7 +315,7 @@ public class StudentTest {
         Assert.assertSame(s1L3, L3.gradeTail.prevStudentGrade);
     }
 
-    @Ignore
+//    @Ignore
     @Test
     public void removeGrades_01() {
         Student

@@ -7,10 +7,16 @@ public class ArrayBinTree {
             branches[] = {null, null},
             next = null;
 
+//  --------------------------------------------------------------------------------------------------------------------
+
     ArrayBinTree() {
         if (root == null) root = this;
     }
 
-//    TODO implement addToTail()
-//    TODO implement remove()
+//  --------------------------------------------------------------------------------------------------------------------
+
+    //    TODO implement addToTail()
+
+    //    TODO implement remove()
+
 }

@@ -10,9 +10,11 @@ public class BinTreeRecursiveTraversal implements Structured<BinTreeRecursiveTra
     int
             value;
 
-//  constructors
+//  --------------------------------------------------------------------------------------------------------------------
 
     public BinTreeRecursiveTraversal() { }
+
+//  --------------------------------------------------------------------------------------------------------------------
 
 
     @Override
@@ -23,7 +25,6 @@ public class BinTreeRecursiveTraversal implements Structured<BinTreeRecursiveTra
     @Override
     public void traverse() { }  // TODO
 
-//  getters & setters
 
     @Override
     public void setBranchLeft(BinTreeRecursiveTraversal branchLeft) { this.branchLeft = branchLeft; }
@@ -39,9 +40,6 @@ public class BinTreeRecursiveTraversal implements Structured<BinTreeRecursiveTra
     public void setValue(int value) { this.value = value; }
     public int getValue() { return value;}
 
-
-
-
+}
 
 //    @formatter:on
-}

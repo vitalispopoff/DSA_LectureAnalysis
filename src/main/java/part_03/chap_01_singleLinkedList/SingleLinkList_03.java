@@ -6,13 +6,21 @@ public class SingleLinkList_03 extends SingleLinkList_01 {
     public int deleteFromHead() throws NullPointerException{
 
         try{
-            int result = head.info;
+            int
+                result = head.info;
+
             if(head==tail)
                 head=tail=null;
-            else head = head.next;
+
+            else
+                head = head.next;
+
             return result;
+
         } catch (NullPointerException e){
+
             System.out.println("the list was empty");
+
             return 0;
         }
     }

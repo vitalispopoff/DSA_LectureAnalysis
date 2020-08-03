@@ -1,6 +1,6 @@
 package part_06.chap_02_implementations;
 
-public class DictionaryTree {}
+public class DictionaryTree { }
 
 /*
  * TODO

@@ -2,9 +2,12 @@ package part_01.chap_08_exercises;
 
 class B {
 
-    static B b = new B();
-    B c;
-    public char a = 'b';
+    static B
+        b = new B();
+    B
+        c;
+    public char
+        a = 'b';
 
     char b(){return a;}
 
